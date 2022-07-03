@@ -1,6 +1,7 @@
 import Chat from "../components/Chat/Chat";
 import Home from "../components/Home/Home";
 import JobsList from "../pages/JobsList/JobsList";
+import UserList from "../pages/UserList/UserList";
 
 const routes = [
   {
@@ -14,6 +15,10 @@ const routes = [
   {
     path: "/Jobs",
     element: <JobsList />,
+  },
+  {
+    path: "/Users",
+    element: <UserList />,
   },
 ];
 
