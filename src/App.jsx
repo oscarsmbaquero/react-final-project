@@ -1,11 +1,24 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import './App.scss';
+import Header from "./components/Header/Header";
+import routes from "./Config/routes";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-     <h1> Final Project </h1>
-     <p>Vamos chavales</p>
+      <Router>
+        <Header />
+        <Routes>
+          {routes.map((route) => (
+            <Route
+              key={route.path}
+              path={route.path}
+              element={route.element}
+            />
+          ))}
+        </Routes>
+      </Router>
     </div>
   );
 }
