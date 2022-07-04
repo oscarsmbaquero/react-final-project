@@ -1,5 +1,5 @@
-import Chat from "../components/Chat/Chat";
-import Home from "../components/Home/Home";
+import Chat from "../pages/Chat/Chat";
+import Home from "../pages/Home/Home";
 import JobsList from "../pages/JobsList/JobsList";
 import UserList from "../pages/UserList/UserList";
 
