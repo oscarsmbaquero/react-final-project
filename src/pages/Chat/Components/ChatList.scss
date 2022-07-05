@@ -1,0 +1,14 @@
+.chat {
+
+    &__user {
+        display: flex;
+
+        & > * {
+            padding: .75rem;
+        }
+    }
+}
+
+.selected {
+    color: red;
+}

@@ -1,15 +1,18 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { AiFillHome } from 'react-icons/ai'
+import { BsFillChatDotsFill } from 'react-icons/bs'
+import { FaUserTie, FaUserCircle } from 'react-icons/fa'
 
 import './Header.scss'
 
 const Header = () => {
   return (
     <div className='header'>
-      <NavLink to='/' className={({isActive}) =>isActive ? "activated":""}>Home</NavLink>
-      <NavLink to='/Chat'className={({isActive}) =>isActive ? "activated":""}>Chat</NavLink>
-      <NavLink to='/Jobs' className={({isActive}) =>isActive ? "activated":""}>Jobs</NavLink>
-      <NavLink to='/Users' className={({isActive}) =>isActive ? "activated":""}>Users</NavLink>
+      <NavLink to='/' className={({ isActive }) => isActive ? "activated" : ""}><AiFillHome /> Home</NavLink>
+      <NavLink to='/Chat' className={({ isActive }) => isActive ? "activated" : ""}><BsFillChatDotsFill /> Chat</NavLink>
+      <NavLink to='/Jobs' className={({ isActive }) => isActive ? "activated" : ""}><FaUserTie /> Jobs</NavLink>
+      <NavLink to='/Users' className={({ isActive }) => isActive ? "activated" : ""}><FaUserCircle />Users</NavLink>
     </div>
   )
 }
