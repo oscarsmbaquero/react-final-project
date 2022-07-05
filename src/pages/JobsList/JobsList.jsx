@@ -1,4 +1,6 @@
 import React, { useState, useEffect} from 'react'
+import { Link } from 'react-router-dom';
+import './JobsList.scss';
 
 const JobsList = () => {
     
@@ -15,13 +17,14 @@ const JobsList = () => {
   return (
     <>
       {jobs.map((post, key)=>(
-        <div key={ key} className="">
-         <h1>Puesto trabajo: {post.name}</h1>
-         <h2>Empresa: {post.business}</h2>
-         <h3>Cif: {post.cif}</h3>
-         <p>Logo: {post.logo}</p>
-         
-
+        <div key={ key} className="jobList">
+          <h1>Puesto trabajo: {post.name}</h1>
+          <h2>Empresa: {post.business}</h2>
+          <h3>Cif: {post.cif}</h3>
+          <p>Logo: {post.logo}</p>
+          <Link to={`/Jobs/${post.id}`}>
+            <button>Show More</button>
+          </Link>
         </div>
 
       ))}

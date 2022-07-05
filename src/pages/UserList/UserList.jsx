@@ -1,4 +1,6 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
+import './UserList.scss';
 
 const JobsList = () => {
     
@@ -15,13 +17,15 @@ const JobsList = () => {
   return (
     <>
       {users.map((post, key)=>(
-        <div key={ key} className="">
+        <div key={ key} className="userList">
          <h1>Name {post.name}</h1>
          <h2>Surname: {post.surname}</h2>
          <h3>dni: {post.dni}</h3>
          <p>Direction: {post.direction}</p>
          <p>Job: {post.job}</p>
-         
+         <Link to={`/User/${post.id}`}>
+            <button>Show More</button>
+          </Link>
 
         </div>
 
