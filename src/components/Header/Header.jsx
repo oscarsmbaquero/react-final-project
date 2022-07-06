@@ -13,6 +13,7 @@ const Header = () => {
       <NavLink to='/Chat' className={({ isActive }) => isActive ? "activated" : ""}><BsFillChatDotsFill /> Chat</NavLink>
       <NavLink to='/Jobs' className={({ isActive }) => isActive ? "activated" : ""}><FaUserTie /> Jobs</NavLink>
       <NavLink to='/Users' className={({ isActive }) => isActive ? "activated" : ""}><FaUserCircle />Users</NavLink>
+      <NavLink to='/Form' className={({ isActive }) => isActive ? "activated" : ""}><FaUserCircle />Contact</NavLink>
     </div>
   )
 }
