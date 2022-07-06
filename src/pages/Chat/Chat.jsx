@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+// import { dispatchTest, useDispatchAuth, useGetAuth } from '../../context'
 import './Chat.scss'
 import ChatInput from './Components/ChatInput'
 import ChatList from './Components/ChatList'
@@ -18,9 +19,16 @@ const Chat = () => {
             })
     }, []);
 
+    // const getContext = useGetAuth()
+    // const dispatch = useDispatchAuth()
+
+    // const handleReducer = () => {
+    //     dispatchTest(dispatch, "value2")
+    // }
 
     return (
         <div className="chatContainer">
+            {/* <p onClick={handleReducer} >{getContext}</p> */}
             <div className='chatContainer__user'>
                 <div>
                     {/* <img src='/images/Spinner-3.gif' alt="" /> */}

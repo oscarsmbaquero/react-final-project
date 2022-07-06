@@ -1,3 +1,3 @@
-export const dispatchTest = (dispatch, type) => {
-    dispatch({ type: 'value1' })
+export const dispatchTest = (dispatch, enteredtype) => {
+    dispatch({ type: enteredtype })
 }
