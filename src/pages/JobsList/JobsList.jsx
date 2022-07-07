@@ -35,7 +35,7 @@ const JobsList = () => {
 
   return (
     <>
-      <SearchInput placeholder="Filter by Companies  " onChange={onInputChange}  />
+      <SearchInput placeholder="Filter by Companies of Jobs" onChange={onInputChange}  />
       {filteredJobs.map((post, key)=>(
         <div key={ key} className="jobList">
           <h1>Puesto trabajo: {post.name}</h1>

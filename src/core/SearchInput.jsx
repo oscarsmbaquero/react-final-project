@@ -1,7 +1,7 @@
 import React from "react";
 
 /* import SearchIcon from "@mui/icons-material/Search"; */
-import styles from "./SearchInput.module.css";
+import styles from "./SearchInput.module.scss";
 const SearchInput = ({ ...rest }) => {
   return (
     <div className={styles.wrapper}>
