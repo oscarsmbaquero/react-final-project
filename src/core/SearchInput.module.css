@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  margin-top: 30px;  
+  justify-content: center; 
+  padding-left: 16px;
+  color: white;
+}
+
+.input {
+  align-items: center;
+  border-color: black;
+  border-radius: 8px;
+  background-color: whitesmoke;
+  padding: 16px;
+  width: 140px;
+  height: 5px;
+  outline: none;
+}
+
+.input::placeholder {
+  color: black;
+}
