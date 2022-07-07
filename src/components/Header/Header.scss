@@ -1,13 +1,42 @@
-.header {
-    text-transform: uppercase;
-    margin: 1rem;
-    display:flex;
-    justify-content: space-evenly;
+// .header {
+//     text-transform: uppercase;
+//     margin: 1rem;
+//     display:flex;
+//     justify-content: space-evenly;
     
-}
+// }
 
-.activated{
-    font-weight: bold; 
-    font-size: 15px;
-    color: red;
- }
+// .activated{
+//     font-weight: bold; 
+//     font-size: 15px;
+//     color: red;
+//  }
+
+.header{
+    width:100%;
+    padding:1em;
+display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    color:white;
+    @media screen and (min-width:480px){
+        display: flex;
+        
+    }
+    &__button{
+    display: flex;
+    @media screen and (min-width:480px){
+        display: none;
+        cursor: pointer;
+    }
+}
+&__nav.isActive{
+    height:50vh;
+    opacity: 1;
+}
+    &__ul{
+        display: flex;
+    }
+}
