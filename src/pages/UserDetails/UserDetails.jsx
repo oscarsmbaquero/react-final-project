@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useInRouterContext, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const UserDetails = () => {
   const { id } = useParams();

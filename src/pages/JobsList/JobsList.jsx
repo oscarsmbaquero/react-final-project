@@ -2,9 +2,12 @@ import React, { useState, useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import './JobsList.scss';
 
+import SearchInput from '../../core/SearchInput';
+
 const JobsList = () => {
     
-    let   [jobs, setJobs] = useState([]);
+    const [jobs, setJobs] = useState([]);
+    const [keyword, setKeyword] = useState("");
 
     useEffect(() => {
         fetch('https://62852cc03060bbd347460bff.mockapi.io/jobs')
@@ -12,11 +15,28 @@ const JobsList = () => {
           .then(data => setJobs(data))
       }, []);
 
-      //console.log(jobs);
+      
+      //Capturamos eel valor del input del buscador  y lo seteamos a keyword pasandolo a minusculas
+      const onInputChange = (e) => {
+        e.preventDefault();
+        setKeyword(e.target.value.toLowerCase());
+      };
+
+      /*Con el valor introducido en el inpute del buscador filtramos los trabajos almacenaos en jobs,
+      Filtramos por empresa o por puestos ofertados, previo paso a minusculas*/
+      const filteredJobs = jobs.filter((jobs) =>
+        jobs.name.toLowerCase().includes(keyword) ||
+        jobs.business.toLowerCase().includes(keyword)
+
+        );
+    
+    
+      //console.log(filteredJobs,'filter')
 
   return (
     <>
-      {jobs.map((post, key)=>(
+      <SearchInput placeholder="Filter by Companies of Jobs" onChange={onInputChange}  />
+      {filteredJobs.map((post, key)=>(
         <div key={ key} className="jobList">
           <h1>Puesto trabajo: {post.name}</h1>
           <h2>Empresa: {post.business}</h2>
