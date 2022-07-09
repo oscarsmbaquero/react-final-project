@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 // import { dispatchTest, useDispatchAuth, useGetAuth } from '../../context'
 import './Chat.scss'
+import ChatContainer from './Components/ChatContainer'
 import ChatInput from './Components/ChatInput'
 import ChatList from './Components/ChatList'
 
@@ -32,17 +33,20 @@ const Chat = () => {
             <div className='chatContainer__user'>
                 <div>
                     {/* <img src='/images/Spinner-3.gif' alt="" /> */}
-                    {chatList.map((chat, index) =>
+                    {chatList.map((chat) =>
                         <ChatList
                             key={chat.id}
                             chat={chat}
-                            index={index}
+                            id={chat.id}
                             setSelectedChat={setSelectedChat}
                             selectedChat={selectedChat} />
                     )}
                 </div>
             </div>
-            <ChatInput />
+            <div>
+                <ChatContainer selectedChat={selectedChat}/>
+                <ChatInput />
+            </div>
         </div>
     )
 }
