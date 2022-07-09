@@ -16,7 +16,7 @@ const Header = () => {
     //     <NavLink to='/Form' className={({ isActive }) => isActive ? "activated" : ""}><AiOutlineMail />Contact</NavLink>
     // </header>
     <header className="header">
-    <div className="header__div--ola" ><svg viewBox="0 0 500 150" preserveAspectRatio="none"  className="header__svg--ola"><path d="M0.00,49.98 C150.00,150.00 271.49,-49.98 500.00,49.98 L500.00,0.00 L0.00,0.00 Z"  className="header__div--path">
+    {/* <div className="header__div--ola" ><svg viewBox="0 0 500 150" preserveAspectRatio="none"  className="header__svg--ola"><path d="M0.00,49.98 C150.00,150.00 271.49,-49.98 500.00,49.98 L500.00,0.00 L0.00,0.00 Z"  className="header__div--path"> */}
       <nav className="header__nav">
         <ul className="header__ul">
           <li className="header__li">
@@ -61,7 +61,7 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-      </path></svg></div>
+      {/* </path></svg></div> */}
     </header>
   );
 };
