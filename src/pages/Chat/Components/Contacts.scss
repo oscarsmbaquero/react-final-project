@@ -1,0 +1,34 @@
+.contacts {
+
+    width: 100%;
+    padding-left: .4rem;
+
+    &__user {
+        display: flex;
+        cursor: pointer;
+
+
+        &>* {
+            padding: .75rem;
+        }
+    }
+
+    &__img img {
+        height: 3rem;
+    }
+
+    &__line {
+        height: 1px;
+        background-color: black;
+        width: 95%;
+    }
+
+    &__name {
+        text-align: left;
+    }
+}
+
+
+.selected {
+    color: red;
+}
