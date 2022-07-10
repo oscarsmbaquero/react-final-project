@@ -1,0 +1,21 @@
+
+.button-i18n{
+    margin-left: 10px;
+    border-radius: 15px;
+    background-color:brown;
+    color:whitesmoke
+    
+}
+.button-i18n:active{
+    background-color: whitesmoke;
+    color:brown
+}
+.i18n{
+    display:flex;
+    align-items: center;
+
+    & p{
+        font-size: 20px;
+        color:black;
+    }
+}

@@ -2,7 +2,7 @@ import React, { useState, useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import './JobsList.scss';
 
-import SearchInput from '../../core/SearchInput';
+import SearchInput from '../../core/SearchInput/SearchInput';
 
 const JobsList = () => {
     
@@ -29,9 +29,6 @@ const JobsList = () => {
         jobs.business.toLowerCase().includes(keyword)
 
         );
-    
-    
-      //console.log(filteredJobs,'filter')
 
   return (
     <>
