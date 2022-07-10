@@ -1,24 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { MdSend } from 'react-icons/md'
+import './ChatInput.scss'
 
-const handleMsg = () => {
+const ChatInput = ({ setMessages }) => {
+  const [inputMsg, setInputMsg] = useState("");
 
-}
+  const handleMsg = (event) => {
+    setInputMsg(event.target.value)
+  }
 
-const handleSendMsg = () => {
+  const handleSendMsg = (event) => {
+    event.preventDefault();
+    setMessages((prevState) => [...prevState, inputMsg])
+    setInputMsg("")
 
-}
 
-const ChatInput = () => {
+  }
   return (
-    <div>
-      <form onSubmit={(event) => handleSendMsg(event)}>
+    <div className='inputContainer'>
+      <form
+        onSubmit={(event) => handleSendMsg(event)}
+        className="inputContainer__form"
+      >
         <input
           type="text"
           placeholder="type your message here"
-          onChange={(e) => handleMsg(e.target.value)}
+          onChange={handleMsg}
+          value={inputMsg}
         />
-        <button type="submit">
-        </button>
+        <button type="submit" onClick={handleSendMsg}><MdSend /></button>
       </form>
     </div>
   )

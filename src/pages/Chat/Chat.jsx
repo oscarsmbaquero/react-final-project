@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 // import { dispatchTest, useDispatchAuth, useGetAuth } from '../../context'
 import './Chat.scss'
-import ChatContainer from './Components/ChatContainer'
+import Messages from './Components/Messages'
 import Contacts from './Components/Contacts'
 
 const Chat = () => {
@@ -44,7 +44,7 @@ const Chat = () => {
                     </div>
                 </div>
                 <div>
-                    <ChatContainer selectedChat={selectedChat} />
+                    <Messages selectedChat={selectedChat} />
                 </div>
             </div>
         </div>

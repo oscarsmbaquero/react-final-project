@@ -5,7 +5,8 @@
     .chatContainer {
         width: var(--container-width-lg);
         height: 75vh;
-        padding: 2rem;
+        margin-top: 2rem;
+        // padding: 2rem;
 
         display: grid;
         grid-template-columns: 1fr 3fr;
