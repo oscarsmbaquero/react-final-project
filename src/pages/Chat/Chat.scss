@@ -1,11 +1,24 @@
-.chatContainer {
-    height: 85vh;
-    padding: 2rem;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+.container {
+    display: flex;
+    justify-content: center;
 
-    &__user{
-        display: flex;
-        justify-content: center;
+    .chatContainer {
+        width: var(--container-width-lg);
+        height: 75vh;
+        margin-top: 2rem;
+        // padding: 2rem;
+
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+
+        background-color: aliceblue;
+
+        &__user {
+            // display: flex;
+            // justify-content: flex-start;
+            overflow: auto;
+            background-color: aquamarine;
+            height: 100%;
+        }
     }
 }
