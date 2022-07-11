@@ -31,21 +31,24 @@ const JobsList = () => {
         );
 
   return (
-    <>
-      <SearchInput placeholder="Filter by Companies of Jobs" onChange={onInputChange}  />
+<>
+    <SearchInput placeholder="Filter by Companies of Jobs" onChange={onInputChange} />
+        <section className="jobList">
       {filteredJobs.map((post, key)=>(
-        <div key={ key} className="jobList">
-          <h1>Puesto trabajo: {post.name}</h1>
-          <h2>Empresa: {post.business}</h2>
-          <h3>Cif: {post.cif}</h3>
-          <p>Logo: {post.logo}</p>
+        <div key={key} className="jobList__div">
+          <div className='jobList__div1'>
+            <h1 className='jobList__h1'>Puesto trabajo: {post.name}</h1>
+            <h2 className='jobList__h2'>Empresa: {post.business}</h2>
+            <h3 className='jobList__h3'>Cif: {post.cif}</h3>
+            <p className='jobList__p'>Logo: {post.logo}</p>
+            </div>
           <Link to={`/Jobs/${post.id}`}>
-            <button>Show More</button>
+            <button className='jobList__btn'>Show More</button>
           </Link>
         </div>
-
       ))}
-    </>
+      </section>
+      </>
   )
 }
 
