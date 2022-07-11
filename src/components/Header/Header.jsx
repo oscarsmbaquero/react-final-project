@@ -59,6 +59,14 @@ const Header = () => {
                 </span>
             </Link>
           </li>
+          <li className="header__li">
+            <Link className="header__a" to="/users/login">
+              <span className="span1">Login</span>
+              <span className="span2">
+                <AiOutlineMail />
+                </span>
+            </Link>
+          </li>
         </ul>
       </nav>
       {/* </path></svg></div> */}

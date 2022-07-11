@@ -14,9 +14,6 @@ const Chat = () => {
         fetch('https://62852cc03060bbd347460bff.mockapi.io/users')
             .then(response => response.json())
             .then(data => { setContacts(data) })
-            .finally(() => {
-
-            })
     }, []);
 
     // const getContext = useGetAuth()

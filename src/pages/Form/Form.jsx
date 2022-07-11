@@ -43,13 +43,13 @@ const Form = () => {
           <h2 className="form__h2">De donde eres</h2>
           <div className="form__divDirecc">
 
-                      <input
-            className="form__input"
-            id="ciudad"
-            name="ciudad"
-            type="text"
-            placeholder="Ciudad:..."
-          />
+            <input
+              className="form__input"
+              id="ciudad"
+              name="ciudad"
+              type="text"
+              placeholder="Ciudad:..."
+            />
             <input
               className="form__input"
               id="cp"
@@ -59,11 +59,11 @@ const Form = () => {
             />
           </div>
           <input
-              className="form__input"
-              id="dirección"
-              name="dirección"
-              placeholder="Dirección:..."
-            />
+            className="form__input"
+            id="dirección"
+            name="dirección"
+            placeholder="Dirección:..."
+          />
         </fieldset>
         <button className="form__button" type="submit">
           {" "}

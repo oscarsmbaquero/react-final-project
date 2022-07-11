@@ -7,19 +7,20 @@ const JobDetail = () => {
 
   let [job, SetJob] = useState();
 
+  console.log(id)
+
   useEffect(() => {
     
     fetch(`https://62852cc03060bbd347460bff.mockapi.io/jobs/${id}`)
       .then(response => response.json())
-      .then(data => SetJob(data))      
+      .then(data => SetJob(data))  
      }, [id]); 
-  console.log(job);
 
   return (
     <div>
           { !job ? <p>Cargando...</p> : <>
-              <div class="details">
-                <div class="details__text">      
+              <div className="details">
+                <div className="details__text">      
                     <h1> puesto de trabajo: {job.name}</h1>
                     <h2> Empresa:{job.business}</h2>
                     <p>  Ciudad: {job.city}</p>    

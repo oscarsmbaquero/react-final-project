@@ -2,7 +2,7 @@ import React, { useState, useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import './JobsList.scss';
 
-import SearchInput from '../../core/SearchInput/SearchInput';
+import SearchInput from '../../../core/SearchInput/SearchInput';
 
 const JobsList = () => {
     
@@ -15,6 +15,7 @@ const JobsList = () => {
           .then(data => setJobs(data))
       }, []);
 
+      console.log(jobs)
       
       //Capturamos eel valor del input del buscador  y lo seteamos a keyword pasandolo a minusculas
       const onInputChange = (e) => {
@@ -42,7 +43,7 @@ const JobsList = () => {
             <h3 className='jobList__h3'>Cif: {post.cif}</h3>
             <p className='jobList__p'>Logo: {post.logo}</p>
             </div>
-          <Link to={`/Jobs/${post.id}`}>
+          <Link to={`${post._id}`}>
             <button className='jobList__btn'>Show More</button>
           </Link>
         </div>

@@ -5,9 +5,9 @@ import styles from "./SearchInput.module.scss";
 const SearchInput = ({ ...rest }) => {
   return (
     <div className={styles.wrapper}>
-      
-            <input {...rest} className={styles.input} />🔎
-      
+
+      <input {...rest} className={styles.input} />🔎
+
     </div>
   );
 };
