@@ -1,5 +1,47 @@
 .jobList{
-    border: 1px solid #000;
-    
+    display: grid;
+    grid-template-columns: auto;
+    width: 80%;
+    margin: 0 auto;
+&__div{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    margin: 1em;
+    padding: 2em;
+    background-color: var( --extra-grey-light);
+    border-radius: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.39);
+    transition: 0.2s ease-in-out;
+    text-align: start;
+@media screen and(max-width:690px) {
+    display: flex;
+    flex-direction: column;
+    text-align:justify;
+    font-size: 12px;
+}
+}
+
+&__btn{
+    align-items: flex-end;
+    background-color: var( --boton-color);
+    padding: 2em;
+    border-radius: 12px;
+    border: 1px solid rgba(63, 62, 62, 0.562);
+    cursor: pointer;
+    @media screen and(max-width:690px) {
+       max-width: 100%;
+       height: 40px;
+       font-size: 12px;
+       padding: 1em;
+       margin-top: 1em;
+}
+}
+.jobList__div:hover{
+    box-shadow: rgba(0, 0, 0, 0.616) 0px 5px 15px;
+}
+.jobList__btn:hover{
+    transform: scale(1.1);
+}
 }
 
