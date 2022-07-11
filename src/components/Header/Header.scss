@@ -2,7 +2,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background-color: var(--primary-color);
+    background-color: var( --secondary-color);
     &__div--ola{
         height: 150px; 
         overflow: hidden;
@@ -59,7 +59,7 @@
   }
   &__a span{
     transition: transform 0.2s ease-out;
-    color:var(--extra-blue-light);
+    color:var(--extra-grey-light);
   }
   &__a:hover span:first-child{
     transform: translateY(100%);

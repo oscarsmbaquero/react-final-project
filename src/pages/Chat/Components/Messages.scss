@@ -1,7 +1,14 @@
 .msgContainer {
-
     height: 100%;
-    background-color: antiquewhite;
+    @media screen  and(max-width: 900px) {
+        display:flex;
+        flex-direction: column;
+        max-height: 40%;
+        max-width: 80%;
+    }
+&__title{
+    background-color: aliceblue;
+}
 
     &__items {
         height: 100%;
@@ -10,4 +17,6 @@
         flex-direction: column;
         justify-content: space-between;
     }
-}
+    &__name{
+        background-color: aliceblue;
+    }}
