@@ -5,16 +5,17 @@ import './UserList.scss';
 import SearchInput from '../../core/SearchInput/SearchInput';
 
 const JobsList = () => {
-    
+
     let   [users, setUsers] = useState([]);
     const [keyword, setKeyword] = useState("");//estado para almacenar y setear las entradas de teclado para el input
 
     useEffect(() => {
-        fetch('https://62852cc03060bbd347460bff.mockapi.io/users')
+        fetch('http://localhost:4000/employers')
           .then(response => response.json())
           .then(data => setUsers(data))
         }, []);
-
+        console.log(users,44);
+       //console.log(users.data,45);
        //Capturamos eel valor del input del buscador  y lo seteamos a keyword pasandolo a minusculas
        const onInputChange = (e) => {
         e.preventDefault();
@@ -23,16 +24,16 @@ const JobsList = () => {
 
       /*Con el valor introducido en el inpute del buscador filtramos los trabajos almacenaos en jobs(filtrado por puesto de trabajo o name)
         previo paso a minusculas*/
-      const filteredUsers = users.filter((users) =>
-        users.job.toLowerCase().includes(keyword) ||
-        users.name.toLowerCase().includes(keyword)  
-        );
+        // const filteredUsers = users.filter((users) =>
+        // users.job.toLowerCase().includes(keyword) ||
+        // users.name.toLowerCase().includes(keyword)
+        // );
 
   return (
     <>
       <SearchInput placeholder="Filter by job or user " onChange={onInputChange} />
       <section className="userList">
-      {filteredUsers.map((post, key)=>(
+      {users.map((post, key)=>(
         <div key={key} className="userList__div">
           <div className='userList__div1' >
             <h1 className='userList__h1' >Name {post.name}</h1>
