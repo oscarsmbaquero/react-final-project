@@ -2,7 +2,7 @@ import React from "react";
 import "./Form.scss";
 import formImg from "../../assets/images/form.png";
 
-const Form = () => {
+const FormContact = () => {
   return (
     <section className="sectionForm">
       <img className="sectionForm__img" src={formImg} alt="..." />
@@ -74,4 +74,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default FormContact;

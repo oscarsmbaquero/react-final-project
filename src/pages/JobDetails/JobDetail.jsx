@@ -23,7 +23,8 @@ const JobDetail = () => {
                 <div class="details__text">      
                     <h1> puesto de trabajo: {job.name_job}</h1>
                     <h2> Empresa:{job.companie}</h2>
-                    <p>  Ciudad: {job.city}</p>    
+                    <h3> Mail: {job.email}</h3>
+                    <p>  Cif: {job.cif}</p>    
                 </div>                
               </div>
            </>}

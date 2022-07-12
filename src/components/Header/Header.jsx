@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // import { NavLink } from 'react-router-dom'
-import { AiFillHome, AiOutlineMail } from "react-icons/ai";
+import { AiFillHome, AiOutlineMail, AiOutlineUserAdd, AiOutlineFileAdd } from "react-icons/ai";
 import { BsFillChatDotsFill } from "react-icons/bs";
 import { FaUserTie, FaUserCircle } from "react-icons/fa";
 import "./Header.scss";
@@ -52,10 +52,26 @@ const Header = () => {
             </Link>
           </li>
           <li className="header__li">
-            <Link className="header__a" to="/Form">
+            <Link className="header__a" to="/FormContact">
               <span className="span1">Contactanos</span>
               <span className="span2">
                 <AiOutlineMail />
+                </span>
+            </Link>
+          </li>
+          <li className="header__li">
+            <Link className="header__a" to="/FormCompanies">
+              <span className="span1">Añadir Oferta</span>
+              <span className="span2">
+                <AiOutlineFileAdd />
+                </span>
+            </Link>
+          </li>
+          <li className="header__li">
+            <Link className="header__a" to="/FormEmployers">
+              <span className="span1">Añadir USuario</span>
+              <span className="span2">
+                <AiOutlineUserAdd />
                 </span>
             </Link>
           </li>

@@ -4,7 +4,9 @@ import JobsList from "../pages/JobsList/JobsList";
 import UserList from "../pages/UserList/UserList";
 import JobDetails from "../pages/JobDetails/JobDetail";
 import UserDetails from "../pages/UserDetails/UserDetails";
-import Form from "../pages/Form/Form";
+import FormContact from "../pages/Form/FormContact";
+import FormCompanies from "../pages/FormCompanies/FormCompanies";
+import FormEmployers from "../pages/FormEmployers/FormEmployers";
 const routes = [
   {
     path: "/",
@@ -31,8 +33,16 @@ const routes = [
     element: <UserDetails />,
   },
   {
-    path: "/Form",
-    element: <Form/>,
+    path: "/FormContact",
+    element: <FormContact/>,
+  },
+  {
+    path: "/FormCompanies",
+    element: <FormCompanies/>,
+  },
+  {
+    path: "/FormEmployers",
+    element: <FormEmployers/>,
   },
 ];
 
