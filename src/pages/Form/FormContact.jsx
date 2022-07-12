@@ -1,12 +1,31 @@
 import React from "react";
 import "./Form.scss";
 import formImg from "../../assets/images/form.png";
+import emailjs from '@emailjs/browser';
+import {  useNavigate } from "react-router-dom";
 
-const Form = () => {
+const FormContact = () => {
+  let navigate = useNavigate();
+
+  const sendMail=(e)=>{
+    try {
+      e.preventDefault();
+      console.log(e.target.name);
+      emailjs.sendForm('service_esqoixc','template_lvs0put',e.target,'dso8n6rVU1ADlfbV4')
+      .then(response =>console.log(response))
+      navigate("/Users");
+      
+    } catch (error) {
+      navigate("/FormContact");
+    }
+   
+
+   
+}
   return (
     <section className="sectionForm">
       <img className="sectionForm__img" src={formImg} alt="..." />
-      <form className="form">
+      <form className="form" onSubmit={sendMail}>
         <h1 className="form__title">Explícanos tu duda</h1>
         <fieldset className="form__fieldset">
           <h2 className="form__h2">Cuentanos quién eres</h2>
@@ -59,13 +78,13 @@ const Form = () => {
             />
           </div>
           <input
-            className="form__input"
-            id="dirección"
-            name="dirección"
-            placeholder="Dirección:..."
-          />
+              className="form__input"
+              id="dirección"
+              name="direccion"
+              placeholder="Dirección:..."
+            />
         </fieldset>
-        <button className="form__button" type="submit">
+        <button className="form__button">
           {" "}
           Enviar mensaje
         </button>
@@ -74,4 +93,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default FormContact;

@@ -27,7 +27,6 @@ export const AuthReducer = (initialState, action) => {
                 loading: false
             };
         case "LOGIN_FAIL":
-            debugger
             return {
                 ...initialState,
                 loading: false,

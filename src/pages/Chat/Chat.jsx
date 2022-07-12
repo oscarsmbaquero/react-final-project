@@ -11,7 +11,7 @@ const Chat = () => {
     //call the user list
     useEffect(() => {
 
-        fetch('https://62852cc03060bbd347460bff.mockapi.io/users')
+        fetch('http://localhost:4000/employers')
             .then(response => response.json())
             .then(data => { setContacts(data) })
     }, []);

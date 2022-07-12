@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // import { NavLink } from 'react-router-dom'
-import { AiFillHome, AiOutlineMail } from "react-icons/ai";
+import { AiFillHome, AiOutlineMail, AiOutlineUserAdd, AiOutlineFileAdd } from "react-icons/ai";
 import { BsFillChatDotsFill } from "react-icons/bs";
 import { FaUserTie, FaUserCircle } from "react-icons/fa";
 import "./Header.scss";
@@ -16,7 +16,7 @@ const Header = () => {
     //     <NavLink to='/Form' className={({ isActive }) => isActive ? "activated" : ""}><AiOutlineMail />Contact</NavLink>
     // </header>
     <header className="header">
-    {/* <div className="header__div--ola" ><svg viewBox="0 0 500 150" preserveAspectRatio="none"  className="header__svg--ola"><path d="M0.00,49.98 C150.00,150.00 271.49,-49.98 500.00,49.98 L500.00,0.00 L0.00,0.00 Z"  className="header__div--path"> */}
+      {/* <div className="header__div--ola" ><svg viewBox="0 0 500 150" preserveAspectRatio="none"  className="header__svg--ola"><path d="M0.00,49.98 C150.00,150.00 271.49,-49.98 500.00,49.98 L500.00,0.00 L0.00,0.00 Z"  className="header__div--path"> */}
       <nav className="header__nav">
         <ul className="header__ul">
           <li className="header__li">
@@ -24,7 +24,7 @@ const Header = () => {
               <span className="span1"> Home</span>
               <span className="span2">
                 <AiFillHome />
-                </span>
+              </span>
             </Link>
           </li>
           <li className="header__li">
@@ -32,7 +32,7 @@ const Header = () => {
               <span className="span1">Chat</span>
               <span className="span2">
                 <BsFillChatDotsFill />
-                </span>
+              </span>
             </Link>
           </li>
           <li className="header__li">
@@ -40,7 +40,7 @@ const Header = () => {
               <span className="span1">Jobs</span>
               <span className="span2">
                 <FaUserTie />
-                </span>
+              </span>
             </Link>
           </li>
           <li className="header__li">
@@ -48,23 +48,40 @@ const Header = () => {
               <span className="span1">Users</span>
               <span className="span2">
                 <FaUserCircle />
-                </span>
+              </span>
             </Link>
           </li>
           <li className="header__li">
-            <Link className="header__a" to="/Form">
+            <Link className="header__a" to="/FormContact">
               <span className="span1">Contactanos</span>
               <span className="span2">
                 <AiOutlineMail />
-                </span>
+              </span>
             </Link>
           </li>
           <li className="header__li">
+
+            <Link className="header__a" to="/FormCompanies">
+              <span className="span1">Añadir Oferta</span>
+              <span className="span2">
+                <AiOutlineFileAdd />
+              </span>
+            </Link>
+          </li>
+          <li className="header__li">
+
             <Link className="header__a" to="/users/login">
               <span className="span1">Login</span>
+              <span className="span2"></span>
+              <AiOutlineMail />
+            </Link>
+          </li>
+          <li className="header__li">
+            <Link className="header__a" to="/FormEmployers">
+              <span className="span1">Añadir USuario</span>
               <span className="span2">
-                <AiOutlineMail />
-                </span>
+                <AiOutlineUserAdd />
+              </span>
             </Link>
           </li>
         </ul>

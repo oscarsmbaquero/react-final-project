@@ -33,7 +33,7 @@ const Login = () => {
 
     return (
         <div>
-            <div>
+            <form onSubmit={handleLogin}>
                 <label htmlFor="email">
                     <p>email</p>
                     <input type="text" name="email" value={loginForm.email} onChange={handleLoginForm} />
@@ -43,8 +43,8 @@ const Login = () => {
                     <p>password</p>
                     <input type="password" name="password" value={loginForm.password} onChange={handleLoginForm} />
                 </label>
-                <button onClick={handleLogin}>Login</button>
-            </div>
+                <button>Login</button>
+            </form>
             <br />
             {/* <p>{ && }</p> */}
         </div>
