@@ -9,13 +9,13 @@ const Messages = ({ selectedChat }) => {
         <div className='msgContainer'>
             {selectedChat ?
                 <div className='msgContainer__items'>
-                    <p>{selectedChat.name}</p>
+                    <p className="msgContainer__name">{selectedChat.name}</p>
                     {messages.map((msg, index) =>
                         <p key={index}>{msg}</p>
                     )}
                     <ChatInput setMessages={setMessages} />
                 </div> :
-                <p>Welcome, please select a chat!</p>
+                <p className='msgContainer__title'>Welcome, please select a chat!</p>
             }
         </div>
     )
