@@ -23,6 +23,10 @@
 }
 }
 
+&__p2{
+    text-transform: lowercase;
+}    
+
 &__btn{
     align-items: flex-end;
     background-color: var(--secondary-color);
