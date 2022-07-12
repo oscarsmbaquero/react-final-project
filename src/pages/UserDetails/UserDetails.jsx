@@ -8,7 +8,7 @@ const UserDetails = () => {
 
   useEffect(() => {
     
-    fetch(`https://62852cc03060bbd347460bff.mockapi.io/users/${id}`)
+    fetch(`http://localhost:4000/employers/${id}`)
       .then(response => response.json())
       .then(data => SetUser(data))      
      }, [id]); 
@@ -21,9 +21,9 @@ const UserDetails = () => {
            { !user  ? <p>Cargando...</p> : <>
            <div class="details">
                 <div class="details__text">      
-                    <h1> puesto de trabajo: {user.name}</h1>
-                    <h2> Empresa:{user.surname}</h2>
-                    <p>  Ciudad: {user.job}</p>    
+                    <h1> Usuario: {user.name}</h1>
+                    <h2> Apellido:{user.surname}</h2>
+                    <p>  Perfil: {user.job}</p>    
                 </div>                
               </div>
 

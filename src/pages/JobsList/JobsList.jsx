@@ -41,7 +41,7 @@ const JobsList = () => {
             <h3 className='jobList__h3'>Cif: {post.cif}</h3>
             <p className='jobList__p'>Logo: {post.logo}</p>
             </div>
-          <Link to={`/Jobs/${post.id}`}>
+          <Link to={`/Jobs/${post._id}`}>
             <button className='jobList__btn'>Show More</button>
           </Link>
         </div>

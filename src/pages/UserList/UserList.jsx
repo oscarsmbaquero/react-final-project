@@ -21,9 +21,11 @@ const UserList = () => {
         e.preventDefault();
         setKeyword(e.target.value.toLowerCase());
         };
-
+      
       /*Con el valor introducido en el inpute del buscador filtramos los trabajos almacenaos en jobs(filtrado por puesto de trabajo o name)
         previo paso a minusculas*/
+        //revisar FALLLLLLAAAAAAAA. ME VOY A CAGAR EN SU MADRE 
+        
         // const filteredUsers = users.filter((users) =>
         // users.name.toLowerCase().includes(keyword) ||
         // users.email.toLowerCase().includes(keyword)
@@ -42,7 +44,7 @@ const UserList = () => {
             <p className='userList__p' >Direction: {post.direction}</p>
             <p className='userList__p' >Job: {post.job}</p>
             </div>
-            <Link to={`/User/${post.id}`}>
+            <Link to={`/User/${post._id}`}>
                 <button className='userList__btn' >Show More</button>
             </Link>
         </div>
