@@ -12,7 +12,6 @@ const UserDetails = () => {
       .then(response => response.json())
       .then(data => SetUser(data))      
      }, [id]); 
-     console.log(user)
 
 
   return (

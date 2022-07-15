@@ -29,11 +29,11 @@ const FormCompanies = () => {
     }
   return (
     
-    <form onSubmit={handleSubmit(onSubmit)} class="form">
+    <form onSubmit={handleSubmit(onSubmit)} className="form">
      <div >
         <label>
             <p>Puesto Ofertado</p>
-            <input class="input" type="text" name="name_job" placeholder="Puesto Ofertado" {...register('name_job', {
+            <input className="input" type="text" name="name_job" placeholder="Puesto Ofertado" {...register('name_job', {
                 required: 'Puesto Ofertado is required',
                
             })}/>
@@ -41,19 +41,19 @@ const FormCompanies = () => {
         </label>
         <label>
             <p>Empresa</p>
-            <input class="input" type="text" name="companie" placeholder="Empresa"  {...register('companie')}/>
+            <input className="input" type="text" name="companie" placeholder="Empresa"  {...register('companie')}/>
         </label>
         <label>
             <p>Email</p>
-            <input class="input" type="email" name="email" placeholder="Email"  {...register('email')}/>
+            <input className="input" type="email" name="email" placeholder="Email"  {...register('email')}/>
         </label>
         <label>
             <p>Cif</p>
-            <input class="input" type="text" name="cif" placeholder="Cif"  {...register('cif')}/>
+            <input className="input" type="text" name="cif" placeholder="Cif"  {...register('cif')}/>
         </label>
         <br></br>
         
-        <button class="buttonForm"disabled={!isValid}>Send</button>
+        <button className="buttonForm"disabled={!isValid}>Send</button>
         </div>
     </form>
     

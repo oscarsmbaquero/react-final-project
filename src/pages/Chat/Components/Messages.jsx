@@ -5,6 +5,11 @@ import ChatInput from './ChatInput'
 const Messages = ({ selectedChat }) => {
     const [messages, setMessages] = useState([]);
 
+    const sendMsg = (messageData) => {
+        
+    }
+
+
     return (
         <div className='msgContainer'>
             {selectedChat ?
@@ -13,7 +18,7 @@ const Messages = ({ selectedChat }) => {
                     {messages.map((msg, index) =>
                         <p key={index}>{msg}</p>
                     )}
-                    <ChatInput setMessages={setMessages} />
+                    <ChatInput sendMsg={sendMsg} />
                 </div> :
                 <p className='msgContainer__title'>Welcome, please select a chat!</p>
             }

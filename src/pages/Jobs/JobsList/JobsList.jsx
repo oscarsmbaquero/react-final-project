@@ -2,7 +2,7 @@ import React, { useState, useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import './JobsList.scss';
 
-import SearchInput from '../../core/SearchInput/SearchInput';
+import SearchInput from '../../../core/SearchInput/SearchInput';
 
 const JobsList = () => {
     

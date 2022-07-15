@@ -1,12 +1,15 @@
 import Chat from "../pages/Chat/Chat";
 import Home from "../pages/Home/Home";
-import JobsList from "../pages/JobsList/JobsList";
-import UserList from "../pages/UserList/UserList";
-import JobDetails from "../pages/JobDetails/JobDetail";
-import UserDetails from "../pages/UserDetails/UserDetails";
+
+import JobsList from "../pages/Jobs/JobsList/JobsList";
+import UserList from "../pages/User/UserList/UserList";
+import JobDetails from "../pages/Jobs/JobDetails/JobDetail";
+import UserDetails from "../pages/User/UserDetails/UserDetails";
 import FormContact from "../pages/Form/FormContact";
 import FormCompanies from "../pages/FormCompanies/FormCompanies";
 import FormEmployers from "../pages/FormEmployers/FormEmployers";
+import Login from "../pages/User/Login";
+
 const routes = [
   {
     path: "/",
@@ -25,6 +28,10 @@ const routes = [
     element: <JobDetails />,
   },
   {
+    path: "/users/login",
+    element: <Login />,
+  },
+  {
     path: "/Users",
     element: <UserList />,
   },
@@ -34,15 +41,15 @@ const routes = [
   },
   {
     path: "/FormContact",
-    element: <FormContact/>,
+    element: <FormContact />,
   },
   {
     path: "/FormCompanies",
-    element: <FormCompanies/>,
+    element: <FormCompanies />,
   },
   {
     path: "/FormEmployers",
-    element: <FormEmployers/>,
+    element: <FormEmployers />,
   },
 ];
 

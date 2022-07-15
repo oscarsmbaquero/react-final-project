@@ -14,9 +14,6 @@ const Chat = () => {
         fetch('http://localhost:4000/employers')
             .then(response => response.json())
             .then(data => { setContacts(data) })
-            .finally(() => {
-
-            })
     }, []);
 
     // const getContext = useGetAuth()

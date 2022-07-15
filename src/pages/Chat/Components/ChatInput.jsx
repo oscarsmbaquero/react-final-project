@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { MdSend } from 'react-icons/md'
 import './ChatInput.scss'
 
-const ChatInput = ({ setMessages }) => {
+const ChatInput = ({sendMsg}) => {
   const [inputMsg, setInputMsg] = useState("");
 
   const handleMsg = (event) => {
@@ -11,9 +11,8 @@ const ChatInput = ({ setMessages }) => {
 
   const handleSendMsg = (event) => {
     event.preventDefault();
-    setMessages((prevState) => [...prevState, inputMsg])
+    sendMsg(inputMsg)
     setInputMsg("")
-
 
   }
   return (

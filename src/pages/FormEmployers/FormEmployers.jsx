@@ -36,7 +36,7 @@ const FormEmployers = () => {
      <div >
         <label>
             <p>Name</p>
-            <input class="input" type="text" name="name" placeholder="Nombre" {...register('name', {
+            <input className="input" type="text" name="name" placeholder="Nombre" {...register('name', {
                 required: 'Nombre is required',
                
             })}/>
@@ -44,28 +44,28 @@ const FormEmployers = () => {
         </label>
         <label>
             <p>Surname</p>
-            <input class="input" type="text" name="surname" placeholder="Surname"  {...register('surname')}/>
+            <input className="input" type="text" name="surname" placeholder="Surname"  {...register('surname')}/>
         </label>
         <label>
             <p>Dni</p>
-            <input class="input" type="text" name="dni" placeholder="Dni"  {...register('dni')}/>
+            <input className="input" type="text" name="dni" placeholder="Dni"  {...register('dni')}/>
         </label>
         <label>
             <p>Email</p>
-            <input class="input" type="email" name="email" placeholder="Email"  {...register('email')}/>
+            <input className="input" type="email" name="email" placeholder="Email"  {...register('email')}/>
         </label>
         <label>
             <p>Perfil</p>
-            <input class="input" type="text" name="job" placeholder="Perfil"  {...register('job')}/>
+            <input className="input" type="text" name="job" placeholder="Perfil"  {...register('job')}/>
         </label>
         <label>
             <p>Age</p>
-            <input class="input" type="text" name="age" placeholder="Age"  {...register('age')}/>
+            <input className="input" type="text" name="age" placeholder="Age"  {...register('age')}/>
         </label>
         
         <br></br>
         
-        <button class="buttonForm"disabled={!isValid}>Send</button>
+        <button className="buttonForm"disabled={!isValid}>Send</button>
         </div>
     </form>
     

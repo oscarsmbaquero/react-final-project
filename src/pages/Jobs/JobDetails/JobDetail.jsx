@@ -8,13 +8,14 @@ const JobDetail = () => {
 
   let [job, SetJob] = useState();
 
+  console.log(id)
+
   useEffect(() => {
     
     fetch(`http://localhost:4000/companies/${id}`)
       .then(response => response.json())
-      .then(data => SetJob(data))      
+      .then(data => SetJob(data))  
      }, [id]); 
-  console.log(job);
 
   return (
     <div>
