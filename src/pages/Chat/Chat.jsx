@@ -10,6 +10,7 @@ const Chat = () => {
     const [contacts, setContacts] = useState([]);
     const [selectedChat, setSelectedChat] = useState(undefined);
 
+    // console.log(selectedChat);
 
 
     //call the user list
@@ -42,13 +43,12 @@ const Chat = () => {
                                     contact={contact}
                                     id={contact.id}
                                     setSelectedChat={setSelectedChat}
-                                    selectedChat={selectedChat}
-                                     />
+                                />
                             )}
                         </div>
                     </div>
                     <div>
-                        <Messages selectedChat={selectedChat} />
+                        <Messages />
                     </div>
                 </div>
             </SelectedChatContext.Provider>

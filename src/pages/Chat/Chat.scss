@@ -2,19 +2,22 @@
     display: flex;
     justify-content: center;
     transition: 0.2s ease-in-out;
-    @media screen  and(max-width: 900px) {
+
+    @media screen and(max-width: 900px) {
 
         margin: 12em auto;
     }
+
     .chatContainer {
         display: grid;
         grid-template-columns: 1fr 3fr;
         width: var(--container-width-lg);
         height: 75vh;
         margin: 2em auto;
-        @media screen  and(max-width: 900px) {
-            display:flex;
-            flex-direction:column;
+
+        @media screen and(max-width: 900px) {
+            display: flex;
+            flex-direction: column;
             max-height: 40%;
             max-width: 80%;
             margin: 5em auto;
@@ -27,8 +30,9 @@
             overflow: auto;
             background-color: var(--extra-grey-light);
             height: 100%;
-            @media screen  and(max-width: 900px) {
-                display:flex;
+
+            @media screen and(max-width: 900px) {
+                display: flex;
                 flex-direction: column;
                 max-height: 20%;
                 max-width: 80%;

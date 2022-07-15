@@ -1,17 +1,20 @@
+import React from 'react'
+import { SelectedChatContext } from '../Chat'
+
 import './Contacts.scss'
 
-const Contacts = ({ contact, setSelectedChat, selectedChat }) => {
+const Contacts = ({ contact, setSelectedChat }) => {
+
+  const selectedChat = React.useContext(SelectedChatContext);
 
   const handleSelected = () => {
     setSelectedChat(contact)
   }
 
-  console.log(selectedChat);
-
   return (
     <div>
       <div
-        className={`contacts ${selectedChat?.id === contact._id ? 'selected' : ''}`}
+        className={`contacts ${selectedChat?._id === contact._id ? 'selected' : ''}`}
         onClick={handleSelected}
       >
         <div
