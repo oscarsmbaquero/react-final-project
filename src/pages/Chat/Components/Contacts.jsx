@@ -1,15 +1,17 @@
 import './Contacts.scss'
 
-const Contacts = ({ chat, setSelectedChat, selectedChat }) => {
+const Contacts = ({ contact, setSelectedChat, selectedChat }) => {
 
   const handleSelected = () => {
-    setSelectedChat(chat)
+    setSelectedChat(contact)
   }
+
+  console.log(selectedChat);
 
   return (
     <div>
       <div
-        className={`contacts ${selectedChat?.id === chat.id ? 'selected' : ''}`}
+        className={`contacts ${selectedChat?.id === contact._id ? 'selected' : ''}`}
         onClick={handleSelected}
       >
         <div
@@ -18,8 +20,8 @@ const Contacts = ({ chat, setSelectedChat, selectedChat }) => {
           <div className="contacts__img">
             <img src="https://tiendamusicalcardona.com/wp-content/uploads/2021/02/avatar-user-teacher-312a499a08079a12-512x512-1.png" alt="userImg" /></div>
           <div className='contacts__name'>
-            <p>{chat.name}</p>
-            <p>{chat.job}</p>
+            <p>{contact.name}</p>
+            <p>{contact.job}</p>
           </div>
         </div>
         <div className='contacts__line'></div>

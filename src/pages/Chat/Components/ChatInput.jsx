@@ -2,35 +2,37 @@ import React, { useState } from 'react'
 import { MdSend } from 'react-icons/md'
 import { BASE_URL } from '../../../assets/ApiRoutes';
 import { useGetAuth } from '../../../context/context';
+import { SelectedChatContext } from '../Chat';
 import './ChatInput.scss'
 
+
+//HABRÁ QUE TENER CUIDADO DE CUANTAS VECES SE ESTÁ RENDERIZANDO ESTE COMPONENTE
 const ChatInput = ({ sendMsg }) => {
   const [inputMsg, setInputMsg] = useState("");
 
   const currentUser = useGetAuth()
-  const selectedChatIid = React.useContext()
+  const selectedChat = React.useContext(SelectedChatContext)
 
   const handleMsg = (event) => {
     setInputMsg(event.target.value)
   }
 
-  const handleSendMsg = async (event) => {
+  const handleSendMsg = (event) => {
     event.preventDefault();
     fetch(`${BASE_URL}/messages/sendMessage`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      // body: JSON.stringify(formsState)
-      body: {
-        from: currentUser,
-        // to: selectedChatIid
-      }
-    }).then(() => {
-      console.log(`the user .....`)
+      body: JSON.stringify({
+        from: currentUser.id,
+        to: selectedChat._id,
+        message: inputMsg
+      })
     })
-    
-    // sendMsg(inputMsg)
+    .then((res) => res.json())
+    .then(data => console.log(data))
+ 
     setInputMsg("")
 
   }

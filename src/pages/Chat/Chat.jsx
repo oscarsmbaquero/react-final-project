@@ -4,7 +4,7 @@ import './Chat.scss'
 import Messages from './Components/Messages'
 import Contacts from './Components/Contacts'
 
-const SelectedChatContext = React.createContext()
+export const SelectedChatContext = React.createContext();
 
 const Chat = () => {
     const [contacts, setContacts] = useState([]);
@@ -36,13 +36,14 @@ const Chat = () => {
                     <div className='chatContainer__user'>
                         <div>
                             {/* <img src='/images/Spinner-3.gif' alt="" /> */}
-                            {contacts.map((chat) =>
+                            {contacts.map((contact) =>
                                 <Contacts
-                                    key={chat._id}
-                                    chat={chat}
-                                    id={chat.id}
+                                    key={contact._id}
+                                    contact={contact}
+                                    id={contact.id}
                                     setSelectedChat={setSelectedChat}
-                                    selectedChat={selectedChat} />
+                                    selectedChat={selectedChat}
+                                     />
                             )}
                         </div>
                     </div>
