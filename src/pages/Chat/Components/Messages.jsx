@@ -5,10 +5,8 @@ import ChatInput from './ChatInput'
 const Messages = ({ selectedChat }) => {
     const [messages, setMessages] = useState([]);
 
-    const sendMsg = (messageData) => {
-        
+    const sendMsg = () => {
     }
-
 
     return (
         <div className='msgContainer'>

@@ -1,24 +1,43 @@
 import React, { useState } from 'react'
 import { MdSend } from 'react-icons/md'
+import { BASE_URL } from '../../../assets/ApiRoutes';
+import { useGetAuth } from '../../../context/context';
 import './ChatInput.scss'
 
-const ChatInput = ({sendMsg}) => {
+const ChatInput = ({ sendMsg }) => {
   const [inputMsg, setInputMsg] = useState("");
+
+  const currentUser = useGetAuth()
+  const selectedChatIid = React.useContext()
 
   const handleMsg = (event) => {
     setInputMsg(event.target.value)
   }
 
-  const handleSendMsg = (event) => {
+  const handleSendMsg = async (event) => {
     event.preventDefault();
-    sendMsg(inputMsg)
+    fetch(`${BASE_URL}/messages/sendMessage`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      // body: JSON.stringify(formsState)
+      body: {
+        from: currentUser,
+        // to: selectedChatIid
+      }
+    }).then(() => {
+      console.log(`the user .....`)
+    })
+    
+    // sendMsg(inputMsg)
     setInputMsg("")
 
   }
   return (
     <div className='inputContainer'>
       <form
-        onSubmit={(event) => handleSendMsg(event)}
+        onSubmit={handleSendMsg}
         className="inputContainer__form"
       >
         <input
