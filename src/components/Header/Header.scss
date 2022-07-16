@@ -1,43 +1,23 @@
 .header{
     display: flex;
-    justify-content: flex-end;
+    justify-content:flex-end;
     align-items: center;
     background-color: var( --secondary-color);
-    &__div--ola{
-        height: 150px; 
-        overflow: hidden;
-    }
-    &__svg--ola{
-        height: 100%; width: 100%;
-    }
-    &__path--ola{
-        stroke: none; 
-        fill: #08f;
-    }
-    &__nav{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  @media screen and (max-width: 600px) {
-    display: flex;
-    flex-direction: column;
-  justify-content: center;
-    }
-}
-&__ul{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    @media screen and (max-width: 600px) {
-      display: flex;
-      flex-direction: column;
-    justify-content: center;
+    transition:  0.2s ease-in-out;
+    @media screen  and (max-width: 766px) {
+      justify-content:center;
       }
-  }
-  //Efectos footer
+    &__ul{
+      display: flex;
+      justify-content:flex-end;
+      text-align: center;
+      @media screen  and (max-width: 760px) {
+        flex-direction: column;
+        justify-content:center;
+        }
+    }
   &__a span:first-child {
     display: inline-block;
-
     font-family: 'Fredoka One', cursive;
     text-transform: uppercase;
   }
@@ -45,7 +25,19 @@
     display: block;
     position: relative;
     overflow: hidden;
+    margin: 2em 2em 1em 0;
+    @media screen and (min-width:766px) and  (max-width: 900px ) {
+      font-size: 12px;
+      }
+      @media screen  and (max-width: 766px) {
+        margin: 0 2em 1em 0;
+        }
   }
+  &__a span{
+  display: none;
+  color:var(--extra-grey-light);
+  }
+  @media screen  and (min-width: 766px) {
   &__a span:last-child{
     position: absolute;
     top: 0;
@@ -81,11 +73,7 @@
     justify-content: center;
     transform: translateY(-100%);
   }
-
-//
-  &__li{
-    margin: 2em;
-  }
+}
   &__p{
     font-family: 'Fredoka One', cursive;
   }
