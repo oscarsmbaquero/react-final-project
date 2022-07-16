@@ -1,6 +1,6 @@
 import React from "react";
-import "./Form.scss";
-import formImg from "../../assets/images/form.png";
+import "./FormContact.scss";
+import formImg from "../../assets/images/undrawMessage.png";
 import emailjs from '@emailjs/browser';
 import {  useNavigate } from "react-router-dom";
 
@@ -21,12 +21,13 @@ const FormContact = () => {
       
 }
   return (
+    <>
+    <h1 className="form__title">Explícanos tu duda</h1>
     <section className="sectionForm">
       <img className="sectionForm__img" src={formImg} alt="..." />
       <form className="form" onSubmit={sendMail}>
-        <h1 className="form__title">Explícanos tu duda</h1>
         <fieldset className="form__fieldset">
-          <h2 className="form__h2">Cuentanos quién eres</h2>
+          <h2 className="form__h2">Que lo que</h2>
           <div> </div>
           <input
             className="form__input"
@@ -57,7 +58,7 @@ const FormContact = () => {
             placeholder="Deja tu mensaje:..."
             rows='5'
           />
-          <h2 className="form__h2">De donde eres</h2>
+          <h2 className="form__h2">De donde tu ere</h2>
           <div className="form__divDirecc">
 
             <input
@@ -87,7 +88,8 @@ const FormContact = () => {
           Enviar mensaje
         </button>
       </form>
-    </section>
+      </section>
+      </>
   );
 };
 

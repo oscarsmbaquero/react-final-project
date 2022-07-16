@@ -38,7 +38,6 @@ const FormEmployers = () => {
             <p>Name</p>
             <input className="input" type="text" name="name" placeholder="Nombre" {...register('name', {
                 required: 'Nombre is required',
-               
             })}/>
             {errors.name && errors.name.type === 'required' && <p>{errors.name.message}</p>}
         </label>
