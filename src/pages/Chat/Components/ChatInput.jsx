@@ -17,6 +17,8 @@ const ChatInput = ({ sendMsg }) => {
     setInputMsg(event.target.value)
   }
 
+  console.log(currentUser.id, selectedChat?._id);
+
   const handleSendMsg = (event) => {
     event.preventDefault();
     fetch(`${BASE_URL}/messages/sendMessage`, {

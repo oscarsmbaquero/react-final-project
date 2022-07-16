@@ -30,7 +30,6 @@ const Messages = () => {
         }
     }, [selectedChat]);
 
-    console.log(messages)
     const sendMsg = () => {
 
     }
