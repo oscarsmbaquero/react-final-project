@@ -1,15 +1,16 @@
 import React from 'react';
 import { useForm } from 'react-hook-form'
 import {  useNavigate } from "react-router-dom";
+import { BASE_URL } from '../../assets/ApiRoutes';
 
 const FormCompanies = () => {
     const {register, handleSubmit, formState: {errors, isValid}} = useForm({mode: "onChange"});
     let navigate = useNavigate();
+
     const onSubmit = async (formData) => {
         console.log(formData);
         try {
-
-            const result = await fetch("http://localhost:4000/companies" ,{
+            const result = await fetch(`${BASE_URL}/companies` ,{
                 method: "POST",
                 headers: {
                         'Content-Type': 'application/json'
@@ -19,9 +20,6 @@ const FormCompanies = () => {
             const resData = await result.json();
             navigate("/Jobs");
             console.log(resData);
-            
-            
-            
         } catch (error) {
            console.log(error); 
         }

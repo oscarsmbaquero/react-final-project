@@ -10,7 +10,7 @@ export const loginUser = async (dispatch, loginData) => {
 
     try {
         dispatch({ type: "REQ_LOGIN" })
-        const res = await fetch(`${BASE_URL}users/login`, requestOptions);
+        const res = await fetch(`${BASE_URL}/users/login`, requestOptions);
         const data = await res.json();
         if (data.data) {
             dispatch({ type: "LOGIN_OK", payload: data.data })
