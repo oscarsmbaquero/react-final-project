@@ -18,9 +18,7 @@ const FormContact = () => {
     } catch (error) {
       navigate("/FormContact");
     }
-   
-
-   
+      
 }
   return (
     <section className="sectionForm">

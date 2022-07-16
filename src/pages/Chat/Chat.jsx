@@ -4,9 +4,14 @@ import './Chat.scss'
 import Messages from './Components/Messages'
 import Contacts from './Components/Contacts'
 
+export const SelectedChatContext = React.createContext();
+
 const Chat = () => {
     const [contacts, setContacts] = useState([]);
     const [selectedChat, setSelectedChat] = useState(undefined);
+
+    // console.log(selectedChat);
+
 
     //call the user list
     useEffect(() => {
@@ -23,27 +28,30 @@ const Chat = () => {
     //     dispatchTest(dispatch, "value2")
     // }
 
+
     return (
         <div className='container'>
-            <div className="chatContainer">
-                {/* <p onClick={handleReducer} >{getContext}</p> */}
-                <div className='chatContainer__user'>
+            <SelectedChatContext.Provider value={selectedChat}>
+                <div className="chatContainer">
+                    {/* <p onClick={handleReducer} >{getContext}</p> */}
+                    <div className='chatContainer__user'>
+                        <div>
+                            {/* <img src='/images/Spinner-3.gif' alt="" /> */}
+                            {contacts.map((contact) =>
+                                <Contacts
+                                    key={contact._id}
+                                    contact={contact}
+                                    id={contact.id}
+                                    setSelectedChat={setSelectedChat}
+                                />
+                            )}
+                        </div>
+                    </div>
                     <div>
-                        {/* <img src='/images/Spinner-3.gif' alt="" /> */}
-                        {contacts.map((chat) =>
-                            <Contacts
-                                key={chat.id}
-                                chat={chat}
-                                id={chat.id}
-                                setSelectedChat={setSelectedChat}
-                                selectedChat={selectedChat} />
-                        )}
+                        <Messages />
                     </div>
                 </div>
-                <div>
-                    <Messages selectedChat={selectedChat} />
-                </div>
-            </div>
+            </SelectedChatContext.Provider>
         </div>
     )
 }
