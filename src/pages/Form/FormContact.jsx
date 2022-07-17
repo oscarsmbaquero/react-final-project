@@ -27,7 +27,7 @@ const FormContact = () => {
       <img className="sectionForm__img" src={formImg} alt="..." />
       <form className="sectionForm__form" onSubmit={sendMail}>
         <fieldset className="sectionForm__fieldset1">
-          <h2 className="sectionForm__h2">Que lo que</h2>
+          {/* <h2 className="sectionForm__h2">Que lo que</h2> */}
           {/* <div> </div> */}
           <input
             className="sectionForm__input"
@@ -59,7 +59,7 @@ const FormContact = () => {
             rows='5'
             />
                     </fieldset>
-          <h2 className="sectionForm__h2">De donde tu ere</h2>
+          {/* <h2 className="sectionForm__h2">De donde tu ere</h2> */}
             <fieldset className="sectionForm__fieldset2">
               <div className="sectionForm__divDirecc">
             <input
