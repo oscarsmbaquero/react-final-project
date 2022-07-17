@@ -4,6 +4,9 @@
     align-items: center;
     background-color: var( --secondary-color);
     transition:  0.2s ease-in-out;
+    border-radius:10px ;
+    margin: 0.5em auto;
+
     @media screen  and (max-width: 766px) {
       justify-content:center;
       }
@@ -18,7 +21,7 @@
     }
   &__a span:first-child {
     display: inline-block;
-    font-family: 'Fredoka One', cursive;
+    // font-family: 'Fredoka One', cursive;
     text-transform: uppercase;
   }
   &__a{
@@ -36,6 +39,7 @@
   &__a span{
   display: none;
   color:var(--extra-grey-light);
+
   }
   @media screen  and (min-width: 766px) {
   &__a span:last-child{

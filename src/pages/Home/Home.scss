@@ -1,0 +1,76 @@
+.home{
+    display: grid;
+    grid-template-rows: 25% auto auto auto;
+    transition: 0.3s ease-in-out;
+@media screen and (min-width: 900px) {
+    display: grid;
+    grid-template-rows: 30em  auto  auto auto auto;
+    margin: 1em auto;
+    transition: 0.3s ease-in-out;
+  }
+&__sectionfirst{
+    background-image: url(../../assets/images/boitumelo-phetla-j9F3vQEW5CU-unsplash.jpg);
+    background-position: 40%;
+    background-color: rgba(240, 248, 255, 0.267);
+    align-items: center;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+    @media screen and (min-width: 900px) {
+        display: flex;
+     flex-direction: column;
+        justify-content: center;
+        background-image: url(../../assets/images/boitumelo-phetla-j9F3vQEW5CU-unsplash.jpg);;
+        background-position: 40%;
+        align-items: center;
+        text-align: center;
+      }
+
+}
+&__firstp{
+text-overflow: ellipsis;
+font-size: 60px;
+color: aliceblue;
+    @media screen and (min-width: 900px) {
+        display: flex;
+        background-color: rgba(11, 158, 107, 0.055);
+        align-items: center;
+        font-size: 80px;
+        color: aliceblue;
+      }
+
+}
+&__secondp{
+    text-overflow: ellipsis;
+    font-size:40px;
+    color: aliceblue;
+        @media screen and (min-width: 900px) {
+            display: flex;
+            background-color: rgba(11, 158, 107, 0.055);
+            align-items: center;
+            font-size: 60px;
+            color: aliceblue;
+          }
+    
+    }
+&__section{
+    padding: 5em auto;
+    transition: 0.3s ease-in-out;
+    @media screen and (min-width: 900px) {
+        display: flex;
+        align-items: center;
+        width: 80%;
+        margin: 1em auto;
+      }
+}
+&__img{
+    width: 300px;
+    height: 300px;
+}
+}
+.sect-1, .sect-3{
+    flex-direction: row-reverse;
+    // background-color: var(--extra-grey-light);
+}
+.sect-2, .sect-4{
+    background-color: var(--extra-blue-light);
+}

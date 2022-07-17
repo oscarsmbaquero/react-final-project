@@ -1,0 +1,88 @@
+.companyForm {
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 1em auto;
+    cursor: url(../../assets/images/handshake-regular.png);
+    @media screen and (min-width: 900px) {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      max-width: 1200px;
+    }
+    &__img {
+      display: none;
+      @media screen and (min-width: 900px) {
+        display: flex;
+        width: 300px;
+        height: 200px;
+        position: static;
+  
+      }
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #004f98;
+        margin: auto 2em;
+        padding: 2em;
+        border-radius: 10px;
+      position: relative;
+      z-index: 1;
+        @media screen and (min-width: 900px) {
+          display: flex;
+          flex-direction: column;
+          width: 50%;
+          height: 90%;
+          margin-top: 1em;
+          background-color: #004f98;
+        }
+    }
+        &__fieldset {
+          display: flex;
+          flex-direction: column;
+          @media screen and (min-width: 900px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 80%;
+            margin-top: 2em;
+          }
+        }
+        &__label {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        &__input {
+          text-align: center;
+          border-radius: 10px;
+          padding: 1.2em;
+          width: 100%;
+          margin: 1em auto;
+        }
+        &__textarea {
+          padding: 1.2em;
+          border-radius: 20px;
+          max-width: 600px;
+          max-height: 150px;
+          margin-left: 3em;
+          margin-bottom: 1em;
+        }
+        &__button {
+          background-color: #ff6700;
+          box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+            rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+            rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+            rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+            rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+            rgba(0, 0, 0, 0.09) 0px 32px 16px;
+          color: white;
+          cursor: pointer;
+          font-weight: 700;
+          border-radius: 20px;
+          padding: 1em;
+        }
+  }
+  
