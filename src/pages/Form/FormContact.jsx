@@ -1,6 +1,6 @@
 import React from "react";
 import "./FormContact.scss";
-import formImg from "../../assets/images/undrawMessage.png";
+import formImg from "../../assets/images/prueba.png";
 import emailjs from '@emailjs/browser';
 import {  useNavigate } from "react-router-dom";
 
@@ -25,68 +25,70 @@ const FormContact = () => {
     <h1 className="form__title">Explícanos tu duda</h1>
     <section className="sectionForm">
       <img className="sectionForm__img" src={formImg} alt="..." />
-      <form className="form" onSubmit={sendMail}>
-        <fieldset className="form__fieldset">
-          <h2 className="form__h2">Que lo que</h2>
-          <div> </div>
+      <form className="sectionForm__form" onSubmit={sendMail}>
+        <fieldset className="sectionForm__fieldset1">
+          <h2 className="sectionForm__h2">Que lo que</h2>
+          {/* <div> </div> */}
           <input
-            className="form__input"
+            className="sectionForm__input"
             id="name"
             name="name"
             type="text"
             placeholder="Nombre:..."
           />
           <input
-            className="form__input"
+            className="sectionForm__input"
             id="email"
             name="email"
             type="email"
             placeholder="Email:..."
           />
           <input
-            className="form__input"
+            className="sectionForm__input"
             id="phone"
             name="phone"
             type="text"
             placeholder="Teléfono:..."
           />
           <textarea
-            className="form__textarea"
+            className="sectionForm__textarea"
             id="message"
             name="message"
             type="text"
             placeholder="Deja tu mensaje:..."
             rows='5'
-          />
-          <h2 className="form__h2">De donde tu ere</h2>
-          <div className="form__divDirecc">
-
+            />
+                    </fieldset>
+          <h2 className="sectionForm__h2">De donde tu ere</h2>
+            <fieldset className="sectionForm__fieldset2">
+              <div className="sectionForm__divDirecc">
             <input
-              className="form__input"
+              className="sectionForm__input3"
               id="ciudad"
               name="ciudad"
               type="text"
               placeholder="Ciudad:..."
             />
             <input
-              className="form__input"
+              className="sectionForm__input3"
               id="cp"
               name="cp"
               type="text"
               placeholder="Código postal:..."
             />
-          </div>
+            </div>
           <input
-              className="form__input"
+              className="sectionForm__input2"
               id="dirección"
               name="direccion"
               placeholder="Dirección:..."
-            />
-        </fieldset>
-        <button className="form__button">
-          {" "}
+                />
+                          </fieldset>
+        <button className="sectionForm__button">
           Enviar mensaje
         </button>
+
+
       </form>
       </section>
       </>
