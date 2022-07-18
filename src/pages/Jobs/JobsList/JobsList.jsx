@@ -23,17 +23,17 @@ const JobsList = () => {
       };
       /*Con el valor introducido en el inpute del buscador filtramos los trabajos almacenaos en jobs,
       Filtramos por empresa o por puestos ofertados, previo paso a minusculas*/
-      const filteredJobs = jobs.filter((jobs) =>
-        jobs.name_job.toLowerCase().includes(keyword) ||
-        jobs.companie.toLowerCase().includes(keyword)
+      // const filteredJobs = jobs.filter((jobs) =>
+      //   jobs.name_job.toLowerCase().includes(keyword) ||
+      //   jobs.companie.toLowerCase().includes(keyword)
 
-        );
-          console.log(filteredJobs);
+      //   );
+      //     console.log(filteredJobs);
   return (
 <>
     <SearchInput placeholder="Filter by Companies of Jobs" onChange={onInputChange} />
         <section className="jobList">
-      {filteredJobs.map((post, key)=>(
+      {jobs.map((post, key)=>(
         <div key={key} className="jobList__div">
           <div className='jobList__div1'>
             <h1 className='jobList__h1'>Puesto trabajo: {post.name_job}</h1>

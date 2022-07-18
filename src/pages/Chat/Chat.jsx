@@ -16,11 +16,11 @@ const Chat = () => {
     //call the user list
     useEffect(() => {
 
-        fetch('http://localhost:4000/employers')
+        fetch('http://localhost:4000/users')
             .then(response => response.json())
             .then(data => { setContacts(data) })
     }, []);
-
+    console.log(contacts);
     // const getContext = useGetAuth()
     // const dispatch = useDispatchAuth()
 
