@@ -19,7 +19,7 @@ export const useDispatchAuth = () => {
 
 export const AuthProvider = ({ children }) => {
 
-    const [user , dispatch] = useReducer(AuthReducer, initialState);
+    const [user, dispatch] = useReducer(AuthReducer, initialState);
 
     return (
         <AuthState.Provider value={user}>

@@ -8,6 +8,7 @@ const Contacts = ({ contact, setSelectedChat }) => {
   const selectedChat = React.useContext(SelectedChatContext);
 
   const handleSelected = () => {
+    console.log("esto está protegido?");
     setSelectedChat(contact)
   }
 

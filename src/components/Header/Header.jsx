@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import { NavLink } from 'react-router-dom'
 import {
   AiFillHome,
@@ -11,8 +11,18 @@ import { BsFillChatDotsFill } from "react-icons/bs";
 import { FaUserTie, FaUserCircle } from "react-icons/fa";
 import "./Header.scss";
 import Navbar from "react-bootstrap/Navbar";
+import { logout, useDispatchAuth, useGetAuth } from "../../context";
 // import NavDropdown from "react-bootstrap/NavDropdown";
 const Header = () => {
+
+  const userLogged = useGetAuth();
+  const dispatch = useDispatchAuth()
+  const navigate = useNavigate()
+const handleLogout = () => {
+  logout(dispatch)
+  navigate('/users/login')
+}
+
   return (
 
     <Navbar className="header" expand="md">
@@ -20,7 +30,7 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <ul className="header__ul">
-          <Link className="header__a" to="/">
+            <Link className="header__a" to="/">
               <span className="span1"> Home</span>
               <span className="span2">
                 <AiFillHome />
@@ -62,6 +72,13 @@ const Header = () => {
                 <AiOutlineUserAdd />
               </span>
             </Link>
+          {!userLogged.id ?  <Link className="header__a" to="/users/login">
+              <span className="span1">Login</span>
+              <span className="span2">
+                <AiOutlineUserAdd />
+              </span>
+            </Link> : <p onClick={handleLogout} className="header__a">logout</p>}
+
             {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
