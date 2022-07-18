@@ -4,7 +4,7 @@ import SearchInput from '../../../core/SearchInput/SearchInput';
 import './UserList.scss';
 
 
-const JobsList = () => {
+const UserList = () => {
 
   let [users, setUsers] = useState([]);
   const [keyword, setKeyword] = useState("");//estado para almacenar y setear las entradas de teclado para el input
@@ -21,12 +21,13 @@ const JobsList = () => {
     e.preventDefault();
     setKeyword(e.target.value.toLowerCase());
   };
-
+ 
   /*Con el valor introducido en el inpute del buscador filtramos los trabajos almacenaos en jobs(filtrado por puesto de trabajo o name)
     previo paso a minusculas*/
   // const filteredUsers = users.filter((users) =>
   // users.job.toLowerCase().includes(keyword) ||
   // users.name.toLowerCase().includes(keyword)
+  //Miau
   // );
 
   return (
@@ -52,4 +53,4 @@ const JobsList = () => {
   )
 }
 
-export default JobsList
+export default UserList

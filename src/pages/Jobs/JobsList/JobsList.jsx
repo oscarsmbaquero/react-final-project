@@ -33,7 +33,11 @@ const JobsList = () => {
 <>
     <SearchInput placeholder="Filter by Companies of Jobs" onChange={onInputChange} />
         <section className="jobList">
+<<<<<<< HEAD
         {jobs.map((post, key)=>(
+=======
+      {jobs.map((post, key)=>(
+>>>>>>> e277e99a41a7d472dd5798b8849d6c93b5c1efd7
         <div key={key} className="jobList__div">
           <div className='jobList__div1'>
             <h1 className='jobList__h1'>Puesto trabajo: {post.name_job}</h1>
