@@ -4,6 +4,8 @@ import formImg from "../../assets/images/prueba.png";
 import emailjs from '@emailjs/browser';
 import {  useNavigate } from "react-router-dom";
 
+import Swal from 'sweetalert2'// hay que probarlo
+
 const FormContact = () => {
   let navigate = useNavigate();
 
@@ -13,7 +15,13 @@ const FormContact = () => {
       console.log(e.target.name);
       emailjs.sendForm('service_esqoixc','template_lvs0put',e.target,'dso8n6rVU1ADlfbV4')
       .then(response =>console.log(response))
-      navigate("/Users");
+      Swal.fire({
+        title: 'Success!',
+        text: 'Enviado Formulario Correctamente',
+        icon: 'success',
+        confirmButtonText: 'ouuhhh yeaaaa'
+      })
+      navigate("/");
       
     } catch (error) {
       navigate("/FormContact");

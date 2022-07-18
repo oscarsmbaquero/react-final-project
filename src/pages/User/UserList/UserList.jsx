@@ -4,13 +4,13 @@ import SearchInput from '../../../core/SearchInput/SearchInput';
 import './UserList.scss';
 
 
-const JobsList = () => {
+const UserList = () => {
 
   let [users, setUsers] = useState([]);
   const [keyword, setKeyword] = useState("");//estado para almacenar y setear las entradas de teclado para el input
 
   useEffect(() => {
-    fetch('http://localhost:4000/employers')
+    fetch('http://localhost:4000/users')
       .then(response => response.json())
       .then(data => setUsers(data))
   }, []);
@@ -52,4 +52,4 @@ const JobsList = () => {
   )
 }
 
-export default JobsList
+export default UserList
