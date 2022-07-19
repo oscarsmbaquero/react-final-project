@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { loginUser, useDispatchAuth } from '../../context';
 
 const loginInitialState = {
@@ -7,6 +8,9 @@ const loginInitialState = {
 }
 
 const Login = () => {
+
+    const navigate = useNavigate()
+
 
     const [loginForm, setLoginForm] = useState(loginInitialState);
 
@@ -22,10 +26,11 @@ const Login = () => {
     const handleLogin = async (event) => {
         event.preventDefault();
 
-        console.log(loginForm)
         try {
             loginUser(dispatch, loginForm)
             setLoginForm(loginInitialState)
+            navigate("/Jobs")
+
         } catch (error) {
 
         }
