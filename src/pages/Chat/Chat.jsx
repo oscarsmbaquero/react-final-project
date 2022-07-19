@@ -17,7 +17,6 @@ const Chat = () => {
             .then(data => { setContacts(data) })
     }, []);
 
-    console.log('me he renderizado');
     return (
         <div className='container'>
             <SelectedChatContext.Provider value={selectedChat}>

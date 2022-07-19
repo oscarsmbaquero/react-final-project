@@ -10,13 +10,13 @@ const I18n = () => {
   return (
     
       
-    <div class="i18n">
+    <div className="i18n">
       <div>
-    <p class="p-i18n">Idioma: {locale}</p> 
+    <p className="p-i18n">Idioma: {locale}</p> 
     </div>
     <div>
-        <button class="button-i18n" onClick={() =>selectLanguage('es-ES')}>ES</button>
-        <button class="button-i18n" onClick={()=>selectLanguage('en')}>EN</button>
+        <button className="button-i18n" onClick={() =>selectLanguage('es-ES')}>ES</button>
+        <button className="button-i18n" onClick={()=>selectLanguage('en')}>EN</button>
     </div>
     </div>
     
