@@ -1,33 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
 
-const JobDetail = () => {
+const JobDetail = ({ selectedJob }) => {
 
-  const { id } = useParams();
-  console.log(id,117);
-
-  let [job, SetJob] = useState();
-
-  useEffect(() => {
-    
-    fetch(`http://localhost:4000/jobs/${id}`)
-      .then(response => response.json())
-      .then(data => SetJob(data))  
-     }, [id]); 
-     console.log(job);
   return (
     <div>
-          { !job ? <p>Cargando...</p> : <>
-              <div class="details">
-                <div class="details__text">      
-                    <h1> puesto de trabajo: {job.name}</h1>
-                    <h2> Empresa:{job.description}</h2>
-                    <h3> Mail: {job.salary}</h3>
-                    <p>  Cif: {job.requiremets}</p>    
-                </div>                
-              </div>
-           </>}
-  </div>
+      <div class="details">
+        <div class="details__text">
+          <h1> puesto de trabajo: {selectedJob.name}</h1>
+          <h2> Description:{selectedJob.description}</h2>
+          <h3> Salary: {selectedJob.salary}</h3>
+          <p>  Requirements: {selectedJob.requiremets}</p>
+        </div>
+      </div>
+    </div>
   )
 }
 

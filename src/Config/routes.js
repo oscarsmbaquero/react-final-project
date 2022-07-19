@@ -35,10 +35,10 @@ const routes = [
     path: "/Users",
     element: <UserList />,
   },
-  {
-    path: "/User/:id",
-    element: <UserDetails />,
-  },
+  // {
+  //   path: "/User/:id",
+  //   element: <UserDetails />,
+  // },
   {
     path: "/FormContact",
     element: <FormContact />,
