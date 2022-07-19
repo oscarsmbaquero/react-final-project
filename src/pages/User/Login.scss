@@ -1,0 +1,46 @@
+.login{
+    margin: 2em auto;
+    max-width: 70%;
+    background-color: white;
+    @media screen and(min-width:810px) {
+        background-color: rgba(226, 109, 31, 0.438);
+        width: 500px;
+        border-radius: 10px;
+    }
+    &__form{
+        display: flex;
+        flex-direction: column;
+        margin: 1em auto;
+        @media screen and(min-width:810px) {
+            width: 90%;
+        }
+    }
+    &__label{
+        text-align:left;
+        @media screen and(min-width:810px) {
+            text-align:center;
+        }
+    }
+    &__input{
+        margin:1em auto;
+        width: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.616);
+        border-radius: 4px;
+        @media screen and(min-width:810px) {
+            width: 70%;
+        }
+    }
+    // &__input:hover{
+
+    // }
+    &__button{
+        margin: 1em auto;
+        width: 100%;
+        border-radius: 15px;
+        background-color: var(--secondary-color);
+        color: white;
+        @media screen and(min-width:810px) {
+            width: 70%;
+        }
+    }
+}
