@@ -1,11 +1,21 @@
+//Falta separar el margen inferior entre le "form" y el "login"
+
+.sectionLogin{
+
+    @media screen and(min-width:810px) {
+        background-color: rgba(226, 109, 31, 0.233);
+    }
+}
 .login{
     margin: 2em auto;
     max-width: 70%;
     background-color: white;
+    color:var(--primary-color);
     @media screen and(min-width:810px) {
-        background-color: rgba(226, 109, 31, 0.438);
         width: 500px;
         border-radius: 10px;
+        color:black;
+        
     }
     &__form{
         display: flex;
@@ -13,6 +23,8 @@
         margin: 1em auto;
         @media screen and(min-width:810px) {
             width: 90%;
+            margin-bottom: 2em;
+
         }
     }
     &__label{
