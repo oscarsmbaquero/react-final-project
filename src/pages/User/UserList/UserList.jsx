@@ -24,17 +24,17 @@ const UserList = () => {
  
   /*Con el valor introducido en el inpute del buscador filtramos los trabajos almacenaos en jobs(filtrado por puesto de trabajo o name)
     previo paso a minusculas*/
-  // const filteredUsers = users.filter((users) =>
-  // users.job.toLowerCase().includes(keyword) ||
-  // users.name.toLowerCase().includes(keyword)
-  //Miau
-  // );
+  const filteredUsers = users.filter((users) =>
+  users.job.toLowerCase().includes(keyword) ||
+  users.name.toLowerCase().includes(keyword)
+  
+  );
 
   return (
     <>
       <SearchInput placeholder="Filter by job or user " onChange={onInputChange} />
       <section className="userList">
-        {users.map((post, key) => (
+        {filteredUsers.map((post, key) => (
           <div key={key} className="userList__div">
             <div className='userList__div1' >
               <h1 className='userList__h1' >Name {post.name}</h1>

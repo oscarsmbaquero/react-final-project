@@ -52,7 +52,7 @@ const JobsList = () => {
         e.preventDefault();
         console.log('id_job');
 
-        const userlogged = userLogged.id;
+        //const userlogged = userLogged.id;
       }
 
       

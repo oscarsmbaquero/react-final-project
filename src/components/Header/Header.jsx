@@ -42,12 +42,12 @@ const handleLogout = () => {
                 <BsFillChatDotsFill />
               </span>
             </Link>:''}
-            {userLogged.id ?<Link className="header__a" to="/Jobs">
+            <Link className="header__a" to="/Jobs">
               <span className="span1">Jobs</span>
               <span className="span2">
                 <FaUserTie />
               </span>
-            </Link>:''}
+            </Link>
             {userLogged.id ?<Link className="header__a" to="/Users">
               <span className="span1">Users</span>
               <span className="span2">
