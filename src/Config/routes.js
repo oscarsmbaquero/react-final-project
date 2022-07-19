@@ -14,11 +14,11 @@ const routes = [
     element: <Home />,
   },
   {
-    path: "/Chat",
+    path: "/chat",
     element: <Chat />,
   },
   {
-    path: "/Jobs",
+    path: "/jobs",
     element: <JobsList />,
   },
   {
@@ -26,7 +26,7 @@ const routes = [
     element: <Login />,
   },
   {
-    path: "/Users",
+    path: "/users",
     element: <UserList />,
   },
   // {
@@ -34,15 +34,15 @@ const routes = [
   //   element: <UserDetails />,
   // },
   {
-    path: "/FormContact",
+    path: "/formContact",
     element: <FormContact />,
   },
   {
-    path: "/FormCompanies",
+    path: "/formCompanies",
     element: <FormCompanies />,
   },
   {
-    path: "/FormEmployers",
+    path: "/formEmployers",
     element: <FormEmployers />,
   },
 ];
