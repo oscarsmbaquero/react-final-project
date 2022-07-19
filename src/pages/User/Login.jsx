@@ -38,7 +38,7 @@ const Login = () => {
 
     return (
         <div>
-            <form onSubmit={handleLogin}>
+            <form  className="sectionForm__form" onSubmit={handleLogin}>
                 <label htmlFor="email">
                     <p>email</p>
                     <input type="text" name="email" value={loginForm.email} onChange={handleLoginForm} />
