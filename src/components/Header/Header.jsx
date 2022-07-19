@@ -36,42 +36,42 @@ const handleLogout = () => {
                 <AiFillHome />
               </span>
             </Link>
-            <Link className="header__a" to="/Chat">
+            {userLogged.id ?<Link className="header__a" to="/Chat">
               <span className="span1">Chat</span>
               <span className="span2">
                 <BsFillChatDotsFill />
               </span>
-            </Link>
-            <Link className="header__a" to="/Jobs">
+            </Link>:''}
+            {userLogged.id ?<Link className="header__a" to="/Jobs">
               <span className="span1">Jobs</span>
               <span className="span2">
                 <FaUserTie />
               </span>
-            </Link>
-            <Link className="header__a" to="/Users">
+            </Link>:''}
+            {userLogged.id ?<Link className="header__a" to="/Users">
               <span className="span1">Users</span>
               <span className="span2">
                 <FaUserCircle />
               </span>
-            </Link>
+            </Link>:''}
             <Link className="header__a" to="/FormContact">
               <span className="span1">Contáctanos</span>
               <span className="span2">
                 <AiOutlineMail />
               </span>
             </Link>
-            <Link className="header__a" to="/FormCompanies">
+            {userLogged.id ?<Link className="header__a" to="/FormCompanies">
               <span className="span1">Añadir Oferta</span>
               <span className="span2">
                 <AiOutlineFileAdd />
               </span>
-            </Link>
-            <Link className="header__a" to="/FormEmployers">
+            </Link>:''}
+            {userLogged.id ?  <Link className="header__a" to="/FormEmployers">
               <span className="span1">Añadir USuario</span>
               <span className="span2">
                 <AiOutlineUserAdd />
               </span>
-            </Link>
+            </Link>:''}
           {!userLogged.id ?  <Link className="header__a" to="/users/login">
               <span className="span1">Login</span>
               <span className="span2">
