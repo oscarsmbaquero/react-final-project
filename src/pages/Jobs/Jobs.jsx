@@ -5,10 +5,10 @@ import Swal from 'sweetalert2';
 import SearchInput from '../../core/SearchInput/SearchInput';
 
 import { useGetAuth } from "../../context/context";
-import JobDetail from './components/JobDetails/JobDetail';
-import Jobs from './components/JobsList/JobsList';
+import JobDetail from './components/JobDetail/JobDetail';
+import JobsList from './components/JobsList/JobsList';
 
-const JobsList = () => {
+const Jobs = () => {
   const [jobs, setJobs] = useState([]);
   const [keyword, setKeyword] = useState('');
   const [selectedJob, setSelectedJob] = useState('')
@@ -74,7 +74,7 @@ const JobsList = () => {
       <div className='jobsListContainer'>
         <section className="jobList">
           {filteredJobs.map((job) => (
-            <Jobs key={job._id} job={job} setSelectedJob={setSelectedJob} />
+            <JobsList key={job._id} job={job} setSelectedJob={setSelectedJob} />
           ))}
         </section>
         <section>
@@ -85,4 +85,4 @@ const JobsList = () => {
   )
 }
 
-export default JobsList
+export default Jobs

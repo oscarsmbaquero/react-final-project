@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Jobs = ({ job, setSelectedJob }) => {
+const JobsList = ({ job, setSelectedJob }) => {
 
     const handleSelectedJob = () => {
         setSelectedJob(job)
@@ -19,4 +19,4 @@ const Jobs = ({ job, setSelectedJob }) => {
     )
 }
 
-export default Jobs
+export default JobsList
