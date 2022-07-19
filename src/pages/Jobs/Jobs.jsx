@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import './JobsList.scss';
+import './Jobs.scss';
 import Swal from 'sweetalert2';
 
-import SearchInput from '../../../core/SearchInput/SearchInput';
+import SearchInput from '../../core/SearchInput/SearchInput';
 
-import { useGetAuth } from "../../../context/context";
-import JobDetail from '../JobDetails/JobDetail';
-import Jobs from '../components/Jobs';
+import { useGetAuth } from "../../context/context";
+import JobDetail from './components/JobDetails/JobDetail';
+import Jobs from './components/JobsList/JobsList';
 
 const JobsList = () => {
   const [jobs, setJobs] = useState([]);

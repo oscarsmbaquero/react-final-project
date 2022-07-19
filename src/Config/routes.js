@@ -1,14 +1,12 @@
 import Chat from "../pages/Chat/Chat";
 import Home from "../pages/Home/Home";
 
-import JobsList from "../pages/Jobs/JobsList/JobsList";
 import UserList from "../pages/User/UserList/UserList";
-import JobDetails from "../pages/Jobs/JobDetails/JobDetail";
-import UserDetails from "../pages/User/UserDetails/UserDetails";
 import FormContact from "../pages/Form/FormContact";
 import FormCompanies from "../pages/FormCompanies/FormCompanies";
 import FormEmployers from "../pages/FormEmployers/FormEmployers";
 import Login from "../pages/User/Login";
+import JobsList from "../pages/Jobs/Jobs";
 
 const routes = [
   {
@@ -22,10 +20,6 @@ const routes = [
   {
     path: "/Jobs",
     element: <JobsList />,
-  },
-  {
-    path: "/Jobs/:id",
-    element: <JobDetails />,
   },
   {
     path: "/users/login",
