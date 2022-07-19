@@ -8,24 +8,22 @@ const JobDetail = () => {
 
   let [job, SetJob] = useState();
 
-  console.log(id)
-
   useEffect(() => {
     
-    fetch(`http://localhost:4000/companies/${id}`)
+    fetch(`http://localhost:4000/jobs/${id}`)
       .then(response => response.json())
       .then(data => SetJob(data))  
      }, [id]); 
-
+     console.log(job);
   return (
     <div>
           { !job ? <p>Cargando...</p> : <>
               <div class="details">
                 <div class="details__text">      
-                    <h1> puesto de trabajo: {job.name_job}</h1>
-                    <h2> Empresa:{job.companie}</h2>
-                    <h3> Mail: {job.email}</h3>
-                    <p>  Cif: {job.cif}</p>    
+                    <h1> puesto de trabajo: {job.name}</h1>
+                    <h2> Empresa:{job.description}</h2>
+                    <h3> Mail: {job.salary}</h3>
+                    <p>  Cif: {job.requiremets}</p>    
                 </div>                
               </div>
            </>}

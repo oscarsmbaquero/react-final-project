@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import { NavLink } from 'react-router-dom'
 import {
   AiFillHome,
@@ -11,8 +11,18 @@ import { BsFillChatDotsFill } from "react-icons/bs";
 import { FaUserTie, FaUserCircle } from "react-icons/fa";
 import "./Header.scss";
 import Navbar from "react-bootstrap/Navbar";
+import { logout, useDispatchAuth, useGetAuth } from "../../context";
 // import NavDropdown from "react-bootstrap/NavDropdown";
 const Header = () => {
+
+  const userLogged = useGetAuth();
+  const dispatch = useDispatchAuth()
+  const navigate = useNavigate()
+const handleLogout = () => {
+  logout(dispatch)
+  navigate('/users/login')
+}
+
   return (
 
     <Navbar className="header" expand="md">
@@ -20,48 +30,55 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <ul className="header__ul">
-          <Link className="header__a" to="/">
+            <Link className="header__a" to="/">
               <span className="span1"> Home</span>
               <span className="span2">
                 <AiFillHome />
               </span>
             </Link>
-            <Link className="header__a" to="/Chat">
+            {userLogged.id ?<Link className="header__a" to="/Chat">
               <span className="span1">Chat</span>
               <span className="span2">
                 <BsFillChatDotsFill />
               </span>
-            </Link>
-            <Link className="header__a" to="/Jobs">
+            </Link>:''}
+            {userLogged.id ?<Link className="header__a" to="/Jobs">
               <span className="span1">Jobs</span>
               <span className="span2">
                 <FaUserTie />
               </span>
-            </Link>
-            <Link className="header__a" to="/Users">
+            </Link>:''}
+            {userLogged.id ?<Link className="header__a" to="/Users">
               <span className="span1">Users</span>
               <span className="span2">
                 <FaUserCircle />
               </span>
-            </Link>
+            </Link>:''}
             <Link className="header__a" to="/FormContact">
               <span className="span1">Contáctanos</span>
               <span className="span2">
                 <AiOutlineMail />
               </span>
             </Link>
-            <Link className="header__a" to="/FormCompanies">
+            {userLogged.id ?<Link className="header__a" to="/FormCompanies">
               <span className="span1">Añadir Oferta</span>
               <span className="span2">
                 <AiOutlineFileAdd />
               </span>
-            </Link>
-            <Link className="header__a" to="/FormEmployers">
+            </Link>:''}
+            {userLogged.id ?  <Link className="header__a" to="/FormEmployers">
               <span className="span1">Añadir USuario</span>
               <span className="span2">
                 <AiOutlineUserAdd />
               </span>
-            </Link>
+            </Link>:''}
+          {!userLogged.id ?  <Link className="header__a" to="/users/login">
+              <span className="span1">Login</span>
+              <span className="span2">
+                <AiOutlineUserAdd />
+              </span>
+            </Link> : <p onClick={handleLogout} className="header__a">logout</p>}
+
             {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

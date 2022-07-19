@@ -68,15 +68,15 @@ const FormCompanies = () => {
                 {...register("description")}
               />
             </label>
-            {/* <label>
+            <label>
               <input
                 className="companyForm__input"
                 type="text"
-                name="cif"
-                placeholder="Cif"
-                {...register("cif")}
+                name="requiremets"
+                placeholder="Requisitos"
+                {...register("requiremets")}
               />
-            </label> */}
+            </label>
             <button  className="companyForm__button" disabled={!isValid}>
               Send
             </button>

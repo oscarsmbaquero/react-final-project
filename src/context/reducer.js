@@ -1,9 +1,9 @@
 const idStored = localStorage.getItem("currentUser")
     ? JSON.parse(localStorage.getItem("currentUser")).user
-    : "";
+    : undefined;
 const tokenStored = localStorage.getItem("currentUser")
     ? JSON.parse(localStorage.getItem("currentUser")).token
-    : "";
+    : undefined;
 
 export const initialState = {
     id: idStored,
@@ -11,6 +11,7 @@ export const initialState = {
     loading: false,
     errorMessage: null
 };
+
 
 export const AuthReducer = (initialState, action) => {
     switch (action.type) {
@@ -31,6 +32,12 @@ export const AuthReducer = (initialState, action) => {
                 ...initialState,
                 loading: false,
                 errorMessage: action.error
+            };
+        case "LOGOUT":
+            return {
+                id: undefined,
+                token: undefined,
+                loading: false
             };
 
 
