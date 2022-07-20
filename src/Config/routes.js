@@ -30,10 +30,12 @@ const routes = [
     path: "/users",
     element: <UserList />,
   },
+
   {
     path: "/users/:id",
     element: <UserDetails />,
   },
+
   {
     path: "/formContact",
     element: <FormContact />,
