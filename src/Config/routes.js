@@ -7,6 +7,7 @@ import FormCompanies from "../pages/FormCompanies/FormCompanies";
 import FormEmployers from "../pages/FormEmployers/FormEmployers";
 import Login from "../pages/User/Login";
 import JobsList from "../pages/Jobs/Jobs";
+import UserDetails from "../pages/User/UserDetails/UserDetails";
 
 const routes = [
   {
@@ -29,10 +30,10 @@ const routes = [
     path: "/users",
     element: <UserList />,
   },
-  // {
-  //   path: "/User/:id",
-  //   element: <UserDetails />,
-  // },
+  {
+    path: "/users/:id",
+    element: <UserDetails />,
+  },
   {
     path: "/formContact",
     element: <FormContact />,

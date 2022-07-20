@@ -36,14 +36,16 @@ const UserList = () => {
       <section className="userList">
         {filteredUsers.map((post, key) => (
           <div key={key} className="userList__div">
+          <img className="userList__photo" src={post.image} alt={post.name}/>
             <div className='userList__div1' >
-              <h1 className='userList__h1' >Name {post.name}</h1>
+           
+              <h1 className='userList__h1' >Name: {post.name}</h1>
               <h2 className='userList__h2' >Surname: {post.surname}</h2>
-              <h3 className='userList__h3' >dni: {post.dni}</h3>
-              <p className='userList__p' >Direction: {post.direction}</p>
-              <p className='userList__p' >Job: {post.job}</p>
+              <h3 className='userList__h3' >Email: {post.email}</h3>
+              {/* <p className='userList__p' >Direction: {post.direction}</p>
+              <p className='userList__p' >Job: {post.job}</p> */}
             </div>
-            <Link to={`/User/${post.id}`}>
+            <Link to={`/users/${post._id}`}>
               <button className='userList__btn' >Show More</button>
             </Link>
           </div>

@@ -25,7 +25,12 @@
 
 &__p2{
     text-transform: lowercase;
-}    
+}   
+&__photo {
+    width: 70px;
+    height: 100px;
+    border-radius: 30px;
+}
 
 &__btn{
     align-items: flex-end;
