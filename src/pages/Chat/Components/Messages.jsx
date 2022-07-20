@@ -9,20 +9,19 @@ const Messages = () => {
     const [messages, setMessages] = useState([]);
 
     const selectedChat = React.useContext(SelectedChatContext)
-    const currentUser = useGetAuth()
-
-    // console.log(selectedChat?._id, currentUser.id);
+    const loggedUser = useGetAuth()
 
     useEffect(() => {
         if (selectedChat) {
             fetch(`${BASE_URL}/messages/getMessages`, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${loggedUser.token}`
                 },
                 body: JSON.stringify({
-                    from: currentUser.id,
-                    to: selectedChat?._id
+                    from: loggedUser.id,
+                    to: selectedChat?.id
                 })
             })
                 .then(res => res.json())

@@ -36,37 +36,37 @@ const handleLogout = () => {
                 <AiFillHome />
               </span>
             </Link>
-            {userLogged.id ?<Link className="header__a" to="/Chat">
+            {userLogged.id ?<Link className="header__a" to="/chat">
               <span className="span1">Chat</span>
               <span className="span2">
                 <BsFillChatDotsFill />
               </span>
             </Link>:''}
-            <Link className="header__a" to="/Jobs">
+            <Link className="header__a" to="/jobs">
               <span className="span1">Jobs</span>
               <span className="span2">
                 <FaUserTie />
               </span>
             </Link>
-            {userLogged.id ?<Link className="header__a" to="/Users">
+            {userLogged.id ?<Link className="header__a" to="/users">
               <span className="span1">Users</span>
               <span className="span2">
                 <FaUserCircle />
               </span>
             </Link>:''}
-            <Link className="header__a" to="/FormContact">
+            <Link className="header__a" to="/formContact">
               <span className="span1">Contáctanos</span>
               <span className="span2">
                 <AiOutlineMail />
               </span>
             </Link>
-            {userLogged.id ?<Link className="header__a" to="/FormCompanies">
+            {userLogged.id ?<Link className="header__a" to="/formCompanies">
               <span className="span1">Añadir Oferta</span>
               <span className="span2">
                 <AiOutlineFileAdd />
               </span>
             </Link>:''}
-            {userLogged.id ?  <Link className="header__a" to="/FormEmployers">
+            {userLogged.id ?  <Link className="header__a" to="/formEmployers">
               <span className="span1">Añadir USuario</span>
               <span className="span2">
                 <AiOutlineUserAdd />

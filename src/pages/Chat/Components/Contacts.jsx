@@ -14,7 +14,7 @@ const Contacts = ({ contact, setSelectedChat }) => {
   return (
     <div>
       <div
-        className={`contacts ${selectedChat?._id === contact._id ? 'selected' : ''}`}
+        className={`contacts ${selectedChat?.id === contact.id ? 'selected' : ''}`}
         onClick={handleSelected}
       >
         <div

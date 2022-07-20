@@ -2,20 +2,33 @@ import React, { useEffect, useState } from 'react'
 import './Chat.scss'
 import Messages from './Components/Messages'
 import Contacts from './Components/Contacts'
+import { useGetAuth } from '../../context/context';
+import { BASE_URL } from '../../assets/ApiRoutes';
 
 export const SelectedChatContext = React.createContext();
 
 const Chat = () => {
-    const [contacts, setContacts] = useState([]);
+    const [contacts, setContacts] = useState(undefined);
     const [selectedChat, setSelectedChat] = useState(undefined);
 
-    //call the user list
+    const loggedUser = useGetAuth()
+
     useEffect(() => {
 
-        fetch('http://localhost:4000/users')
+        fetch(`${BASE_URL}/users/contacts`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${loggedUser.token}`
+            }
+        })
             .then(response => response.json())
-            .then(data => { setContacts(data) })
-    }, []);
+            .then(data => {
+                return setContacts(data.data.contacts)
+            })
+    }, [loggedUser.token]);
+
+    console.log('has rendered');
 
     return (
         <div className='container'>
@@ -23,11 +36,10 @@ const Chat = () => {
                 <div className="chatContainer">
                     <div className='chatContainer__user'>
                         <div>
-                            {contacts.map((contact) =>
+                            {contacts && contacts.map((contact) =>
                                 <Contacts
-                                    key={contact._id}
+                                    key={contact.id}
                                     contact={contact}
-                                    id={contact.id}
                                     setSelectedChat={setSelectedChat}
                                 />
                             )}

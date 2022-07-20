@@ -1,12 +1,15 @@
 import React from "react";
 import "./Home.scss";
 import formImg from "../../assets/images/prueba.png";
+
+
+
 const Home = () => {
   return (
     <main className="home">
       <section className="home__sectionfirst">
-              <p className="home__firstp">Crea un Curriculum Vitae Digital</p>
-              <p className="home__secondp">Y saca el mejor provecho a tu perfil</p>
+        <p className="home__firstp">Crea un Curriculum Vitae Digital</p>
+        <p className="home__secondp">Y saca el mejor provecho a tu perfil</p>
       </section>
       <section className="home__section sect-1">
         <img className="home__img" src={formImg} alt="..."></img>

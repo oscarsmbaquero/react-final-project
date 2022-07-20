@@ -10,34 +10,32 @@ import './ChatInput.scss'
 const ChatInput = ({ sendMsg }) => {
   const [inputMsg, setInputMsg] = useState("");
 
-  const currentUser = useGetAuth()
+  const loggedUser = useGetAuth()
   const selectedChat = React.useContext(SelectedChatContext)
 
   const handleMsg = (event) => {
     setInputMsg(event.target.value)
   }
 
-  console.log(currentUser.id, selectedChat?._id);
-
   const handleSendMsg = (event) => {
     event.preventDefault();
     fetch(`${BASE_URL}/messages/sendMessage`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${loggedUser.token}`
       },
       body: JSON.stringify({
-        from: currentUser.id,
-        to: selectedChat._id,
+        from: loggedUser.id,
+        to: selectedChat.id,
         message: inputMsg
       })
     })
-    .then((res) => res.json())
-    .then(data => console.log(data))
- 
+      .then((res) => res.json())
+      .then(data => console.log(data))
     setInputMsg("")
-
   }
+
   return (
     <div className='inputContainer'>
       <form
