@@ -12,6 +12,7 @@ const Jobs = () => {
   const [keyword, setKeyword] = useState('');
   const [selectedJob, setSelectedJob] = useState('')
 
+  console.log('rendered jobs');
 
   useEffect(() => {
     fetch('http://localhost:4000/jobs')

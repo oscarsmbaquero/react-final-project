@@ -2,9 +2,8 @@ import React from "react";
 import "./Home.scss";
 import formImg from "../../assets/images/prueba.png";
 
-
-
 const Home = () => {
+
   return (
     <main className="home">
       <section className="home__sectionfirst">
