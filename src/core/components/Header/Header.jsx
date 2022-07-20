@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import { NavLink } from 'react-router-dom'
 import {
   AiFillHome,
   AiOutlineMail,
@@ -11,17 +10,18 @@ import { BsFillChatDotsFill } from "react-icons/bs";
 import { FaUserTie, FaUserCircle } from "react-icons/fa";
 import "./Header.scss";
 import Navbar from "react-bootstrap/Navbar";
-import { logout, useDispatchAuth, useGetAuth } from "../../context";
+import { logout, useDispatchAuth, useGetAuth } from "../../../context";
 // import NavDropdown from "react-bootstrap/NavDropdown";
+
 const Header = () => {
 
   const userLogged = useGetAuth();
   const dispatch = useDispatchAuth()
   const navigate = useNavigate()
-const handleLogout = () => {
-  logout(dispatch)
-  navigate('/users/login')
-}
+  const handleLogout = () => {
+    logout(dispatch)
+    navigate('/users/login')
+  }
 
   return (
 
@@ -36,43 +36,43 @@ const handleLogout = () => {
                 <AiFillHome />
               </span>
             </Link>
-            {userLogged.id ?<Link className="header__a" to="/chat">
+            {userLogged.id ? <Link className="header__a" to="/chat">
               <span className="span1">Chat</span>
               <span className="span2">
                 <BsFillChatDotsFill />
               </span>
-            </Link>:''}
+            </Link> : ''}
             <Link className="header__a" to="/jobs">
               <span className="span1">Jobs</span>
               <span className="span2">
                 <FaUserTie />
               </span>
             </Link>
-            {userLogged.id ?<Link className="header__a" to="/users">
+            {userLogged.id ? <Link className="header__a" to="/users">
               <span className="span1">Users</span>
               <span className="span2">
                 <FaUserCircle />
               </span>
-            </Link>:''}
+            </Link> : ''}
             <Link className="header__a" to="/formContact">
               <span className="span1">Contáctanos</span>
               <span className="span2">
                 <AiOutlineMail />
               </span>
             </Link>
-            {userLogged.id ?<Link className="header__a" to="/formCompanies">
+            {userLogged.id ? <Link className="header__a" to="/formCompanies">
               <span className="span1">Añadir Oferta</span>
               <span className="span2">
                 <AiOutlineFileAdd />
               </span>
-            </Link>:''}
-            {userLogged.id ?  <Link className="header__a" to="/formEmployers">
+            </Link> : ''}
+            {userLogged.id ? <Link className="header__a" to="/formEmployers">
               <span className="span1">Añadir USuario</span>
               <span className="span2">
                 <AiOutlineUserAdd />
               </span>
-            </Link>:''}
-          {!userLogged.id ?  <Link className="header__a" to="/users/login">
+            </Link> : ''}
+            {!userLogged.id ? <Link className="header__a" to="/users/login">
               <span className="span1">Login</span>
               <span className="span2">
                 <AiOutlineUserAdd />

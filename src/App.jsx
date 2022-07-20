@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import Header from "./core/components/Header/Header";
+import Footer from "./core/components/Footer/Footer";
 import routes from "./Config/routes";
 import { AuthProvider } from "./context";
 import { socket, socketConnect } from "./utils/socket";
