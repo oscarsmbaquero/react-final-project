@@ -29,10 +29,6 @@ const routes = [
     path: "/users",
     element: <UserList />,
   },
-  // {
-  //   path: "/User/:id",
-  //   element: <UserDetails />,
-  // },
   {
     path: "/formContact",
     element: <FormContact />,
