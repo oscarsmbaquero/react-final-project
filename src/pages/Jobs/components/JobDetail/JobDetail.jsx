@@ -1,20 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 import { useGetAuth } from "../../../../context/context";
 import Swal from 'sweetalert2';
 
 const JobDetail = ({ selectedJob }) => {
-  
+
+  const [estadoboton, SetEstadoboton]=useState('');
   const userLogged = useGetAuth();
+
+
+  
+  useEffect(() => {
+
+    if(selectedJob && userLogged){
+      if(selectedJob.candidate_list.includes(userLogged.id) ){
+        SetEstadoboton('nosolicitar');
+       }else{
+         SetEstadoboton('solicitar');
+       }
+    }
+   
+  
+   
+  }, [selectedJob,userLogged])
+  
+  console.log(selectedJob);
+  
+     
   const navigate = useNavigate();
 
 /*Funcion para inscribirse en una oferta un usuario con el boton en el detalle*/ 
   const handleaddUser = (e, suscribeJob) => {
     e.preventDefault();
-    
+    SetEstadoboton ('nosolictar');
     const userlogged = userLogged.id;
-    console.log(userLogged.id,25);
+    //console.log(userLogged.id,25);
     fetch(`http://localhost:4000/jobs/add-user/`, {
       method: 'PUT',
       headers: {
@@ -28,7 +49,10 @@ const JobDetail = ({ selectedJob }) => {
     }).then(res => {
       if (res.status === 200) {
         Swal.fire("te has Inscrito correctamente", res.message, "success");
-        navigate('/users');
+        
+        
+        //getJobs();
+        navigate('/jobs');
       }
      
     })
@@ -36,7 +60,7 @@ const JobDetail = ({ selectedJob }) => {
 
   const handledeleteUser =(e, desuscribeJob) => {
     e.preventDefault();
-    
+    SetEstadoboton ('solictar');
     const userlogged = userLogged.id;
     console.log(userLogged.id,desuscribeJob,25);
     fetch(`http://localhost:4000/jobs/delete-user-job/`, {
@@ -66,7 +90,7 @@ const JobDetail = ({ selectedJob }) => {
           <h2> Description:{selectedJob.description}</h2>
           <h3> Salary: {selectedJob.salary}</h3>
           <p>  Requirements: {selectedJob.requiremets}</p>
-          {selectedJob.candidate_list.includes(userLogged.id)?
+          {estadoboton !== 'solicitar'?
             <button onClick={(e)=> handledeleteUser(e,selectedJob._id)} className='login__button' >Retirar Solicitud</button>
             :
             <button onClick={(e)=> handleaddUser(e,selectedJob._id)} className='login__button' >Solicitar</button>
