@@ -1,52 +1,51 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
+import { useNavigate } from "react-router-dom";
 import './EditProfile.scss';
 
 const EditProfile = ({editProfile,userLogged}) => {
+       let navigate = useNavigate();
        
        //console.log(editProfile);
-       const [userModify, setUserModify] =useState({});
+      // const [userModify, setUserModify] =useState({});
 
        const editUser = (e,id) => {
               e.preventDefault();
                
                let target = e.target;
-              let userModify = {
+
+                     const data = new FormData();
+                     data.append('image',target.image.files[0])
+                     data.append('name',target.name.value);
+                     data.append('email',target.email.value);
+                     data.append('studies',target.studies.value);
+                     data.append('age',target.age.value);
+                     data.append('description',target.description.value);
+                     data.append('habilities',target.habilities.value);
                      
-                     name : target.name.value,
-                     surname: target.surname.value,
-                     email: target.email.value,
-                     studies: target.studies.value,
-                     age: target.age.value,
-                     description: target.description.value,
-                     habilities: target.habilities.value,
-                     image:target.image.value,
-                    };
-                    //console.log(userModifyDatos,'user');
-                    setUserModify(userModify);
-                    console.log(userModify,id,'datos');
-                    
+
+                    //setUserModify(userModify);
+                    //console.log(userModify,id,'datos');
+                   
              
               fetch(`http://localhost:4000/users/edit/`, {
                      method: 'PUT',
                      headers: {
-                            'Content-Type': 'application/json',
+                            //'Content-Type': 'multipart/form-data',
                             Authorization: `Bearer ${userLogged.token}`
                             },
-                            body: JSON.stringify({
-                                   userId: id,
-                                   bodyData:userModify,
-                                   userPhoto:userModify.image,
-                            })
+                            body:data
+                         
+                            
                             }).then(res => {
                             if (res.status === 200) {
                             Swal.fire("Modificado correctamente", res.message, "success");
-                                          
+                            navigate("/users");              
                      }
                      }).catch()
        }
 
-       console.log(userModify);
+       //console.log(userModify);
 
     //console.log(editProfile);
   return (

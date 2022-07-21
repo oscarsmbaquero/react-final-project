@@ -12,9 +12,9 @@ const Jobs = () => {
   const [jobs, setJobs] = useState([]);
   const [keyword, setKeyword] = useState('');
   const [selectedJob, setSelectedJob] = useState('')
-  const [width] = useWindowSize();
-
-  console.log(width);
+  //const [width] = useWindowSize();
+  const [height, width] = useWindowSize();
+  console.log(width, height);
 
   const getJobs = () => {
     fetch(`${BASE_URL}/jobs`)
