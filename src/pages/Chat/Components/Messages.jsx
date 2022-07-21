@@ -55,15 +55,22 @@ const Messages = ({ socket }) => {
         msgs.push({ fromSelf: true, messageText: msg })
         setMessages(msgs)
     };
-    useEffect(() => {
+
+    if (socket.current) {
+        console.log("hemos entrado acá o que?");
+        socket.current.on("msg-recieve", (msg) => {
+            setArrivalMsg({ fromSelf: false, messageText: msg });
+        });
+    }
+
+/*     useEffect(() => {
         if (socket.current) {
-            socket.current.on("msg-receive", (msg) => {
-                console.log(arrivalMsg);
-                setArrivalMsg({ fromSelf: false, messageText: msg })
-            })
+            socket.current.on("msg-recieve", (msg) => {
+                setArrivalMsg({ fromSelf: false, messageText: msg });
+            });
         }
-    }, []);
-    
+    }, []); */
+
     console.log(arrivalMsg);
     useEffect(() => {
         arrivalMsg && setMessages((prevMessage) => [...prevMessage, arrivalMsg])

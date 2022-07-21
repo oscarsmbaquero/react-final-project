@@ -12,8 +12,6 @@ export const SelectedChatContext = React.createContext();
 
 const Chat = () => {
 
-    // const [receiveMsj, setReceiveMsj] = useState("");
-    
     const socket = useRef();
 
     const navigate = useNavigate();
