@@ -54,6 +54,12 @@ const Header = () => {
                 <FaUserCircle />
               </span>
             </Link> : ''}
+            {userLogged.id ? <Link className="header__a" to="/profile">
+              <span className="span1">My Profile</span>
+              <span className="span2">
+                <FaUserCircle />
+              </span>
+            </Link> : ''}
             <Link className="header__a" to="/formContact">
               <span className="span1">Contáctanos</span>
               <span className="span2">

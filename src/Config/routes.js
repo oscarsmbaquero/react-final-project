@@ -8,6 +8,7 @@ import FormEmployers from "../pages/FormEmployers/FormEmployers";
 import Login from "../pages/User/Login";
 import JobsList from "../pages/Jobs/Jobs";
 import UserDetails from "../pages/User/UserDetails/UserDetails";
+import Profile from "../pages/User/Profile/Profile";
 
 const routes = [
   {
@@ -30,7 +31,10 @@ const routes = [
     path: "/users",
     element: <UserList />,
   },
-
+  {
+    path: "/profile",
+    element: <Profile />,
+  },
   {
     path: "/users/:id",
     element: <UserDetails />,
