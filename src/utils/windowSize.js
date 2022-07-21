@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-
+//BASE EXPRESSION
 export const useWindowSize = () => {
     const [size, setSize] = useState([window.innerHeight, window.innerWidth])
     useEffect(() => {
@@ -14,6 +14,5 @@ export const useWindowSize = () => {
     }, []);
     return size
 }
-
 
 //const [height, width] = useWindowSize();
