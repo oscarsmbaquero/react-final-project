@@ -47,8 +47,8 @@ const Messages = ({ socket }) => {
             .then(data => console.log(data));
 
         socket.current.emit('send-msg', {
-            to: selectedChat.id,
             from: loggedUser.id,
+            to: selectedChat.id,
             message: msg
         })
         const msgs = [...messages];
@@ -58,13 +58,15 @@ const Messages = ({ socket }) => {
     useEffect(() => {
         if (socket.current) {
             socket.current.on("msg-receive", (msg) => {
+                console.log(arrivalMsg);
                 setArrivalMsg({ fromSelf: false, messageText: msg })
             })
         }
     }, []);
-
+    
+    console.log(arrivalMsg);
     useEffect(() => {
-        arrivalMsg && setMessages((prevMessage) => [...prevMessage])
+        arrivalMsg && setMessages((prevMessage) => [...prevMessage, arrivalMsg])
     }, [arrivalMsg])
 
     return (

@@ -13,7 +13,7 @@ export const SelectedChatContext = React.createContext();
 const Chat = () => {
 
     // const [receiveMsj, setReceiveMsj] = useState("");
-
+    
     const socket = useRef();
 
     const navigate = useNavigate();
@@ -26,6 +26,7 @@ const Chat = () => {
 
     useEffect(() => {
         socket.current = io(BASE_URL);
+        console.log(socket.id);
         socket.current.emit("add-user", loggedUser.id)
     })
 
