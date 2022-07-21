@@ -8,7 +8,7 @@ import Edit from './EditProfile';
 const Profile = () => {
     
     const [profile, SetProfile] =useState();
-    const [edit, setEdit]= useState(0);
+    const [edit, setEdit]= useState();
     const userLogged = useGetAuth();
 
     
@@ -38,7 +38,7 @@ const Profile = () => {
         <div className="edit">
             <div>
                 <button className='profile__button' onClick = {() => setEdit (userLogged.id)} >Añadir Info</button>
-                {edit === userLogged.id ? <Edit editProfile = {profile} userLogged = {userLogged} />: ''}
+                {edit === userLogged.id ? <Edit editProfile ={profile} userLogged ={userLogged} />: ''}
             </div>    
         </div>
       </>}
