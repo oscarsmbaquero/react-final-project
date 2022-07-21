@@ -1,0 +1,36 @@
+
+
+.profile{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20px 20px 20px 80px;
+    align-items: center;
+
+    &__text{
+        margin-left:100px;
+    }
+
+    &__photo {
+        width: 90px;
+        height: 140px;
+        border-radius: 30px;
+    }
+    &__button{
+        margin: 1em auto;
+        width: 100%;
+        border-radius: 15px;
+        background-color: var(--secondary-color);
+        color: white;
+        @media screen and(min-width:810px) {
+            width: 40%;
+        }
+    }
+
+}
+
+
+
+
+
+
