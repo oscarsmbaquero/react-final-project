@@ -6,63 +6,53 @@ import Swal from 'sweetalert2';
 
 const JobDetail = ({ selectedJob }) => {
 
-  const [estadoboton, SetEstadoboton]=useState('');
+  const [applyBtn, setApplyBtn] = useState(false);
+
   const userLogged = useGetAuth();
 
-
-  
   useEffect(() => {
-
-    if(selectedJob && userLogged){
-      if(selectedJob.candidate_list.includes(userLogged.id) ){
-        SetEstadoboton('nosolicitar');
-       }else{
-         SetEstadoboton('solicitar');
-       }
+    // debugger
+    if (selectedJob) {
+      if (selectedJob.candidate_list.includes(userLogged.id)) {
+        setApplyBtn(true);
+      }else {
+        setApplyBtn(false)
+      }
     }
-   
-  
-   
-  }, [selectedJob,userLogged])
-  
-  console.log(selectedJob);
-  
-     
+
+  }, [selectedJob, userLogged])
+
   const navigate = useNavigate();
 
-/*Funcion para inscribirse en una oferta un usuario con el boton en el detalle*/ 
-  const handleaddUser = (e, suscribeJob) => {
+  /*Funcion para inscribirse en una oferta un usuario con el boton en el detalle*/
+  const handleAddUser = (e, suscribeJob) => {
     e.preventDefault();
-    SetEstadoboton ('nosolictar');
+    // SetEstadoboton('nosolictar');
     const userlogged = userLogged.id;
     //console.log(userLogged.id,25);
     fetch(`http://localhost:4000/jobs/add-user/`, {
       method: 'PUT',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userLogged.token}`
       },
       body: JSON.stringify({
         _id: suscribeJob,
         userId: userlogged
       })
-      
     }).then(res => {
       if (res.status === 200) {
         Swal.fire("te has Inscrito correctamente", res.message, "success");
-        
-        
-        //getJobs();
-        navigate('/jobs');
+        setApplyBtn(true);
       }
-     
-    })
+    }).catch()
   }
 
-  const handledeleteUser =(e, desuscribeJob) => {
+  const handledeleteUser = (e, desuscribeJob) => {
     e.preventDefault();
-    SetEstadoboton ('solictar');
+    // SetEstadoboton('solictar');
     const userlogged = userLogged.id;
-    console.log(userLogged.id,desuscribeJob,25);
+    console.log(userLogged.id, desuscribeJob, 25);
     fetch(`http://localhost:4000/jobs/delete-user-job/`, {
       method: 'PUT',
       headers: {
@@ -72,13 +62,13 @@ const JobDetail = ({ selectedJob }) => {
         _id: desuscribeJob,
         userId: userlogged
       })
-      
+
     }).then(res => {
       if (res.status === 200) {
         Swal.fire("Candidatura retirada correctamente", res.message, "success");
         navigate('/jobs');
       }
-     
+
     })
   }
 
@@ -90,11 +80,11 @@ const JobDetail = ({ selectedJob }) => {
           <h2> Description:{selectedJob.description}</h2>
           <h3> Salary: {selectedJob.salary}</h3>
           <p>  Requirements: {selectedJob.requiremets}</p>
-          {estadoboton !== 'solicitar'?
-            <button onClick={(e)=> handledeleteUser(e,selectedJob._id)} className='login__button' >Retirar Solicitud</button>
+          {applyBtn ? 
+            <button onClick={(e) => handledeleteUser(e, selectedJob._id)} className='login__button' >Retirar Solicitud</button>
             :
-            <button onClick={(e)=> handleaddUser(e,selectedJob._id)} className='login__button' >Solicitar</button>
-          
+            <button onClick={(e) => handleAddUser(e, selectedJob._id)} className='login__button' >Solicitar</button>
+
           }
         </div>
       </div> : <p>ningún trabajo selecionado</p>}

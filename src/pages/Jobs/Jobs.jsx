@@ -12,14 +12,13 @@ const Jobs = () => {
   const [keyword, setKeyword] = useState('');
   const [selectedJob, setSelectedJob] = useState('')
 
-  console.log('rendered jobs');
+  // console.log('rendered jobs');
 
   useEffect(() => {
     fetch('http://localhost:4000/jobs')
       .then(response => response.json())
       .then(data => setJobs(data))
   }, []);
-
 
   //Capturamos eel valor del input del buscador  y lo seteamos a keyword pasandolo a minusculas
   const onInputChange = (e) => {
