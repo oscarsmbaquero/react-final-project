@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useGetAuth } from "../../../../context/context";
 import Swal from 'sweetalert2';
 
-const JobDetail = ({ selectedJob }) => {
+const JobDetail = ({ selectedJob, getJobs }) => {
 
   const [applyBtn, setApplyBtn] = useState(false);
 
@@ -44,6 +44,7 @@ const JobDetail = ({ selectedJob }) => {
       if (res.status === 200) {
         Swal.fire("te has Inscrito correctamente", res.message, "success");
         setApplyBtn(true);
+        getJobs()
       }
     }).catch()
   }

@@ -14,6 +14,12 @@ const Jobs = () => {
 
   // console.log('rendered jobs');
 
+  const getJobs = () => {
+    fetch('http://localhost:4000/jobs')
+    .then(response => response.json())
+    .then(data => setJobs(data))
+  }
+
   useEffect(() => {
     fetch('http://localhost:4000/jobs')
       .then(response => response.json())
@@ -42,8 +48,8 @@ const Jobs = () => {
               <JobsList key={job._id} job={job} setSelectedJob={setSelectedJob} />
             ))}
           </div>
-          <div className="jobList">
-            <JobDetail selectedJob={selectedJob} />
+          <div className="jobDetail">
+            <JobDetail selectedJob={selectedJob} getJobs={getJobs}/>
           </div>
         </section>
     </>
