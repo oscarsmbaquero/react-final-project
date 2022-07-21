@@ -27,36 +27,36 @@ const Login = () => {
       loginUser(dispatch, loginForm);
       setLoginForm(loginInitialState);
       navigate("/Jobs");
-    } catch (error) {}
+    } catch (error) { }
   };
 
-    return (
-        <section className="sectionLogin">
-        <h1>Inscribite en mas de 1000 ofertas</h1>
+  return (
+    <section className="sectionLogin">
+      <h1>Inscribite en mas de 1000 ofertas</h1>
       <div className="login">
-      <form className="login__form" onSubmit={handleLogin}>
-        <label className="login__label" htmlFor="email">email</label>
-        <input
-          className="login__input"
-          type="text"
-          name="email"
-          value={loginForm.email}
-          onChange={handleLoginForm}
-        />
+        <form className="login__form" onSubmit={handleLogin}>
+          <label className="login__label" htmlFor="email">email</label>
+          <input
+            className="login__input"
+            type="text"
+            name="email"
+            value={loginForm.email}
+            onChange={handleLoginForm}
+          />
 
-        <label className="login__label"  htmlFor="password">password</label>
-        <input
-          className="login__input"
-          type="password"
-          name="password"
-          value={loginForm.password}
-          onChange={handleLoginForm}
-        />
-        <button className="login__button">Login</button>
-      </form>
-      {/* <p>{ && }</p> */}
-            </div>
-            </section>
+          <label className="login__label" htmlFor="password">password</label>
+          <input
+            className="login__input"
+            type="password"
+            name="password"
+            value={loginForm.password}
+            onChange={handleLoginForm}
+          />
+          <button className="login__button">Login</button>
+        </form>
+        {/* <p>{ && }</p> */}
+      </div>
+    </section>
   );
 };
 

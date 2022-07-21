@@ -66,6 +66,12 @@ const Header = () => {
                 <AiOutlineMail />
               </span>
             </Link>
+            <Link className="header__a" to="/users/register">
+              <span className="span1">Regístrate</span>
+              <span className="span2">
+                <AiOutlineMail />
+              </span>
+            </Link>
             {userLogged.id ? <Link className="header__a" to="/formCompanies">
               <span className="span1">Añadir Oferta</span>
               <span className="span2">
