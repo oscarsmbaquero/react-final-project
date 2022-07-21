@@ -4,15 +4,6 @@ import Header from "./core/components/Header/Header";
 import Footer from "./core/components/Footer/Footer";
 import routes from "./Config/routes";
 import { AuthProvider } from "./context";
-import { socket, socketConnect } from "./utils/socket";
-import { useState } from "react";
-//commit prueba Oscar 
-
-// socketConnect()
-
-socket.on("receive-message", (message) => {
-  console.log(message);
-})
 
 const App = () => {
   

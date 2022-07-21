@@ -3,10 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { useGetAuth } from "../../../../context/context";
 import Swal from 'sweetalert2';
 import { BASE_URL } from '../../../../assets/ApiRoutes';
+import { useNavigate } from 'react-router-dom';
 
 const JobDetail = ({ selectedJob, getJobs }) => {
 
   const [applyBtn, setApplyBtn] = useState(false);
+  const navigate = useNavigate()
 
   const userLogged = useGetAuth();
 
@@ -36,6 +38,8 @@ const JobDetail = ({ selectedJob, getJobs }) => {
         getJobs()
         Swal.fire("te has Inscrito correctamente", res.message, "success");
         setApplyBtn(true);
+      }else{
+        navigate('/users/login')
       }
     }).catch((error) => {
       console.error(error);

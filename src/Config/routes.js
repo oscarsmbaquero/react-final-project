@@ -9,6 +9,7 @@ import Login from "../pages/User/Login";
 import JobsList from "../pages/Jobs/Jobs";
 import UserDetails from "../pages/User/UserDetails/UserDetails";
 import Profile from "../pages/User/Profile/Profile";
+import Register from "../pages/User/Register/Register";
 
 const routes = [
   {
@@ -38,6 +39,10 @@ const routes = [
   {
     path: "/users/:id",
     element: <UserDetails />,
+  },
+  {
+    path: "/users/register",
+    element: <Register />,
   },
 
   {
