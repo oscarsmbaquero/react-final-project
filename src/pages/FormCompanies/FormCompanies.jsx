@@ -46,9 +46,9 @@ const FormCompanies = () => {
                   required: "Puesto Ofertado is required",
                 })}
               />
-              {/* {errors.name && errors.name.type === "required" && (
-                <p>{errors.name_job.message}</p>
-              )} */}
+              {errors.name && errors.name.type === "required" && (
+                <p>{errors.name.message}</p>
+              )}
             </label>
             <label>
               <input
