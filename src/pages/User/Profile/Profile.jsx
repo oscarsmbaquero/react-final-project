@@ -16,13 +16,13 @@ const Profile = () => {
     const [user,SetUser] =useState();
     const userLogged = useGetAuth();
 
-    
+    console.log(user);
    const deleteProfile = (e, user) =>{
       e.preventDefault();
 
       const thisClicked = e.currentTarget;
       thisClicked.innerText ="Borrando"  ;
-      console.log('entro',user);
+      //console.log('entro',user);
 
       fetch(`http://localhost:4000/users/${userLogged.id}`,{
          method: 'DELETE',
