@@ -1,32 +1,22 @@
 .contacts {
-    width: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: azure;
 
-    &__user {
-        display: flex;
-        cursor: pointer;
+    &--selected {
+        color: red;
+    }
 
+    &__img {
+        height: 4rem;
 
-        &>* {
-            padding: .75rem;
+        img {
+            height: 100%;
         }
     }
 
-    &__img img {
-        height: 3rem;
+    &__text {
+    margin-bottom: 0 !important;
     }
-
-    &__line {
-        height: 1px;
-        background-color: black;
-        width: 95%;
-    }
-
-    &__name {
-        text-align: left;
-    }
-}
-
-
-.selected {
-    color: red;
 }
