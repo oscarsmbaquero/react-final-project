@@ -3,7 +3,8 @@ import "./FormEmployers.scss";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 // import formImg from "../../assets/images/prueba.png";
-
+// import { expresiones } from "../../utils/patterns";
+// import { messages } from "../../utils/patterns";
 const FormEmployers = () => {
   const {
     register,
@@ -38,12 +39,16 @@ const FormEmployers = () => {
           <fieldset className="employForm__fieldset">
             <label className="employForm__label">Nombre
               <input
-                 className="employForm__input"
+                className="employForm__input"
                 type="text"
-                name="name"
+                name="name"  
                 // placeholder="Nombre"
                 {...register("name", {
                   required: "Nombre is required",
+                  // pattern: {
+                  //   value: expresiones.nombre,
+                  //   message: messages.name
+                  // }
                 })}
               />
               {errors.name && errors.name.type === "required" && (
