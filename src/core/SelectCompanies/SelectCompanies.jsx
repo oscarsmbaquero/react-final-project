@@ -8,7 +8,7 @@ const SelectCompanies = () => {
     const [jobs, setJobs] = useState([]);
 
     useEffect(() => {
-        fetch(`${BASE_URL}/jobs`)
+        fetch(`${BASE_URL}/users`)
       .then(response => response.json())
       .then(data => setJobs(data))
     
@@ -19,9 +19,9 @@ const SelectCompanies = () => {
   return (
     <div>
          <select name="jobs"  className='select'>
-            <option>Selecciona un trabajo</option>
+            <option>Selecciona un usuario</option>
             {jobs.map((job) => (
-            <option key={job._id} value={job.id}>{job.name}</option>
+            <option key={job._id} value={job.id}>{job.name} {job.surname}</option>
           ))}
 
 
