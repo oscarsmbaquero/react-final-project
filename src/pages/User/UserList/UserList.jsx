@@ -2,19 +2,44 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SearchInput from '../../../core/SearchInput/SearchInput';
 import './UserList.scss';
+import { useGetAuth } from "../../../context/context";
+import Swal from 'sweetalert2';
+//import { BASE_URL } from '../../../assets/ApiRoutes';
 
 
 const UserList = () => {
 
   let [users, setUsers] = useState([]);
+  let [userContact, setuserContact] = useState([]);
   const [keyword, setKeyword] = useState("");//estado para almacenar y setear las entradas de teclado para el input
+  const userLogged = useGetAuth();
+
+  
+  const addContact = (e,id) =>{
+    
+    fetch("http://localhost:4000/users/addContact", {
+      method: 'PUT',
+      headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${userLogged.token}`
+      },
+      body: JSON.stringify({
+          
+          contactId: id
+      })
+     })
+      .then(res => res.json())
+      .then(data => setuserContact(data))
+       Swal.fire("Agregado corectamente", "success");
+
+  }
 
   useEffect(() => {
     fetch('http://localhost:4000/users')
       .then(response => response.json())
       .then(data => setUsers(data))
   }, []);
-  console.log(users, 44);
+  //console.log(users, 45);
   //console.log(users.data,45);
   //Capturamos eel valor del input del buscador  y lo seteamos a keyword pasandolo a minusculas
   const onInputChange = (e) => {
@@ -45,6 +70,10 @@ const UserList = () => {
               {/* <p className='userList__p' >Direction: {post.direction}</p>
               <p className='userList__p' >Job: {post.job}</p> */}
             </div>
+            {userLogged.id !== post._id ?
+              <button className='userList__btn'  onClick = {(e) => addContact (e,post._id)}>Añadir Contacto</button>
+              :''
+            }
             <Link to={`/users/${post._id}`}>
               <button className='userList__btn' >Show More</button>
             </Link>
