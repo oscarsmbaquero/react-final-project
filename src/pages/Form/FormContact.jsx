@@ -30,67 +30,75 @@ const FormContact = () => {
 }
   return (
     <>
-    <h1 className="form__title">Explícanos tu duda</h1>
-    <section className="sectionForm">
-      <img className="sectionForm__img" src={formImg} alt="..." />
+
+      <section className="sectionForm">
+      <h1 className="form__title">Explícanos tu duda</h1>
+      {/* <img className="sectionForm__img" src={formImg} alt="..." /> */}
       <form className="sectionForm__form" onSubmit={sendMail}>
-        <fieldset className="sectionForm__fieldset1">
-          {/* <h2 className="sectionForm__h2">Que lo que</h2> */}
-          {/* <div> </div> */}
+          <fieldset className="sectionForm__fieldset1">
+          <label className="sectionForm__label">Nombre
           <input
             className="sectionForm__input"
             id="name"
             name="name"
-            type="text"
-            placeholder="Nombre:..."
-          />
+                type="text"
+
+            // placeholder="Nombre:..."
+            /></label>
+          <label className="sectionForm__label">Email
           <input
             className="sectionForm__input"
             id="email"
             name="email"
-            type="email"
-            placeholder="Email:..."
-          />
+                type="email"
+            // placeholder="Email:..."
+            /></label>
+                        <label className="sectionForm__label">Teléfono
           <input
             className="sectionForm__input"
             id="phone"
             name="phone"
             type="text"
-            placeholder="Teléfono:..."
-          />
+            // placeholder="Teléfono:..."
+            /></label>
+          </fieldset>
+          <label className="sectionForm__label"> Mensaje</label>
           <textarea
             className="sectionForm__textarea"
             id="message"
             name="message"
             type="text"
-            placeholder="Deja tu mensaje:..."
-            rows='5'
+            // placeholder="Deja tu mensaje:..."
+            rows='15'
+            columns='10'
             />
-                    </fieldset>
           {/* <h2 className="sectionForm__h2">De donde tu ere</h2> */}
             <fieldset className="sectionForm__fieldset2">
-              <div className="sectionForm__divDirecc">
+            <div className="sectionForm__divDirecc">
+              <label className="sectionForm__label">Ciudad
             <input
-              className="sectionForm__input3"
+              className="sectionForm__input"
               id="ciudad"
               name="ciudad"
               type="text"
-              placeholder="Ciudad:..."
-            />
+              // placeholder="Ciudad:..."
+              /></label>
+              <label className="sectionForm__label">CP
             <input
-              className="sectionForm__input3"
+              className="sectionForm__input"
               id="cp"
               name="cp"
               type="text"
-              placeholder="Código postal:..."
-            />
+              // placeholder="Código postal:..."
+            /></label>
             </div>
+            <label className="sectionForm__label">Dirección
           <input
-              className="sectionForm__input2"
+              className="sectionForm__input"
               id="dirección"
               name="direccion"
-              placeholder="Dirección:..."
-                />
+              // placeholder="Dirección:..."
+                /></label>
                           </fieldset>
         <button className="sectionForm__button">
           Enviar mensaje
