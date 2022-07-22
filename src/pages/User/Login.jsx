@@ -35,7 +35,7 @@ const Login = () => {
       <h1>Inscribite en mas de 1000 ofertas</h1>
       <div className="login">
         <form className="login__form" onSubmit={handleLogin}>
-          <label className="login__label" htmlFor="email">email</label>
+          <label className="login__label" htmlFor="email">Email</label>
           <input
             className="login__input"
             type="text"
@@ -43,8 +43,7 @@ const Login = () => {
             value={loginForm.email}
             onChange={handleLoginForm}
           />
-
-          <label className="login__label" htmlFor="password">password</label>
+          <label className="login__label" htmlFor="password">Password</label>
           <input
             className="login__input"
             type="password"
