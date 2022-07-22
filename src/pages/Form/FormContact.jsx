@@ -53,7 +53,7 @@ const FormContact = () => {
                 type="email"
             // placeholder="Email:..."
             /></label>
-                        <label className="sectionForm__label">Teléfono
+          <label className="sectionForm__label">Teléfono
           <input
             className="sectionForm__input"
             id="phone"

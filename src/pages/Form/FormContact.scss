@@ -3,7 +3,6 @@
   flex-direction: column;
   background-color: white;
 
-  cursor: url(../../assets/images/handshake-regular.png);
   @media screen and (min-width: 810px) {
     display: flex;
     flex-direction: column;
@@ -97,6 +96,8 @@ display: grid;
       font-weight: 700;
       border-radius: 20px;
       padding: 1em;
+      margin: 1em auto;
+      width: 50%;
       @media screen and(min-width:810px) {
         width: 50%;
         margin: 1em auto;
