@@ -38,7 +38,9 @@
         border: 1px solid rgba(0, 0, 0, 0.616);
         border-radius: 4px;
         @media screen and(min-width:810px) {
-            width: 70%;
+            margin: 0.5em auto;
+            width: 80%;
+            padding:0.5em;
         }
     }
 
