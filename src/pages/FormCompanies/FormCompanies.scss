@@ -1,14 +1,14 @@
 .companyForm {
-    display: flex;
-    flex-direction: column-reverse;
-    margin: 1em auto;
-    cursor: url(../../assets/images/handshake-regular.png);
+  display: flex;
+  flex-direction: column;
+  background-color: white;
     @media screen and (min-width: 900px) {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-around;
       align-items: center;
-      max-width: 1200px;
+      width: 100%;
+      background-color: #ff660049;
     }
     &__img {
       display: none;
@@ -21,54 +21,51 @@
       }
     }
     &__form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: #004f98;
-        margin: auto 2em;
-        padding: 2em;
-        border-radius: 10px;
-      position: relative;
-      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      margin: 2em auto;
+      width: 90%;
+      border-radius: 10px;
+      color:var(--primary-color);
         @media screen and (min-width: 900px) {
           display: flex;
           flex-direction: column;
           width: 50%;
-          height: 90%;
+          height: 70%;
           margin-top: 1em;
-          background-color: #004f98;
+          background-color: #ffffff;
+          color:black;
+          padding: 1em;
         }
     }
         &__fieldset {
-          display: flex;
-          flex-direction: column;
-          @media screen and (min-width: 900px) {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+          display: grid;
+          grid-template-columns: auto;
+          @media screen and (min-width: 810px) {
+           display: grid;
+           grid-template-columns: auto auto;
             width: 80%;
-            margin-top: 2em;
+            margin: 2em auto;
           }
         }
         &__label {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
+          text-align:left;
+          margin: 0.5em;
+          @media screen and(min-width:810px) {
+              text-align:center;
+          }
         }
         &__input {
           text-align: center;
-          border-radius: 10px;
-          padding: 1.2em;
+          border: 1px solid black;
+          border-radius: 4px;
           width: 100%;
-          margin: 1em auto;
+          @media screen and(min-width:810px) {
+            margin: 0.5em;
+            width: 100%;
+            padding:0.5em;
         }
-        &__textarea {
-          padding: 1.2em;
-          border-radius: 20px;
-          max-width: 600px;
-          max-height: 150px;
-          margin-left: 3em;
-          margin-bottom: 1em;
         }
         &__button {
           background-color: #ff6700;
@@ -83,6 +80,14 @@
           font-weight: 700;
           border-radius: 20px;
           padding: 1em;
+          margin: 1em auto;
+          width: 50%;
+          @media screen and(min-width:810px) {
+            width: 50%;
+            margin: 1em auto;
         }
   }
-  
+  .companyForm__input:focus{
+    border: 2px solid orange;
+    }
+}

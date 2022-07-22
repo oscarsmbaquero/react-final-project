@@ -2,7 +2,7 @@ import React from "react";
 import "./FormEmployers.scss";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import formImg from "../../assets/images/prueba.png";
+// import formImg from "../../assets/images/prueba.png";
 
 const FormEmployers = () => {
   const {
@@ -30,17 +30,18 @@ const FormEmployers = () => {
   };
   return (
     <>
-      <h1 className="employForm__title">Registrate como demandante de empleo</h1>
       <section className="employForm">
-        <img className="employForm__img" src={formImg} alt="..."></img>
+      <h1 className="employForm__title">Regístrate como demandante de empleo</h1>
+
+        {/* <img className="employForm__img" src={formImg} alt="..."></img> */}
         <form onSubmit={handleSubmit(onSubmit)} className='employForm__form'>
           <fieldset className="employForm__fieldset">
-            <label>
+            <label className="employForm__label">Nombre
               <input
                  className="employForm__input"
                 type="text"
                 name="name"
-                placeholder="Nombre"
+                // placeholder="Nombre"
                 {...register("name", {
                   required: "Nombre is required",
                 })}
@@ -49,58 +50,59 @@ const FormEmployers = () => {
                 <p>{errors.name.message}</p>
               )}
             </label>
-            <label>
+            <label className="employForm__label">Apellidos
               <input
                 className="employForm__input"
                 type="text"
                 name="surname"
-                placeholder="Surname"
+                // placeholder="Apellido"
                 {...register("surname")}
               />
             </label>
-            <label>
+            <label className="employForm__label">Dni
               <input
                 className="employForm__input"
                 type="text"
                 name="dni"
-                placeholder="Dni"
+                // placeholder="Dni"
                 {...register("dni")}
               />
             </label>
-            <label>
+            <label className="employForm__label">Email
               <input
                 className="employForm__input"
                 type="email"
                 name="email"
-                placeholder="Email"
+                // placeholder="Email"
                 {...register("email")}
               />
             </label>
-            <label>
+            <label className="employForm__label">Trabajo
               <input
                className="employForm__input"
                 type="text"
                 name="job"
-                placeholder="Perfil"
+                // placeholder="Trabajo"
                 {...register("job")}
               />
             </label>
-            <label>
+            <label className="employForm__label">Edad
               <input
                 className="employForm__input"
                 type="text"
                 name="age"
-                placeholder="Age"
+                // placeholder="Edad"
                 {...register("age")}
               />
             </label>
 
             <br></br>
 
-            <button className="employForm__button" disabled={!isValid}>
+
+          </fieldset>
+          <button className="employForm__button" disabled={!isValid}>
               Send
             </button>
-            </fieldset>
         </form>
       </section>
     </>

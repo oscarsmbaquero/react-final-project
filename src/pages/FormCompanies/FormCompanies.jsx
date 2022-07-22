@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../assets/ApiRoutes";
 import "./FormCompanies.scss";
-import formImg from "../../assets/images/prueba.png";
+// import formImg from "../../assets/images/prueba.png";
 const FormCompanies = () => {
   const {
     register,
@@ -31,17 +31,17 @@ const FormCompanies = () => {
   };
   return (
     <>
+      <section className="companyForm">
       <h1 className="companyForm__title">Registra una oferta de trabajo</h1>
-          <section className="companyForm">
-          <img className="employForm__img" src={formImg} alt="..."></img>
+          {/* <img className="employForm__img" src={formImg} alt="..."></img> */}
         <form onSubmit={handleSubmit(onSubmit)} className="companyForm__form">
         <fieldset className="companyForm__fieldset">
-            <label>
+            <label className="companyForm__label"> Puesto Ofertado
               <input
                 className="companyForm__input"
                 type="text"
                 name="name"
-                placeholder="Puesto Ofertado"
+                // placeholder="Puesto Ofertado"
                 {...register("name", {
                   required: "Puesto Ofertado is required",
                 })}
@@ -50,41 +50,42 @@ const FormCompanies = () => {
                 <p>{errors.name.message}</p>
               )}
             </label>
-            <label>
+            <label className="companyForm__label">Salario
               <input
                 className="companyForm__input"
                 type="number"
                 name="salary"
-                placeholder="Salario"
+                // placeholder="Salario"
                 {...register("salary")}
               />
             </label>
-            <label>
+            <label className="companyForm__label">Descripción
               <input
                 className="companyForm__input"
                 type="text"
                 name="description"
-                placeholder="Descripcion del puesto"
+                // placeholder="Descripcion del puesto"
                 {...register("description")}
               />
             </label>
-            <label>
+            <label className="companyForm__label"> Requisitos
               <input
                 className="companyForm__input"
                 type="text"
                 name="requiremets"
-                placeholder="Requisitos"
+                // placeholder="Requisitos"
                 {...register("requiremets")}
               />
             </label>
-            <button  className="companyForm__button" disabled={!isValid}>
+          </fieldset>
+          <button  className="companyForm__button" disabled={!isValid}>
               Send
             </button>
-          </fieldset>
         </form>
       </section>
     </>
   );
+  
 };
 
 export default FormCompanies;
