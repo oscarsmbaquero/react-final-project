@@ -7,6 +7,7 @@ import SearchInput from '../../core/SearchInput/SearchInput';
 import JobDetail from './components/JobDetail/JobDetail';
 import JobsList from './components/JobsList/JobsList';
 import { useWindowSize } from '../../utils/windowSize';
+import SelectCompanies from '../../core/SelectCompanies/SelectCompanies';
 
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);
@@ -41,8 +42,12 @@ const Jobs = () => {
   );
 
   return (
-    <>
-      <SearchInput placeholder="Filter by Companies of Jobs" onChange={onInputChange} />
+    <>   
+    <section className='searchContainer'>
+     <SearchInput placeholder="Filter by Companies of Jobs" onChange={onInputChange} />
+      <SelectCompanies/>
+    </section>
+     
       <section className='jobsListContainer'>
         <div className="jobList">
           {filteredJobs.map((job) => (
