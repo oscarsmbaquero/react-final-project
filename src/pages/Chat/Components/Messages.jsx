@@ -63,24 +63,15 @@ const Messages = ({ socket }) => {
         });
     }
 
-/*     useEffect(() => {
-        if (socket.current) {
-            socket.current.on("msg-recieve", (msg) => {
-                setArrivalMsg({ fromSelf: false, messageText: msg });
-            });
-        }
-    }, []); */
-
-    console.log(arrivalMsg);
     useEffect(() => {
         arrivalMsg && setMessages((prevMessage) => [...prevMessage, arrivalMsg])
     }, [arrivalMsg])
 
     return (
-        <div className='msgContainer'>
+        <div>
             {selectedChat ?
-                <div className='msgContainer__items'>
-                    <p className="msgContainer__name">{selectedChat.name}</p>
+                <div>
+                    <h2>{selectedChat.name}</h2>
                     {messages.map((msg, index) =>
                         <p className={`msgContainer__text ${msg.fromSelf && "msgContainer__text--textRight"}`} key={index}>
                             {msg.messageText}
@@ -88,7 +79,7 @@ const Messages = ({ socket }) => {
                     )}
                     <ChatInput handleSendMessage={handleSendMessage} />
                 </div>
-                : <p className='msgContainer__title'>Welcome, please select a chat!</p>
+                : <p>Welcome, please select a chat!</p>
             }
         </div>
     )

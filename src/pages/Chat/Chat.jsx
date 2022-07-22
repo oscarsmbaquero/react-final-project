@@ -7,6 +7,7 @@ import { BASE_URL } from '../../assets/ApiRoutes';
 import { useNavigate } from 'react-router-dom';
 import { logout } from '../../context';
 import { io } from "socket.io-client"
+import CurrentUser from './Components/CurrentUser';
 
 export const SelectedChatContext = React.createContext();
 
@@ -54,11 +55,10 @@ const Chat = () => {
     }, [loggedUser.token]);
 
     return (
-        <div className='container'>
+        <section className='chatContainer'>
             <SelectedChatContext.Provider value={selectedChat}>
-                <div className="chatContainer">
-
-                    <div className='chatContainer__user'>
+                <div className="chat">
+                    <div className='chat__list'>
                         <div>
                             {contacts && contacts.map((contact) =>
                                 <Contacts
@@ -68,13 +68,12 @@ const Chat = () => {
                                 />
                             )}
                         </div>
+                        <CurrentUser />
                     </div>
-                    <div>
-                        <Messages socket={socket} />
-                    </div>
+                    <Messages socket={socket} />
                 </div>
             </SelectedChatContext.Provider>
-        </div>
+        </section>
     )
 }
 
