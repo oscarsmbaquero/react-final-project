@@ -21,6 +21,12 @@ export const AuthReducer = (initialState, action) => {
                 ...initialState,
                 loading: true
             };
+        case "REQ_REGISTER":
+
+            return {
+                ...initialState,
+                loading: true
+            };
         case "LOGIN_OK":
             return {
                 id: action.payload.user,

@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { loginUser, useDispatchAuth } from '../../../context';
+import { registerUser, useDispatchAuth } from '../../../context';
 
 const loginInitialState = {
     email: "",
     password: "",
     name: "",
     surname: "",
-    userType: ""
+    account_type: ""
 };
 
 const Register = () => {
@@ -26,27 +26,19 @@ const Register = () => {
     //enviar login al server
     const handleRegister = async (event) => {
         event.preventDefault();
-        console.log(registerForm);
-        // try {
-        //     loginUser(dispatch, registerForm);
-        //     setRegisterForm(loginInitialState);
-        //     navigate("/Jobs");
-        // } catch (error) { }
+        try {
+            registerUser(dispatch, registerForm)
+            setRegisterForm(loginInitialState);
+            navigate("/Jobs");
+        } catch (error) {
+            console.log(error);
+         }
     };
 
     return (
         <section className="sectionLogin">
             <div className="login">
                 <form className="login__form" onSubmit={handleRegister}>
-                    <label className="login__label" htmlFor="email">email</label>
-                    <input
-                        className="login__input"
-                        type="text"
-                        name="email"
-                        value={registerForm.email}
-                        onChange={handleRegisterForm}
-                        required
-                    />
                     <label className="login__label" htmlFor="name">name</label>
                     <input
                         className="login__input"
@@ -65,9 +57,18 @@ const Register = () => {
                         onChange={handleRegisterForm}
                         required
                     />
-                    <label className="login__label" htmlFor="userType">Accout type</label>
-                    <select name="userType" onChange={handleRegisterForm} required>
-                        <option selected disabled >select user type</option>
+                    <label className="login__label" htmlFor="email">email</label>
+                    <input
+                        className="login__input"
+                        type="text"
+                        name="email"
+                        value={registerForm.email}
+                        onChange={handleRegisterForm}
+                        required
+                    />
+                    <label className="login__label" htmlFor="account_type">Accout type</label>
+                    <select defaultValue={"DEFAULT"} name="account_type" onChange={handleRegisterForm} required>
+                        <option value="DEFAULT" disabled >select user type</option>
                         <option >User</option>
                         <option >Recruiter</option>
                     </select>
