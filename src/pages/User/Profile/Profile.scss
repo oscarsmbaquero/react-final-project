@@ -16,17 +16,35 @@
         height: 140px;
         border-radius: 30px;
     }
+   
+
+}
+.edits{
+    
+
     &__button{
         margin: 1em auto;
-        width: 100%;
+        width: 60%;
         border-radius: 15px;
         background-color: var(--secondary-color);
+        //background-color: red;
         color: white;
         @media screen and(min-width:810px) {
-            width: 40%;
+            width:20%;
         }
     }
+    &__buttonDelete{
+        margin: 1em auto;
+        width: 60%;
+        border-radius: 15px;
+        //background-color: var(--secondary-color);
+        background-color: red;
+        color: white;
+        @media screen and(min-width:810px) {
+            width:20%;
+        }
 
+    }
 }
 
 
