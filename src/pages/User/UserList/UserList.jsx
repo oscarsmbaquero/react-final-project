@@ -4,7 +4,7 @@ import SearchInput from '../../../core/SearchInput/SearchInput';
 import './UserList.scss';
 import { useGetAuth } from "../../../context/context";
 import Swal from 'sweetalert2';
-//import { BASE_URL } from '../../../assets/ApiRoutes';
+import { BASE_URL } from '../../../assets/ApiRoutes';
 
 
 const UserList = () => {
@@ -17,7 +17,7 @@ const UserList = () => {
   
   const addContact = (e,id) =>{
     
-    fetch("http://localhost:4000/users/addContact", {
+    fetch(`${BASE_URL}/users/addContact`, {
       method: 'PUT',
       headers: {
           'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ const UserList = () => {
   }
 
   useEffect(() => {
-    fetch('http://localhost:4000/users')
+    fetch(`${BASE_URL}/users`)
       .then(response => response.json())
       .then(data => setUsers(data))
   }, []);
