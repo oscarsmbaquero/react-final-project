@@ -38,16 +38,15 @@ const Jobs = () => {
   const filteredJobs = jobs.filter((jobs) =>
     jobs.name.toLowerCase().includes(keyword) ||
     jobs.description.toLowerCase().includes(keyword)
-
   );
 
   return (
-    <>   
-    <section className='searchContainer'>
-     <SearchInput placeholder="Filter by Companies of Jobs" onChange={onInputChange} />
-      <SelectCompanies/>
-    </section>
-     
+    <>
+      <section className='searchContainer'>
+        <SearchInput placeholder="Filter by Companies of Jobs" onChange={onInputChange} />
+        <SelectCompanies />
+      </section>
+
       <section className='jobsListContainer'>
         <div className="jobList">
           {filteredJobs.map((job) => (
