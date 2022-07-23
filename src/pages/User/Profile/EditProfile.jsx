@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
 import './EditProfile.scss';
+import { BASE_URL } from '../../../assets/ApiRoutes';
 
 const EditProfile = ({editProfile,userLogged}) => {
        let navigate = useNavigate();
@@ -28,7 +29,7 @@ const EditProfile = ({editProfile,userLogged}) => {
                     //console.log(userModify,id,'datos');
                    
              
-              fetch(`http://localhost:4000/users/edit/`, {
+              fetch(`${BASE_URL}/users/edit/`, {
                      method: 'PUT',
                      headers: {
                             //'Content-Type': 'multipart/form-data',
