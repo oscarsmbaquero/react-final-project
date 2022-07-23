@@ -25,7 +25,7 @@ const Profile = () => {
       thisClicked.innerText ="Borrando"  ;
       //console.log('entro',user);
 
-      fetch(`http://localhost:4000/users/${userLogged.id}`,{
+      fetch(`${BASE_URL}/users`,{
          method: 'DELETE',
           }).then(res=>{
             if(res.status === 200){
