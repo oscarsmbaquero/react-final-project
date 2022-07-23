@@ -45,7 +45,7 @@ const Profile = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:4000/users/${userLogged.id}`)
+        fetch(`${BASE_URL}/users/${userLogged.id}`)
           .then(response => response.json())
           .then(data => SetProfile(data))
       }, [userLogged.id]);
