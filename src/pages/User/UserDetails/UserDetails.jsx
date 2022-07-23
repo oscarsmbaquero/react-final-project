@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+import { BASE_URL } from '../../../assets/ApiRoutes';
+
 const UserDetails = () => {
   const { id } = useParams();
   
@@ -8,7 +10,7 @@ const UserDetails = () => {
 
   useEffect(() => {
 
-    fetch(`http://localhost:4000/users/${id}`)
+    fetch(`${BASE_URL}${id}`)
       .then(response => response.json())
       .then(data => SetUser(data))
   }, [id]);
