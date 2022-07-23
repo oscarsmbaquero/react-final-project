@@ -49,10 +49,10 @@ const UserList = () => {
  
   /*Con el valor introducido en el inpute del buscador filtramos los trabajos almacenaos en jobs(filtrado por puesto de trabajo o name)
     previo paso a minusculas*/
-  const filteredUsers = users.filter((users) =>
+  const filteredUsers = users.filter((user) =>
   // users.job.toLowerCase().includes(keyword) ||
-  users.name.toLowerCase().includes(keyword)
-  
+  user.name.toLowerCase().includes(keyword)
+  //console.log(user.name)
   );
 
   return (

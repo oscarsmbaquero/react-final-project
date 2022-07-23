@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from '../../../assets/ApiRoutes';
 
 import './Profile.scss';
 
@@ -30,7 +31,7 @@ const Profile = () => {
             if(res.status === 200){
               console.log('Borrado');
             Swal.fire("Eliminado", res.message,"success");
-            fetch('http://localhost:4000/users/')
+            fetch(`${BASE_URL}/users/`)
             .then(response => response.json())
             .then(data => SetUser(data))
             navigate("/"); 
