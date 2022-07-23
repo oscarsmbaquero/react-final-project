@@ -10,7 +10,7 @@ const UserDetails = () => {
 
   useEffect(() => {
 
-    fetch(`${BASE_URL}/${id}`)
+    fetch(`${BASE_URL}/users/${id}`)
       .then(response => response.json())
       .then(data => SetUser(data))
   }, [id]);
