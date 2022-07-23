@@ -1,22 +1,29 @@
 .chatContainer {
     height: 82vh;
-    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: aqua;
+    margin: 1rem;
+    // background-color: aqua;
 
     .chat {
         display: grid;
         grid-template-columns: 25% 75%;
         width: var(--container-width-lg);
         height: 100%;
-        background-color: bisque;
 
         &__list {
             display: grid;
-            flex-direction: column;
+            background-color: aliceblue;
+            overflow: auto;
+        }
+
+        &__line {
+            height: 1px;
+            width: 100%;
+            background-color: rgb(182, 182, 182);
         }
     }
+
 }

@@ -1,9 +1,8 @@
 import React from 'react'
+import { defaultProfileImage } from '../../../assets/images/imagesLink';
 import { SelectedChatContext } from '../Chat'
 
 import './Contacts.scss'
-
-const defaultProfileImage = "https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg";
 
 const Contacts = ({ contact, setSelectedChat }) => {
 
@@ -17,15 +16,16 @@ const Contacts = ({ contact, setSelectedChat }) => {
 
   return (
     <div
-      className={`contacts ${selectedChat?.id === contact.id ? 'contacts--selected' : ''}`}
+      className={`contact ${selectedChat?.id === contact.id ? 'contact--selected' : ''}`}
       onClick={handleSelected}
     >
-      <div className="contacts__img">
+      <div className="contact__item">
         <img src={contact.image || defaultProfileImage} alt="userImg" />
       </div>
-      <div className='contacts__text'>
-        <p>{contact.name}</p>
+      <div className='contact__item'>
+        <p className='contact__text'>{contact.name}</p>
       </div>
+ 
     </div>
   )
 }

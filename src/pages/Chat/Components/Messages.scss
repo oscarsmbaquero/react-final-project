@@ -1,0 +1,27 @@
+.messagesContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 82vh;
+    
+    &__title {
+        align-self: center;
+    }
+    
+    .messages {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        overflow: auto;
+
+    }
+
+    .messages__text {
+
+        &--textRight {
+            align-self: flex-end;
+        }
+    }
+
+}
