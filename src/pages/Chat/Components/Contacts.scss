@@ -1,22 +1,30 @@
-.contacts {
+.contact {
     display: flex;
     align-items: center;
     cursor: pointer;
     background-color: azure;
+    padding: .4rem .4rem .4rem 0;
 
     &--selected {
-        color: red;
+        background-color: var(--extra-grey-light);
     }
 
-    &__img {
-        height: 4rem;
+    &__item {
 
+        display: flex;
+        align-items: center;
+        height: 4rem;
+        
         img {
+            margin: .4rem;
+            border-radius: 5rem;
             height: 100%;
         }
     }
 
+
     &__text {
-    margin-bottom: 0 !important;
+        margin-bottom: 0;
     }
+
 }

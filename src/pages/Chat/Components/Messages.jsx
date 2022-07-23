@@ -57,28 +57,35 @@ const Messages = ({ socket }) => {
     };
 
     if (socket.current) {
-        console.log("hemos entrado acá o que?");
         socket.current.on("msg-recieve", (msg) => {
             setArrivalMsg({ fromSelf: false, messageText: msg });
         });
     }
+
+
+    console.log(selectedChat);
 
     useEffect(() => {
         arrivalMsg && setMessages((prevMessage) => [...prevMessage, arrivalMsg])
     }, [arrivalMsg])
 
     return (
-        <div>
+        <div className='messagesContainer'>
             {selectedChat ?
-                <div>
-                    <h2>{selectedChat.name}</h2>
-                    {messages.map((msg, index) =>
-                        <p className={`msgContainer__text ${msg.fromSelf && "msgContainer__text--textRight"}`} key={index}>
-                            {msg.messageText}
-                        </p>
-                    )}
+                <>
+                    <div className="messagesContainer__title">
+                        <h2>{selectedChat.name}</h2>
+                    </div>
+                    <div className='messages'>
+                        {messages.map((msg, index) =>
+                            <div className={`messages__text ${msg.fromSelf && "messages__text--textRight"}`}
+                                key={index}>
+                                <p>{msg.messageText}</p>
+                            </div>
+                        )}
+                    </div>
                     <ChatInput handleSendMessage={handleSendMessage} />
-                </div>
+                </>
                 : <p>Welcome, please select a chat!</p>
             }
         </div>

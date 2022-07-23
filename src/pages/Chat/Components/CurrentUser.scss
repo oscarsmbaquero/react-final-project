@@ -1,4 +1,27 @@
 .currenteUser {
-    justify-self: self-start;
     align-self: end;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .4rem;
+    background-color: azure;
+    width: 100%;
+
+
+    &__item {
+        display: flex;
+        align-items: center;
+        height: 4rem;
+
+        img {
+            border-radius: 5rem;
+            height: 100%;
+        }
+    }
+
+    &__text {
+        padding-left: 1rem;
+        margin-bottom: 0;
+    }
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { BASE_URL } from '../../../assets/ApiRoutes';
+import { defaultProfileImage } from '../../../assets/images/imagesLink';
 import { useGetAuth } from '../../../context'
 import './CurrentUser.scss'
 
@@ -19,16 +20,14 @@ const CurrentUser = () => {
             .then(data => setCurrentUser(data))
     }, [])
 
-    console.log(currentUser);
-
     return (
         <div className='currenteUser'>
-            <div>
-                {/* <img src={currentUser.image} alt="" /> */}
+            <div className='currenteUser__item'>
+                <img src={currentUser.image || defaultProfileImage} alt="" />
             </div>
-            <p>
-                {currentUser.name}
-            </p>
+            <div className="currenteUser__item">
+                <p className='currenteUser__text'>{currentUser.name}</p>
+            </div>
         </div>
     )
 }
