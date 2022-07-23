@@ -17,7 +17,7 @@ const Profile = () => {
     const [user,SetUser] =useState();
     const userLogged = useGetAuth();
 
-    console.log(user);
+    //console.log(user);
    const deleteProfile = (e, user) =>{
       e.preventDefault();
 
