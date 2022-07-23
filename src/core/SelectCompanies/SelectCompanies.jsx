@@ -8,7 +8,7 @@ const SelectCompanies = () => {
     const [jobs, setJobs] = useState([]);
 
     useEffect(() => {
-        fetch(`${BASE_URL}/users`)
+      fetch(`${BASE_URL}/users`)
       .then(response => response.json())
       .then(data => setJobs(data))
     
