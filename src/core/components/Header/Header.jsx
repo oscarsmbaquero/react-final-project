@@ -12,7 +12,7 @@ const Header = () => {
   const userLogged = useGetAuth();
   const dispatch = useDispatchAuth()
   const navigate = useNavigate()
-  
+
   const handleLogout = () => {
     logout(dispatch)
     navigate('/users/login')
@@ -20,7 +20,7 @@ const Header = () => {
 
   return (
     <>
-     
+
       <Navbar className="header" expand="md">
         <div className="header__container">
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -38,22 +38,22 @@ const Header = () => {
                   <BsFillChatDotsFill />
                 </span>
               </Link>}
-              {userLogged.id && userLogged.rol === 'User'?
-              <Link className="header__a" to="/jobs">
-                <span className="span1">Jobs</span>
-                <span className="span2">
-                  <FaUserTie />
-                </span>
-              </Link>
-              :''}
+              {userLogged.id && userLogged.rol === 'User' ?
+                <Link className="header__a" to="/jobs">
+                  <span className="span1">Jobs</span>
+                  <span className="span2">
+                    <FaUserTie />
+                  </span>
+                </Link>
+                : ''}
               {userLogged.id ?
-              <Link className="header__a" to="/users">
-                <span className="span1">Users</span>
-                <span className="span2">
-                  <FaUserCircle />
-                </span>
-              </Link>
-              :''}
+                <Link className="header__a" to="/users">
+                  <span className="span1">Users</span>
+                  <span className="span2">
+                    <FaUserCircle />
+                  </span>
+                </Link>
+                : ''}
               {userLogged.id && <Link className="header__a" to="/profile">
                 <span className="span1">My Profile</span>
                 <span className="span2">
@@ -66,35 +66,35 @@ const Header = () => {
                   <AiOutlineMail />
                 </span>
               </Link>
-              {!userLogged && <Link className="header__a" to="/users/register">
+              {!userLogged.id && <Link className="header__a" to="/users/register">
                 <span className="span1">Regístrate</span>
                 <span className="span2">
                   <AiOutlineMail />
                 </span>
               </Link>}
-              {userLogged.id && userLogged.rol === 'Recruiter'?
-              <Link className="header__a" to="/formCompanies">
-                <span className="span1">Añadir Oferta</span>
-                <span className="span2">
-                  <AiOutlineFileAdd />
-                </span>
-              </Link>:''}
+              {userLogged.id && userLogged.rol === 'Recruiter' ?
+                <Link className="header__a" to="/formCompanies">
+                  <span className="span1">Añadir Oferta</span>
+                  <span className="span2">
+                    <AiOutlineFileAdd />
+                  </span>
+                </Link> : ''}
               {userLogged.id && userLogged.rol === 'User' ?
-              <Link className="header__a" to="/formEmployers">
-                <span className="span1">Añadir USuario</span>
-                <span className="span2">
-                  <AiOutlineUserAdd />
-                </span>
-              </Link>:''}
+                <Link className="header__a" to="/formEmployers">
+                  <span className="span1">Añadir USuario</span>
+                  <span className="span2">
+                    <AiOutlineUserAdd />
+                  </span>
+                </Link> : ''}
               {!userLogged.id ? <Link className="header__a" to="/users/login">
                 <span className="span1">Login</span>
                 <span className="span2">
                   <AiOutlineUserAdd />
                 </span>
-              </Link> :<>
-              {/* <span className="span1">{userLogged.email}</span> */}
-              <AiOutlineLogout onClick={handleLogout} className="header__a" />
-              </> 
+              </Link> : <>
+                {/* <span className="span1">{userLogged.email}</span> */}
+                <AiOutlineLogout onClick={handleLogout} className="header__a" />
+              </>
               }
 
               {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
@@ -112,8 +112,8 @@ const Header = () => {
           </Navbar.Collapse>
         </div>
       </Navbar>
-      
-      
+
+
     </>
   );
 };

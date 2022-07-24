@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { loginUser, useDispatchAuth } from "../../context";
 import "./Login.scss";
 const loginInitialState = {
@@ -53,7 +53,7 @@ const Login = () => {
           />
           <button className="login__button">Login</button>
         </form>
-        {/* <p>{ && }</p> */}
+        <p>You don't have an account. <Link to={"/users/register"}>Register</Link></p>
       </div>
     </section>
   );

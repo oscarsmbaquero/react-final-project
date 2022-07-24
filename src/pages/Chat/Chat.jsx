@@ -2,10 +2,9 @@ import React, { useEffect, useState, useRef } from 'react'
 import './Chat.scss'
 import Messages from './Components/Messages'
 import Contacts from './Components/Contacts'
-import { useDispatchAuth, useGetAuth } from '../../context/context';
+import { useGetAuth } from '../../context/context';
 import { BASE_URL } from '../../assets/ApiRoutes';
-import { useNavigate } from 'react-router-dom';
-import { logout } from '../../context';
+// import { useNavigate } from 'react-router-dom';
 import { io } from "socket.io-client"
 import CurrentUser from './Components/CurrentUser';
 
@@ -15,8 +14,8 @@ const Chat = () => {
 
     const socket = useRef();
 
-    const navigate = useNavigate();
-    const dispatch = useDispatchAuth();
+    // const navigate = useNavigate();
+    // const dispatch = useDispatchAuth();
 
     const [contacts, setContacts] = useState(undefined);
     const [selectedChat, setSelectedChat] = useState(undefined);
@@ -60,7 +59,7 @@ const Chat = () => {
                 <div className="chat">
                     <div className='chat__list'>
                         <div>
-                            {contacts && contacts.map((contact) =>
+                            {contacts && contacts.map(contact =>
                                 <>
                                     <Contacts
                                         key={contact.id}
