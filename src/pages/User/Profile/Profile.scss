@@ -46,13 +46,25 @@
         }
 
     }
-    &__buttonShow{
+    &__buttonActive{
         margin: 1em auto;
         margin-left: 10px;
         width: 60%;
         border-radius: 15px;
         //background-color: var(--secondary-color);
         background-color: greenyellow;
+        color: white;
+        @media screen and(min-width:810px) {
+            width:15%;
+        }
+    }
+    &__buttonShow{
+        margin: 1em auto;
+        margin-left: 10px;
+        width: 60%;
+        border-radius: 15px;
+        //background-color: var(--secondary-color);
+        background-color: cadetblue;
         color: white;
         @media screen and(min-width:810px) {
             width:15%;

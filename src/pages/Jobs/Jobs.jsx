@@ -29,7 +29,7 @@ const Jobs = () => {
       .then(data => setJobs(data))
   }, []);
 
-
+console.log(jobs);
   //Capturamos eel valor del input del buscador  y lo seteamos a keyword pasandolo a minusculas
   const onInputChange = (e) => {
     setKeyword(e.target.value.toLowerCase());
