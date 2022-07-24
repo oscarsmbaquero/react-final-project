@@ -7,15 +7,17 @@ import './Profile.scss';
 
 import { useGetAuth } from "../../../context/context";
 import Edit from './EditProfile';
+import ShowContact from './ShowContact';
 
 const Profile = () => {
-   
-  let navigate = useNavigate();  
+
+  let navigate = useNavigate();
 
     const [profile, SetProfile] =useState();
     const [edit, setEdit]= useState();
     const [user,SetUser] =useState();
     const userLogged = useGetAuth();
+    const [contacts, setContacts] = useState(undefined);
 
     //console.log(user);
    const deleteProfile = (e, user) =>{
@@ -34,14 +36,36 @@ const Profile = () => {
             fetch(`${BASE_URL}/users/`)
             .then(response => response.json())
             .then(data => SetUser(data))
-            navigate("/"); 
-            
+            navigate("/");
+
           }
           })
           console.log(user);
-     
+
 
    }
+
+   const showContacts = async (e, user) => {
+    e.preventDefault();
+    const thisClicked = e.currentTarget;
+    thisClicked.innerText ="Mostrando"  ;
+    const data = await fetch(`${BASE_URL}/users/contacts`,{
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userLogged.token}`
+        }
+       });
+       const jsonData = await data.json();
+       setContacts(jsonData.data.contacts);
+
+       }
+
+
+
+
+
+
 
     useEffect(() => {
 
@@ -68,9 +92,14 @@ const Profile = () => {
             <div>
                 <button className='edits__button' onClick = {() => setEdit (userLogged.id)} >Añadir Info</button>
                 {edit === userLogged.id ? <Edit editProfile ={profile} userLogged ={userLogged} />: ''}
-            </div>
-            <div>
+
                 <button className='edits__buttonDelete' onClick = {(e) => deleteProfile (e,userLogged.id)} >Eliminar Perfil</button>
+
+                <button className='edits__buttonShow' onClick = {(e) => showContacts (e,userLogged.id)} >Mostar Contactos</button>
+                {/* {contacts.map((contact) => (
+                <ShowContact key={contact._id} contact={contact}  />
+          ))} */}
+                 <ShowContact contacts={contacts}/>
             </div>
         </div>
       </>}
