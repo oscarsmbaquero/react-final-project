@@ -23,6 +23,7 @@ export const loginUser = async (dispatch, loginData) => {
         const data = await fetchUserToDatabase("users/login", loginData)
 
         if (data.data) {
+            
             dispatch({ type: "LOGIN_OK", payload: data.data });
             localStorage.setItem('currentUser', JSON.stringify(data.data));
         }
