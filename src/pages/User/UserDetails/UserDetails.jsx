@@ -5,7 +5,7 @@ import { BASE_URL } from '../../../assets/ApiRoutes';
 
 const UserDetails = () => {
   const { id } = useParams();
-  
+
   let [user, SetUser] = useState();
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const UserDetails = () => {
       {!user ? <p>Cargando...</p> : <>
         <div className="details">
           <div className="details__text">
-          <img className="userList__photo" src={user.image} alt={user.name}/>
+            <img className="userList__photo" src={user.image} alt={user.name} />
             <h1> Usuario: {user.name}</h1>
             <h2> Apellido:{user.surname}</h2>
             <p>  Perfil: {user.email}</p>

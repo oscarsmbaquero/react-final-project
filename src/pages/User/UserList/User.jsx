@@ -3,109 +3,89 @@ import { Link } from 'react-router-dom'
 import { BASE_URL } from '../../../assets/ApiRoutes';
 import { useGetAuth } from "../../../context/context";
 import Swal from 'sweetalert2';
+import { defaultProfileImage } from '../../../assets/images/imagesLink';
 
 
 
 const User = ({ post, contacts }) => {
-    let [buttonState, setButtonState] = useState(false);
+    const [buttonState, setButtonState] = useState(false);
     const userLogged = useGetAuth();
 
     useEffect(() => {
-        
-        
-        const mapContact=contacts.map(contact=>{
-
-            console.log(contact.id===post._id)
-            return contact.id===post._i
+        const filteredContacts = contacts.find(contact => {
+            return contact.id === post._id
         })
-if (mapContact){
-    setButtonState(true)
-    
-}else{
-    setButtonState(false)
+        if (filteredContacts) {
+            setButtonState(true)
+        } else {
+            setButtonState(false)
+        }
+    }, [contacts, post._id])
 
-}
+    const addContact = () => {
 
+        fetch(`${BASE_URL}/users/addContact`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${userLogged.token}`
+            },
+            body: JSON.stringify({
 
-        // if (contacts) {
-        //     if (contacts.candidate_list.includes(post.id)) {
-        //         buttonState(true);
-        //     } else {
-        //         buttonState(false)
-        //     }
-        // }
-    }, [contacts])
-
-const addContact = () => {
-
-    fetch(`${BASE_URL}/users/addContact`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${userLogged.token}`
-        },
-        body: JSON.stringify({
-
-            contactId: post.id
+                contactId: post._id
+            })
         })
-    })
-        .then(res => {
-            if (res.status === 200) {
-                // getJobs()
-                Swal.fire("te has Inscrito correctamente", res.message, "success");
-                buttonState(true);
+            .then(res => {
+                if (res.status === 200) {
+                    Swal.fire("te has Inscrito correctamente", res.message, "success");
+                    setButtonState(true);
+                }
+            }).catch((error) => {
+                console.error(error);
             }
-        }).catch((error) => {
-            console.error(error);
-        }
-        )
+            )
 
+    }
 
-}
-let deleteContact = () => {
-    fetch(`${BASE_URL}/users/deleteContact`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${userLogged.token}`
-        },
-        body: JSON.stringify({
+    const deleteContact = () => {
+        fetch(`${BASE_URL}/users/deleteContact`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${userLogged.token}`
+            },
+            body: JSON.stringify({
 
-            contactId: post.id
+                contactId: post._id
+            })
         })
-    })
-        .then(res => res.json())
-        .then(() => Swal.fire("Eliminado corectamente", "success"))
+            .then(res => {
+                if (res.status === 200) {
+                    Swal.fire("contacto eliminado", res.message, "success");
+                    setButtonState(false);
+                }
+            })
+            .then(() => Swal.fire("Eliminado corectamente", "success"))
+    }
 
+    return (
+        <div className="userList__div">
+            <Link className='userList__link' to={`/users/${post._id}`}>
+                <img className="userList__photo" src={post.image || defaultProfileImage} alt={post.name} />
+                <div className='userList__div1' >
+                    <h1 className='userList__h1' >{post.name} {post.surname}</h1>
+                    <h3 className='userList__h3' >{post.email}</h3>
+                </div>
+            </Link>
 
-
-}
-
-
-
-return (
-    <div className="userList__div">
-        <img className="userList__photo" src={post.image} alt={post.name} />
-        <div className='userList__div1' >
-
-            <h1 className='userList__h1' >Name: {post.name}</h1>
-            <h2 className='userList__h2' >Surname: {post.surname}</h2>
-            <h3 className='userList__h3' >Email: {post.email}</h3>
-            {/* <p className='userList__p' >Direction: {post.direction}</p>
-              <p className='userList__p' >Job: {post.job}</p> */}
+            {!buttonState ?
+                <button className='userList__btn' onClick={addContact}>Añadir Contacto</button>
+                :
+                <button className='userList__btn userList__btn--deleteBtn' onClick={deleteContact}>Dejar de seguir</button>
+            }
+            {/* <button className='userList__btn' >Show More</button> */}
         </div>
-
-        {buttonState ?
-            <button className='userList__btn' onClick={addContact}>Añadir Contacto</button>
-            :
-            <button className='userList__btn' onClick={deleteContact}>Dejar de seguir</button>
-        }
-
-        <Link to={`/users/${post._id}`}>
-            <button className='userList__btn' >Show More</button>
-        </Link>
-    </div>
-)
+    )
 }
 
 export default User

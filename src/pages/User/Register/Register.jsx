@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { registerUser, useDispatchAuth } from '../../../context';
 
 const loginInitialState = {
@@ -13,6 +13,7 @@ const loginInitialState = {
 const Register = () => {
 
     const navigate = useNavigate();
+    const dispatch = useDispatchAuth();
 
     const [registerForm, setRegisterForm] = useState(loginInitialState);
 
@@ -21,9 +22,6 @@ const Register = () => {
         setRegisterForm((prevState) => ({ ...prevState, [name]: value }));
     };
 
-    const dispatch = useDispatchAuth();
-
-    //enviar login al server
     const handleRegister = async (event) => {
         event.preventDefault();
         try {
@@ -32,7 +30,7 @@ const Register = () => {
             navigate("/Jobs");
         } catch (error) {
             console.log(error);
-         }
+        }
     };
 
     return (
@@ -82,9 +80,9 @@ const Register = () => {
                         onChange={handleRegisterForm}
                         required
                     />
-                    <button className="login__button">Login</button>
+                    <button className="login__button">Register</button>
                 </form>
-                {/* <p>{ && }</p> */}
+                <p>You already have an account. <Link to={"/users/login"}>Login</Link></p>
             </div>
         </section>
     )
