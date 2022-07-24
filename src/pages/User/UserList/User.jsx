@@ -7,20 +7,20 @@ import { defaultProfileImage } from '../../../assets/images/imagesLink';
 
 
 
-const User = ({ post, contacts }) => {
+const User = ({ user, contactsList }) => {
     const [buttonState, setButtonState] = useState(false);
     const userLogged = useGetAuth();
 
     useEffect(() => {
-        const filteredContacts = contacts.find(contact => {
-            return contact.id === post._id
+        const filteredContacts = contactsList.find(contact => {
+            return contact.id === user._id
         })
         if (filteredContacts) {
             setButtonState(true)
         } else {
             setButtonState(false)
         }
-    }, [contacts, post._id])
+    }, [contactsList, user._id])
 
     const addContact = () => {
 
@@ -32,7 +32,7 @@ const User = ({ post, contacts }) => {
             },
             body: JSON.stringify({
 
-                contactId: post._id
+                contactId: user._id
             })
         })
             .then(res => {
@@ -40,11 +40,7 @@ const User = ({ post, contacts }) => {
                     Swal.fire("te has Inscrito correctamente", res.message, "success");
                     setButtonState(true);
                 }
-            }).catch((error) => {
-                console.error(error);
-            }
-            )
-
+            }).catch((error) => console.error(error))
     }
 
     const deleteContact = () => {
@@ -56,7 +52,7 @@ const User = ({ post, contacts }) => {
             },
             body: JSON.stringify({
 
-                contactId: post._id
+                contactId: user._id
             })
         })
             .then(res => {
@@ -70,11 +66,11 @@ const User = ({ post, contacts }) => {
 
     return (
         <div className="userList__div">
-            <Link className='userList__link' to={`/users/${post._id}`}>
-                <img className="userList__photo" src={post.image || defaultProfileImage} alt={post.name} />
+            <Link className='userList__link' to={`/users/${user._id}`}>
+                <img className="userList__photo" src={user.image || defaultProfileImage} alt={user.name} />
                 <div className='userList__div1' >
-                    <h1 className='userList__h1' >{post.name} {post.surname}</h1>
-                    <h3 className='userList__h3' >{post.email}</h3>
+                    <h1 className='userList__h1' >{user.name} {user.surname}</h1>
+                    <h3 className='userList__h3' >{user.email}</h3>
                 </div>
             </Link>
 

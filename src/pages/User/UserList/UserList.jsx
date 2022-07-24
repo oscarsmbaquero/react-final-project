@@ -10,7 +10,7 @@ import User from './User';
 const UserList = () => {
 
   let [users, setUsers] = useState([]);
-  let [userContact, setuserContact] = useState([]);
+  let [userContact, setUserContact] = useState([]);
 
   const [keyword, setKeyword] = useState("");
   const userLogged = useGetAuth();
@@ -28,7 +28,7 @@ const UserList = () => {
         });
 
         const jsonData = await data.json();
-        setuserContact(jsonData.data.contacts);
+        setUserContact(jsonData.data.contacts);
 
 
       } catch (error) {
@@ -49,21 +49,20 @@ const UserList = () => {
 
   //Capturamos eel valor del input del buscador  y lo seteamos a keyword pasandolo a minusculas
   const onInputChange = (e) => {
-    e.preventDefault();
     setKeyword(e.target.value.toLowerCase());
   };
 
   /*Con el valor introducido en el inpute del buscador filtramos los trabajos almacenaos en jobs(filtrado por puesto de trabajo o name)
     previo paso a minusculas*/
-  const filteredUsers = users.filter((user) => user.name.toLowerCase().includes(keyword));
+  const filteredUsers = users.filter(user => user.name.toLowerCase().includes(keyword));
 
   return (
     <>
       <SearchInput placeholder="Filter by job or user " onChange={onInputChange} />
       <section className="userList">
-        {filteredUsers.map((post) => (
-          userLogged.id !== post._id &&
-          <User key={post._id} post={post} contacts={userContact} />
+        {filteredUsers.map(user => (
+          userLogged.id !== user._id &&
+          <User key={user._id} user={user} contactsList={userContact} />
         ))}
       </section>
     </>
