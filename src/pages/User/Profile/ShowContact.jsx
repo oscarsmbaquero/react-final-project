@@ -1,18 +1,53 @@
-import React from 'react'
+import React from 'react';
+
+
+import DataTable from 'react-data-table-component';
 
 const ShowContact = ({contacts}) => {
-    console.log(contacts,4578)
+
+  const columns = [
+  
+    {
+        name: 'Name',
+        selector: row => row.name,
+    },
+    {
+        name: 'Surname',
+        selector: row => row.surname,
+    },
+];
+const customStyles = {
+  rows: {
+      style: {
+          minHeight: '60px', // override the row height
+      },
+  },
+  headCells: {
+      style: {
+          paddingLeft: '300px', // override the cell padding for head cells
+          paddingRight: '8px',
+      },
+  },
+  cells: {
+      style: {
+          paddingLeft: '300px', // override the cell padding for data cells
+          paddingRight: '8px',
+      },
+  },
+};
+
+
   return (
-    <div>
-       {/* {contacts ?
-       <div>
-            <h1>{contacts.name}  {contacts.surname}</h1>
+    <>
+   
+    <DataTable
             
-       </div>
-       :''} */}
-        
-    </div>
-    
+            columns={columns}
+            data={contacts}
+            pagination
+            customStyles={customStyles}
+        />
+    </>
   )
 }
 

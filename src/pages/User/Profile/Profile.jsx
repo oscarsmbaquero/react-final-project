@@ -40,15 +40,12 @@ const Profile = () => {
 
           }
           })
-          console.log(user);
-
-
    }
-
+   console.log(user);
    const showContacts = async (e, user) => {
     e.preventDefault();
-    const thisClicked = e.currentTarget;
-    thisClicked.innerText ="Mostrando"  ;
+    // const thisClicked = e.currentTarget;
+    // thisClicked.innerText ="Mostrando"  ;
     const data = await fetch(`${BASE_URL}/users/contacts`,{
       method: 'GET',
       headers: {
@@ -58,7 +55,7 @@ const Profile = () => {
        });
        const jsonData = await data.json();
        setContacts(jsonData.data.contacts);
-
+       
        }
 
 
@@ -74,7 +71,7 @@ const Profile = () => {
           .then(data => SetProfile(data))
       }, [userLogged.id]);
 
-     //console.log(profile);
+     
 
 
   return (
@@ -94,11 +91,12 @@ const Profile = () => {
                 {edit === userLogged.id ? <Edit editProfile ={profile} userLogged ={userLogged} />: ''}
 
                 <button className='edits__buttonDelete' onClick = {(e) => deleteProfile (e,userLogged.id)} >Eliminar Perfil</button>
-
                 <button className='edits__buttonShow' onClick = {(e) => showContacts (e,userLogged.id)} >Mostar Contactos</button>
-                {/* {contacts.map((contact) => (
-                <ShowContact key={contact._id} contact={contact}  />
-          ))} */}
+                {userLogged.rol === 'User'?
+                <button className='edits__buttonActive' onClick = {(e) => showContacts (e,userLogged.id)} >Candidaturas Activas</button>
+                :
+                <button className='edits__buttonActive' onClick = {(e) => showContacts (e,userLogged.id)} >Candidaturas Abiertas</button> 
+                 }
                  <ShowContact contacts={contacts}/>
             </div>
         </div>
