@@ -66,13 +66,16 @@ const User = ({ user, contactsList }) => {
 
     return (
         <div className="userList__div">
+            <div className='userList__info'>
             <Link className='userList__link' to={`/users/${user._id}`}>
-                <img className="userList__photo" src={user.image || defaultProfileImage} alt={user.name} />
+                <img className="userList__photo" src={user.image || defaultProfileImage} alt="img" />
                 <div className='userList__div1' >
                     <h1 className='userList__h1' >{user.name} {user.surname}</h1>
-                    <h3 className='userList__h3' >{user.email}</h3>
+                        <h3 className='userList__h3' >{user.email}</h3>
+                        {/* Colocar puesto mejor que correo */}
                 </div>
-            </Link>
+                </Link>
+                </div>
 
             {!buttonState ?
                 <button className='userList__btn' onClick={addContact}>Añadir Contacto</button>
