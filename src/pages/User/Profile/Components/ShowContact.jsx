@@ -39,7 +39,6 @@ const customStyles = {
 
   return (   
     <DataTable
-            
             columns={columns}
             data={contacts}
             pagination
