@@ -2,9 +2,12 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../assets/ApiRoutes";
+import { useGetAuth } from "../../context/context";
 import "./FormCompanies.scss";
 // import formImg from "../../assets/images/prueba.png";
 const FormCompanies = () => {
+
+  const userLogged = useGetAuth();
   const {
     register,
     handleSubmit,
@@ -19,6 +22,7 @@ const FormCompanies = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${userLogged.token}`
         },
         body: JSON.stringify(formData),
       });

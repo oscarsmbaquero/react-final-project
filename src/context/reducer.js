@@ -4,9 +4,9 @@ const idStored = localStorage.getItem("currentUser")
 const tokenStored = localStorage.getItem("currentUser")
     ? JSON.parse(localStorage.getItem("currentUser")).token
     : undefined;
-const mailStored = localStorage.getItem("currentUser")
-    ? JSON.parse(localStorage.getItem("currentUser")).email
-    : undefined;
+// const emailStored = localStorage.getItem("currentUser")
+//     ? JSON.parse(localStorage.getItem("currentUser")).email
+//     : undefined;
 const rolStored = localStorage.getItem("currentUser")
     ? JSON.parse(localStorage.getItem("currentUser")).rol
     : undefined;
@@ -15,7 +15,6 @@ const rolStored = localStorage.getItem("currentUser")
 export const initialState = {
     id: idStored,
     token: tokenStored,
-    email: mailStored,
     rol: rolStored,
     loading: false,
     errorMessage: null

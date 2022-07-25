@@ -24,22 +24,20 @@ const customStyles = {
   },
   headCells: {
       style: {
-          paddingLeft: '300px', // override the cell padding for head cells
+          paddingLeft: '70px', // override the cell padding for head cells
           paddingRight: '8px',
       },
   },
   cells: {
       style: {
-          paddingLeft: '300px', // override the cell padding for data cells
+          paddingLeft: '70px', // override the cell padding for data cells
           paddingRight: '8px',
       },
   },
 };
 
 
-  return (
-    <>
-   
+  return (   
     <DataTable
             
             columns={columns}
@@ -47,7 +45,7 @@ const customStyles = {
             pagination
             customStyles={customStyles}
         />
-    </>
+  
   )
 }
 
