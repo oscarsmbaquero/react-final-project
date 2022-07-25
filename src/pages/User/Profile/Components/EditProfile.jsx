@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
 import './EditProfile.scss';
-import { BASE_URL } from '../../../assets/ApiRoutes';
+import { BASE_URL } from '../../../../assets/ApiRoutes';
 
 const EditProfile = ({ editProfile, userLogged }) => {
        let navigate = useNavigate();
