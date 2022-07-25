@@ -8,6 +8,8 @@ import './Profile.scss';
 import { useGetAuth } from "../../../context/context";
 import Edit from './EditProfile';
 import ShowContact from './ShowContact';
+import ShowCandidatures from './ShowCandidatures';
+import GetRecruiterJobs from './GetRecruiterJobs';
 
 const Profile = () => {
 
@@ -18,6 +20,9 @@ const Profile = () => {
     const [user,SetUser] =useState();
     const userLogged = useGetAuth();
     const [contacts, setContacts] = useState(undefined);
+    const [candidatures, SetCandidatures] = useState(undefined);
+    const [recruiterJobs, SetRecruiterJobs] = useState(undefined);
+    
 
     //console.log(user);
    const deleteProfile = (e, user) =>{
@@ -56,13 +61,44 @@ const Profile = () => {
        const jsonData = await data.json();
        setContacts(jsonData.data.contacts);
        
-       }
+   }
+
+   const showCandidatures = async (e,user) =>{
+    e.preventDefault();
+    console.log('Entro',user,63);
+    // const data = await fetch(`${BASE_URL}/users/contacts`,{
+    //   method: 'GET',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     Authorization: `Bearer ${userLogged.token}`
+    //     }
+    //    });
+    //    const jsonData = await data.json();
+    //    setContacts(jsonData.data.contacts);
+
+   }
+   
+   const getRecruiterJobs = async (e,user) =>{
+    e.preventDefault();
+    console.log('Entro',user,64);
+    const data = await fetch(`${BASE_URL}/users/recruiterJobs`,{
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userLogged.token}`
+        }
+       });
+       const jsonData = await data.json();
+       SetRecruiterJobs(jsonData.data.recruiterJobs);
+    
+  }
+  
 
 
 
 
 
-
+  console.log(recruiterJobs,'Si');
 
     useEffect(() => {
 
@@ -90,12 +126,18 @@ const Profile = () => {
                 {edit === userLogged.id ? <Edit editProfile ={profile} userLogged ={userLogged} />: ''}
                 <button className="edits__button Show" onClick = {(e) => showContacts (e,userLogged.id)} >Mostar Contactos</button>
                 {userLogged.rol === 'User'?
-                <button className='edits__button Active' onClick = {(e) => showContacts (e,userLogged.id)} >Candidaturas Activas</button>
+
+                <button className='edits__buttonActive' onClick = {(e) => showCandidatures (e,userLogged.id)} >Candidaturas Activas</button>
                 :
-            <button className='edits__button Active' onClick={(e) => showContacts(e, userLogged.id)} >Candidaturas Abiertas</button> 
-            
-            }
-            <ShowContact contacts={contacts}/>
+                <button className='edits__buttonActive' onClick = {(e) => getRecruiterJobs (e,userLogged.id)} >Candidaturas Abiertas</button> 
+                 }
+                 <ShowContact contacts={contacts}/>
+                 {userLogged.rol === 'User'?
+                 <ShowCandidatures contacts={contacts}/>
+                 :
+                 <GetRecruiterJobs recruiterJobs={recruiterJobs}/>
+                 }
+
             </div>
           <button className='Delete' onClick = {(e) => deleteProfile (e,userLogged.id)} >Eliminar Perfil</button>
 
