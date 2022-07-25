@@ -107,28 +107,26 @@ const Profile = () => {
           .then(data => SetProfile(data))
       }, [userLogged.id]);
 
-     
-
 
   return (
-    <div>
+    <section className='detail'>
       {!profile ? <p>Cargando...</p> : <>
         <div className="profile">
-            <div>
-                <img className="profile__photo" src={profile.image} alt={profile.name}/>
+            <div className='profile__perfil'>
+                <img className="profile__photo" src={profile.image} alt='foto'/>
             </div>
             <div className="profile__text">
-                <h1> {profile.name}   {profile.surname}</h1>
+            <h1 className='profile__text--Name'> {profile.name} {profile.surname} </h1>
+            <p className='profile__text--Descr'> {profile.description} Hola </p>
             </div>
         </div>
         <div className="edits">
-            <div>
-                <button className='edits__button' onClick = {() => setEdit (userLogged.id)} >Añadir Info</button>
+          <div className='edits__imptBtn'>
+                <button className="edits__button Info" onClick = {() => setEdit (userLogged.id)} >Añadir Info</button>
                 {edit === userLogged.id ? <Edit editProfile ={profile} userLogged ={userLogged} />: ''}
-
-                <button className='edits__buttonDelete' onClick = {(e) => deleteProfile (e,userLogged.id)} >Eliminar Perfil</button>
-                <button className='edits__buttonShow' onClick = {(e) => showContacts (e,userLogged.id)} >Mostar Contactos</button>
+                <button className="edits__button Show" onClick = {(e) => showContacts (e,userLogged.id)} >Mostar Contactos</button>
                 {userLogged.rol === 'User'?
+
                 <button className='edits__buttonActive' onClick = {(e) => showCandidatures (e,userLogged.id)} >Candidaturas Activas</button>
                 :
                 <button className='edits__buttonActive' onClick = {(e) => getRecruiterJobs (e,userLogged.id)} >Candidaturas Abiertas</button> 
@@ -139,10 +137,14 @@ const Profile = () => {
                  :
                  <GetRecruiterJobs recruiterJobs={recruiterJobs}/>
                  }
+
             </div>
+          <button className='Delete' onClick = {(e) => deleteProfile (e,userLogged.id)} >Eliminar Perfil</button>
+
         </div>
       </>}
-    </div>
+
+    </section>
   )
 }
 

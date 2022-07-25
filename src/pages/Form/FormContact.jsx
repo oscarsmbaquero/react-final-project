@@ -62,7 +62,6 @@ const FormContact = () => {
             // placeholder="Teléfono:..."
             /></label>
           </fieldset>
-
           <label className="sectionForm__label"> Mensaje</label>
           <textarea
             className="sectionForm__textarea"
