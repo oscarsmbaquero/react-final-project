@@ -23,10 +23,7 @@ const Profile = () => {
   const [candidatures, SetCandidatures] = useState(undefined);
   const [recruiterJobs, SetRecruiterJobs] = useState(undefined);
 
-
-  //console.log(user);
-  const deleteProfile = (e, user) => {
-    e.preventDefault();
+  const deleteProfile = (e) => {
 
     const thisClicked = e.currentTarget;
     thisClicked.innerText = "Borrando";
@@ -44,10 +41,9 @@ const Profile = () => {
 
       }
     })
-  }
-  console.log(user);
-  const showContacts = async (e, user) => {
-    e.preventDefault();
+  };
+
+  const showContacts = async () => {
     // const thisClicked = e.currentTarget;
     // thisClicked.innerText ="Mostrando"  ;
     const data = await fetch(`${BASE_URL}/users/contacts`, {
@@ -63,8 +59,6 @@ const Profile = () => {
   }
 
   const showCandidatures = async (e, user) => {
-    e.preventDefault();
-    console.log('Entro', user, 63);
     // const data = await fetch(`${BASE_URL}/users/contacts`,{
     //   method: 'GET',
     //   headers: {
@@ -77,9 +71,7 @@ const Profile = () => {
 
   }
 
-  const getRecruiterJobs = async (e, user) => {
-    e.preventDefault();
-    console.log('Entro', user, 64);
+  const getRecruiterJobs = async () => {
     const data = await fetch(`${BASE_URL}/users/recruiterJobs`, {
       method: 'GET',
       headers: {
@@ -90,9 +82,7 @@ const Profile = () => {
     const jsonData = await data.json();
     SetRecruiterJobs(jsonData.data.recruiterJobs);
 
-  }
-
-  console.log(recruiterJobs, 'Si');
+  };
 
   useEffect(() => {
 
@@ -121,10 +111,10 @@ const Profile = () => {
 
             <button className="edits__button Info" onClick={() => setEdit(userLogged.id)} >Añadir Info</button>
             {edit === userLogged.id && <EditProfile editProfile={profile} userLogged={userLogged} />}
-            <button className="edits__button Show" onClick={(e) => showContacts(e, userLogged.id)} >Mostar Contactos</button>
+            <button className="edits__button Show" onClick={showContacts} >Mostar Contactos</button>
             {userLogged.rol === 'User' ?
-              <button className='edits__buttonActive' onClick={(e) => showCandidatures(e, userLogged.id)} >Candidaturas Activas</button>
-              : <button className='edits__buttonActive' onClick={(e) => getRecruiterJobs(e, userLogged.id)} >Candidaturas Abiertas</button>
+              <button className='edits__buttonActive' onClick={showCandidatures} >Candidaturas Activas</button>
+              : <button className='edits__buttonActive' onClick={getRecruiterJobs} >Candidaturas Abiertas</button>
             }
             <ShowContact contacts={contacts} />
             {userLogged.rol === 'User' ?
