@@ -1,12 +1,12 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AiFillHome, AiOutlineMail, AiOutlineUserAdd, AiOutlineFileAdd, AiOutlineLogout } from "react-icons/ai";
+import { AiOutlineMail, AiOutlineUserAdd, AiOutlineFileAdd, AiOutlineLogout } from "react-icons/ai";
 import { BsFillChatDotsFill } from "react-icons/bs";
 import { FaUserTie, FaUserCircle } from "react-icons/fa";
 import "./Header.scss";
 import Navbar from "react-bootstrap/Navbar";
 import { logout, useDispatchAuth, useGetAuth } from "../../../context";
-
+import  logo4  from "../../../assets/images/4magni.png"
 const Header = () => {
 
   const userLogged = useGetAuth();
@@ -22,16 +22,17 @@ const Header = () => {
     <>
 
       <Navbar className="header" expand="md">
-        <div className="header__container">
+      <div>
+              <Link className="header__a" to="/">
+                <img src={logo4} alt="logo" className="header__logo"></img>
+                </Link>
+              </div>
+        <div >
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <ul className="header__ul">
-              <Link className="header__a" to="/">
-                <span className="span1"> Home</span>
-                <span className="span2">
-                  <AiFillHome />
-                </span>
-              </Link>
+
+              <div className="header__menu">
               {userLogged.id && <Link className="header__a" to="/chat">
                 <span className="span1">Chat</span>
                 <span className="span2">
@@ -96,18 +97,7 @@ const Header = () => {
                 <AiOutlineLogout onClick={handleLogout} className="header__a" />
               </>
               }
-
-              {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
-              </NavDropdown> */}
+              </div>
             </ul>
           </Navbar.Collapse>
         </div>
