@@ -74,10 +74,10 @@ const JobDetail = ({ selectedJob, getJobs }) => {
     <div>
       {selectedJob ? <div className="details">
         <div className="details__text">
-          <h1> puesto de trabajo: {selectedJob.name}</h1>
-          <h2> Description:{selectedJob.description}</h2>
-          <h3> Salary: {selectedJob.salary}</h3>
-          <p>  Requirements: {selectedJob.requiremets}</p>
+          <h1 className='details__text--h1'> <strong>Job: </strong>{selectedJob.name}</h1>
+          <h2 className='details__text--h1'> <strong>Description: </strong>{selectedJob.description}</h2>
+          <h3 className='details__text--h1'> <strong>Salary: </strong>{selectedJob.salary}</h3>
+          <p>  <strong>Requirements: </strong> {selectedJob.requiremets}</p>
           {applyBtn ?
             <button onClick={handledeleteUser} className='login__button' >Retirar Solicitud</button>
             :
