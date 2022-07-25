@@ -53,7 +53,7 @@ const tabsReducer = (currentState, action) => {
 const Profile = () => {
 
   if (true) {
-    
+
   }
 
   const [tabs, dispatch] = useReducer(tabsReducer, tabsInitState);
@@ -141,6 +141,17 @@ const Profile = () => {
       .then(data => SetProfile(data))
   }, [userLogged.id]);
 
+  const jobsList = userLogged.rol === 'User' ?
+    <>
+      <button className='edits__buttonActive' onClick={showCandidatures} >Candidaturas Activas</button>
+      <ShowCandidatures contacts={contacts} />
+    </>
+    :
+    <>
+      <button className='edits__buttonActive' onClick={getRecruiterJobs} >Candidaturas Abiertas</button>
+      <GetRecruiterJobs recruiterJobs={recruiterJobs} />
+    </>;
+
   return (
     <section className='detail'>
       {!profile ? <p>Cargando...</p> : <>
@@ -181,19 +192,7 @@ const Profile = () => {
 
             {/* //##################### Jobs */}
 
-
-            {tabs.jobsList &&
-              userLogged.rol === 'User' ?
-              <>
-                <button className='edits__buttonActive' onClick={showCandidatures} >Candidaturas Activas</button>
-                <ShowCandidatures contacts={contacts} />
-              </>
-              :
-              <>
-                <button className='edits__buttonActive' onClick={getRecruiterJobs} >Candidaturas Abiertas</button>
-                <GetRecruiterJobs recruiterJobs={recruiterJobs} />
-              </>
-            }
+            {tabs.jobsList && jobsList}
             {/* //##################### notifications */}
             {tabs.notifications && <Notifications />}
 
