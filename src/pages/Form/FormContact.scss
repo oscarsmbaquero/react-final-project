@@ -9,7 +9,7 @@
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    background-color: #ff660049;
+    background-color: #ff660023;
   }
   &__form {
     display: flex;
@@ -46,7 +46,6 @@
         display: grid;
         grid-template-rows: 50%  50%;
         grid-template-columns: 100%;
-        margin-top: 2em;
       }
     }
     &__label {
@@ -73,7 +72,7 @@
       border-radius: 10px;
       width: 100%;
       max-height: 150px;
-      margin: 1em auto;
+      margin: 1em auto 0 auto;
     }
     &__divDirecc{
 display: grid;
