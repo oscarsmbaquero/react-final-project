@@ -38,7 +38,7 @@ const Header = () => {
                     <BsFillChatDotsFill />
                   </span>
                 </Link>}
-                {userLogged.id && userLogged.rol === 'User' ?
+                {userLogged.id ?
                   <Link className="header__a" to="/jobs">
                     <span className="span1">Jobs</span>
                     <span className="span2">
@@ -85,7 +85,6 @@ const Header = () => {
                     <AiOutlineUserAdd />
                   </span>
                 </Link> : <>
-                  {/* <span className="span1">{userLogged.email}</span> */}
                   <AiOutlineLogout onClick={handleLogout} className="header__a" />
                 </>
                 }
