@@ -15,6 +15,25 @@ import NotificationsList from './Components/Notifications/NotificationsList';
 
 const Profile = () => {
 
+  const loggedUser = useGetAuth()
+  const [userNotifications, setUserNotifications] = useState([]);
+
+  const pendingNotifications = userNotifications.filter(notification => notification.view_status === "not seen")
+
+  useEffect(() => {
+    fetch(`${BASE_URL}/notifications/getNotifications`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${loggedUser.token}`
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        setUserNotifications(data)
+      })
+  }, [loggedUser.token]);
+
   const [tabs, dispatch] = useReducer(tabsReducer, tabsInitState);
 
   const infoTab = () => dispatch({ type: "INFORMATION", payload: tabsInitState });
@@ -130,9 +149,12 @@ const Profile = () => {
 
             <ul className='edits__navBar'>
               <li className='edits__li' onClick={infoTab}>Information</li>
-              <li className='edits__li'  onClick={contactsTab}>Contacts</li>
-              <li className='edits__li'  onClick={jobsTab}>Applied Jobs</li>
-              <li className='edits__li'  onClick={notificationsTab}>Notifications</li>
+              <li className='edits__li' onClick={contactsTab}>Contacts</li>
+              <li className='edits__li' onClick={jobsTab}>Applied Jobs</li>
+              <div className='edits__li'>
+                <li onClick={notificationsTab}>Notifications</li>
+                <p className='edits__text'>{pendingNotifications.length}</p>
+              </div>
             </ul>
 
             {/* //##################### profile information */}
@@ -154,7 +176,7 @@ const Profile = () => {
 
             {tabs.jobsList && jobsList}
             {/* //##################### notifications */}
-            {tabs.notifications && <NotificationsList />}
+            {tabs.notifications && <NotificationsList userNotifications={userNotifications} />}
 
           </div>
           {/* <button className='Delete' onClick={(e) => deleteProfile(e, userLogged.id)} >Eliminar Perfil</button> */}
