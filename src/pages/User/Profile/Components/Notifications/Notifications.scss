@@ -1,12 +1,14 @@
 .notificationsList {
 
-    background-color: antiquewhite;
+    // background-color: antiquewhite;
 
     &__card {
-        display: flex;
+        display: grid;
+        grid-template-columns: .2fr .4fr 1fr 1fr 1fr;
 
         justify-content: center;
         align-items: center;
+        background-color: antiquewhite;
     }
 
     &__item {

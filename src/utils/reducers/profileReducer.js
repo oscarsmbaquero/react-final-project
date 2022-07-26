@@ -19,19 +19,19 @@ export const tabsReducer = (currentState, action) => {
                 contacts: true
             };
         case "JOBS":
-
             return {
                 ...action.payload,
                 jobsList: true
             };
         case "NOTIFICATIONS":
-
             return {
                 ...action.payload,
                 notifications: true
             };
         default:
-            break;
+            return{
+                ...currentState
+            }
     }
 
 };
