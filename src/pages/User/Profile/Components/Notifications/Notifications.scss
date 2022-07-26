@@ -1,0 +1,32 @@
+.notificationsList {
+
+    background-color: antiquewhite;
+
+    &__card {
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        padding: .8rem;
+        height: 4rem;
+    }
+
+    &__img {
+        height: 100%;
+        border-radius: 5rem;
+    }
+
+    &__text {
+        margin-bottom: 0;
+    }
+
+    &__btn {
+        padding: .8rem;
+        margin: .6rem;
+    }
+}

@@ -10,51 +10,10 @@ import EditProfile from './Components/EditProfile';
 import ShowCandidatures from './Components/ShowCandidatures';
 import ShowContact from './Components/ShowContact';
 import GetRecruiterJobs from './Components/GetRecruiterJobs';
-import Notifications from './Components/Notifications';
-
-const tabsInitState = {
-  infomation: false,
-  contacts: false,
-  jobsList: false,
-  notifications: false
-};
-
-const tabsReducer = (currentState, action) => {
-
-  switch (action.type) {
-    case "INFORMATION":
-      return {
-        ...action.payload,
-        infomation: true
-      };
-    case "CONTACTS":
-      return {
-        ...action.payload,
-        contacts: true
-      };
-    case "JOBS":
-
-      return {
-        ...action.payload,
-        jobsList: true
-      };
-    case "NOTIFICATIONS":
-
-      return {
-        ...action.payload,
-        notifications: true
-      };
-    default:
-      break;
-  }
-
-};
+import { tabsInitState, tabsReducer } from '../../../utils/reducers/profileReducer';
+import NotificationsList from './Components/Notifications/NotificationsList';
 
 const Profile = () => {
-
-  if (true) {
-
-  }
 
   const [tabs, dispatch] = useReducer(tabsReducer, tabsInitState);
 
@@ -141,6 +100,7 @@ const Profile = () => {
       .then(data => SetProfile(data))
   }, [userLogged.id]);
 
+  //##################----comprobamos si es user o es recruiter
   const jobsList = userLogged.rol === 'User' ?
     <>
       <button className='edits__buttonActive' onClick={showCandidatures} >Candidaturas Activas</button>
@@ -194,7 +154,7 @@ const Profile = () => {
 
             {tabs.jobsList && jobsList}
             {/* //##################### notifications */}
-            {tabs.notifications && <Notifications />}
+            {tabs.notifications && <NotificationsList />}
 
           </div>
           <button className='Delete' onClick={(e) => deleteProfile(e, userLogged.id)} >Eliminar Perfil</button>
