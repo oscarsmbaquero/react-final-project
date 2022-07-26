@@ -20,7 +20,7 @@ const Chat = () => {
     const [contacts, setContacts] = useState(undefined);
     const [selectedChat, setSelectedChat] = useState(undefined);
 
-    const loggedUser = useGetAuth()
+    const loggedUser = useGetAuth();
 
     useEffect(() => {
         socket.current = io(BASE_URL);

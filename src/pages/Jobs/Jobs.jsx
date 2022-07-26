@@ -6,16 +6,14 @@ import SearchInput from '../../core/SearchInput/SearchInput';
 
 import JobDetail from './components/JobDetail/JobDetail';
 import JobsList from './components/JobsList/JobsList';
-import { useWindowSize } from '../../utils/windowSize';
+// import { useWindowSize } from '../../utils/windowSize';
 import SelectCompanies from '../../core/SelectCompanies/SelectCompanies';
 
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);
   const [keyword, setKeyword] = useState('');
   const [selectedJob, setSelectedJob] = useState('')
-  //const [width] = useWindowSize();
-  const [height, width] = useWindowSize();
-  console.log(width, height);
+  // const [height, width] = useWindowSize();
 
   const getJobs = () => {
     fetch(`${BASE_URL}/jobs`)
