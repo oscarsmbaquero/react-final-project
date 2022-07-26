@@ -18,7 +18,10 @@ const Profile = () => {
   const loggedUser = useGetAuth()
   const [userNotifications, setUserNotifications] = useState([]);
 
-  const pendingNotifications = userNotifications.filter(notification => notification.view_status === "not seen")
+  console.log(userNotifications)
+
+  const pendingNotifications = userNotifications.filter(notification => 
+    notification.view_status === "not seen" || notification.type === "accepted")
 
   useEffect(() => {
     fetch(`${BASE_URL}/notifications/getNotifications`, {
