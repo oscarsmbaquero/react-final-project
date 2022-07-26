@@ -9,10 +9,15 @@ const requestOptions = (sendData) => {
 };
 
 const fetchUserToDatabase = async (urlPetition, reqData) => {
-    const res = await fetch(`${BASE_URL}/${urlPetition}`, requestOptions(reqData));
-    const data = await res.json();
-    return data;
-}
+    try {
+        const res = await fetch(`${BASE_URL}/${urlPetition}`, requestOptions(reqData));
+        const data = await res.json();
+        return data;
+    } catch (error) {
+
+        console.error(error)
+    }
+};
 
 export const loginUser = async (dispatch, loginData) => {
     localStorage.removeItem('currentUser');
@@ -23,7 +28,6 @@ export const loginUser = async (dispatch, loginData) => {
         const data = await fetchUserToDatabase("users/login", loginData)
 
         if (data.data) {
-            
             dispatch({ type: "LOGIN_OK", payload: data.data });
             localStorage.setItem('currentUser', JSON.stringify(data.data));
         }
