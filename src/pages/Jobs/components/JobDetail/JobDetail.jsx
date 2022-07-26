@@ -38,13 +38,13 @@ const JobDetail = ({ selectedJob, getJobs }) => {
         getJobs()
         Swal.fire("te has Inscrito correctamente", res.message, "success");
         setApplyBtn(true);
-      }else{
+      } else {
         navigate('/users/login')
       }
     }).catch((error) => {
       console.error(error);
     })
-  }
+  };
 
   const handledeleteUser = () => {
     fetch(`${BASE_URL}/jobs/delete-user-job/`, {
@@ -68,22 +68,22 @@ const JobDetail = ({ selectedJob, getJobs }) => {
       console.log("entró por el error");
       console.error(error);
     })
-  }
+  };
+
+  const applicationBtn = applyBtn ?
+    <button onClick={handledeleteUser} className='login__button' >Retirar Solicitud</button>
+    :
+    <button onClick={handleAddUser} className='login__button' >Solicitar</button>
 
   return (
     <div>
       {selectedJob ? <div className="details">
         <div className="details__text">
-          <h1 className='details__text--h1'> <strong>Job: </strong>{selectedJob.name}</h1>
+          <h1 className='details__text--h1'> <strong></strong>{selectedJob.name}</h1>
           <h2 className='details__text--h1'> <strong>Description: </strong>{selectedJob.description}</h2>
           <h3 className='details__text--h1'> <strong>Salary: </strong>{selectedJob.salary}</h3>
           <p>  <strong>Requirements: </strong> {selectedJob.requiremets}</p>
-          {applyBtn ?
-            <button onClick={handledeleteUser} className='login__button' >Retirar Solicitud</button>
-            :
-            <button onClick={handleAddUser} className='login__button' >Solicitar</button>
-
-          }
+          {userLogged.rol === "User" ? applicationBtn : ""}
         </div>
       </div> : <p>ningún trabajo selecionado</p>}
     </div>

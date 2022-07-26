@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { loginUser, useDispatchAuth } from "../../context";
+import { loginUser, useDispatchAuth } from "../../../context";
 import "./Login.scss";
 const loginInitialState = {
   email: "",

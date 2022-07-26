@@ -5,7 +5,7 @@ import UserList from "../pages/User/UserList/UserList";
 import FormContact from "../pages/Form/FormContact";
 import FormCompanies from "../pages/FormCompanies/FormCompanies";
 import FormEmployers from "../pages/FormEmployers/FormEmployers";
-import Login from "../pages/User/Login";
+import Login from "../pages/User/Login/Login";
 import JobsList from "../pages/Jobs/Jobs";
 import UserDetails from "../pages/User/UserDetails/UserDetails";
 import Profile from "../pages/User/Profile/Profile";

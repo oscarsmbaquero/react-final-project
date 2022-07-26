@@ -12,6 +12,7 @@ import ShowContact from './Components/ShowContact';
 import GetRecruiterJobs from './Components/GetRecruiterJobs';
 import { tabsInitState, tabsReducer } from '../../../utils/reducers/profileReducer';
 import NotificationsList from './Components/Notifications/NotificationsList';
+import { defaultProfileImage } from '../../../assets/images/imagesLink';
 
 const Profile = () => {
 
@@ -20,7 +21,7 @@ const Profile = () => {
 
   console.log(userNotifications)
 
-  const pendingNotifications = userNotifications.filter(notification => 
+  const pendingNotifications = userNotifications.filter(notification =>
     notification.view_status === "not seen" || notification.type === "accepted")
 
   useEffect(() => {
@@ -112,11 +113,9 @@ const Profile = () => {
     });
     const jsonData = await data.json();
     SetRecruiterJobs(jsonData.data.recruiterJobs);
-
   };
 
   useEffect(() => {
-
     fetch(`${BASE_URL}/users/${userLogged.id}`)
       .then(response => response.json())
       .then(data => SetProfile(data))
@@ -139,7 +138,7 @@ const Profile = () => {
       {!profile ? <p>Cargando...</p> : <>
         <div className="profile">
           <div className='profile__perfil'>
-            <img className="profile__photo" src={profile.image} alt='foto' />
+            <img className="profile__photo" src={profile.image || defaultProfileImage} alt='foto' />
           </div>
           <div className="profile__text">
             <h1 className='profile__text--Name'> {profile.name} {profile.surname} </h1>

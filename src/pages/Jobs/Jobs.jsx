@@ -19,7 +19,9 @@ const Jobs = () => {
     fetch(`${BASE_URL}/jobs`)
       .then(response => response.json())
       .then(data => setJobs(data))
-  }
+  };
+
+  console.log(jobs);
 
   useEffect(() => {
     fetch(`${BASE_URL}/jobs`)

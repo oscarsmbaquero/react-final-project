@@ -25,9 +25,10 @@ const Register = () => {
     const handleRegister = async (event) => {
         event.preventDefault();
         try {
-            registerUser(dispatch, registerForm)
+            registerUser(dispatch, registerForm);
             setRegisterForm(loginInitialState);
-            navigate("/Jobs");
+            registerForm.account_type === "User" ? navigate("/Jobs")
+                : navigate("/formCompanies");
         } catch (error) {
             console.log(error);
         }

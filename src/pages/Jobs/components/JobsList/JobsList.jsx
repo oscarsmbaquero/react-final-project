@@ -11,7 +11,7 @@ const JobsList = ({ job, setSelectedJob }) => {
             <div className="jobList__div">
                 <div className='jobList__div1'>
                     <h1 className='jobList__h1'>{job.name}</h1>
-                    <h3 className='jobList__h3'>Descripción: {job.description}</h3>
+                    <p>{job.salary}€ Bruto anual</p>
                 </div>
             </div>
         </div>
