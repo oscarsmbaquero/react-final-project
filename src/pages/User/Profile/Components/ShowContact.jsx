@@ -1,49 +1,50 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useGetAuth } from '../../../../context';
+import { BASE_URL } from '../../../../assets/ApiRoutes';
+import './ShowContact.scss';
 
 
-import DataTable from 'react-data-table-component';
+const ShowContact = () => {
 
-const ShowContact = ({contacts}) => {
+    const [contacts, setContacts] = useState([]);
 
-  const columns = [
-  
-    {
-        name: 'Name',
-        selector: row => row.name,
-    },
-    {
-        name: 'Surname',
-        selector: row => row.surname,
-    },
-];
-const customStyles = {
-  rows: {
-      style: {
-          minHeight: '60px', // override the row height
-      },
-  },
-  headCells: {
-      style: {
-          paddingLeft: '70px', // override the cell padding for head cells
-          paddingRight: '8px',
-      },
-  },
-  cells: {
-      style: {
-          paddingLeft: '70px', // override the cell padding for data cells
-          paddingRight: '8px',
-      },
-  },
-};
+    const userLogged = useGetAuth()
 
 
+    useEffect(() => {
+        const getContacts = async (e) => {
+            try {
+             const data = await fetch(`${BASE_URL}/users/contacts`, {
+                 method: 'GET',
+                 headers: {
+                   'Content-Type': 'application/json',
+                   Authorization: `Bearer ${userLogged.token}`
+                 }
+               });
+               const jsonData = await data.json();
+               setContacts(jsonData.data.contacts);
+             
+            } catch (error) {
+             console.log(error);
+            }
+      };
+      getContacts()
+    }, [])
+    
   return (   
-    <DataTable
-            columns={columns}
-            data={contacts}
-            pagination
-            customStyles={customStyles}
-        />
+    
+    <>  
+     {contacts.map(contact =>(
+        <>
+         <div className="contact__div">
+            <div className='contact__div1'>
+                <h1  className='contact__h1'>{contact.name}</h1>
+                <h2>{contact.surname}</h2>
+            </div>
+         </div>
+        </>
+     ))}
+     </>
   
   )
 }

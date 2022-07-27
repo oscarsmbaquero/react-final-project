@@ -9,10 +9,10 @@ const Home = () => {
       <section className="home__sectionfirst">
         {/* <img className="home__frontImg" src={frontImg} alt="..."></img> */}
         <div className="home__firstText">
-        <p className="home__firstp ">En <span>CVtae</span></p>
-          <p className="home__firstp"> <span> Conecta </span>  empresas con personas</p>
-          <p className="home__secondp"><span> Descubre </span>  millones de ofertas</p>
-          <p className="home__secondp"> <span>Encuentra</span>  el sitio que te mereces</p>
+        <p className="home__firstp ">En&nbsp;<span>CVtae</span></p>
+          <p className="home__firstp"> <span> Conecta&nbsp;</span>  empresas con personas</p>
+          <p className="home__secondp"><span> Descubre&nbsp;</span>  millones de ofertas</p>
+          <p className="home__secondp"> <span>Encuentra&nbsp;</span>  el sitio que te mereces</p>
         </div>
       </section>
       <section className="home__section sect-1">

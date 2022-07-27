@@ -7,9 +7,8 @@ import './Profile.scss';
 
 import { useGetAuth } from "../../../context/context";
 import EditProfile from './Components/EditProfile';
-import ShowCandidatures from './Components/ShowCandidatures';
 import ShowContact from './Components/ShowContact';
-import GetRecruiterJobs from './Components/GetRecruiterJobs';
+import GetJobs from './Components/GetJobs';
 import { tabsInitState, tabsReducer } from '../../../utils/reducers/profileReducer';
 import NotificationsList from './Components/Notifications/NotificationsList';
 import { defaultProfileImage } from '../../../assets/images/imagesLink';
@@ -18,6 +17,7 @@ const Profile = () => {
 
   const loggedUser = useGetAuth()
   const [userNotifications, setUserNotifications] = useState([]);
+  const [user,SetUser]= useState();
 
   console.log(userNotifications)
 
@@ -38,6 +38,7 @@ const Profile = () => {
       })
   }, [loggedUser.token]);
 
+  console.log(user);
   const [tabs, dispatch] = useReducer(tabsReducer, tabsInitState);
 
   const infoTab = () => dispatch({ type: "INFORMATION", payload: tabsInitState });
@@ -49,11 +50,8 @@ const Profile = () => {
 
   const [profile, SetProfile] = useState();
   const [edit, setEdit] = useState();
-  const [user, SetUser] = useState();
   const userLogged = useGetAuth();
-  const [contacts, setContacts] = useState(undefined);
-  const [candidatures, SetCandidatures] = useState(undefined);
-  const [recruiterJobs, SetRecruiterJobs] = useState(undefined);
+  
 
   const deleteProfile = (e) => {
 
@@ -74,64 +72,12 @@ const Profile = () => {
       }
     })
   };
-
-  const showContacts = async (e) => {
-    const thisClicked = e.currentTarget;
-    thisClicked.innerText = "Mostrando";
-    const data = await fetch(`${BASE_URL}/users/contacts`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${userLogged.token}`
-      }
-    });
-    const jsonData = await data.json();
-    setContacts(jsonData.data.contacts);
-
-  }
-
-  const showCandidatures = async (e, user) => {
-    // const data = await fetch(`${BASE_URL}/users/contacts`,{
-    //   method: 'GET',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     Authorization: `Bearer ${userLogged.token}`
-    //     }
-    //    });
-    //    const jsonData = await data.json();
-    //    setContacts(jsonData.data.contacts);
-
-  }
-
-  const getRecruiterJobs = async () => {
-    const data = await fetch(`${BASE_URL}/users/recruiterJobs`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${userLogged.token}`
-      }
-    });
-    const jsonData = await data.json();
-    SetRecruiterJobs(jsonData.data.recruiterJobs);
-  };
-
+ 
   useEffect(() => {
     fetch(`${BASE_URL}/users/${userLogged.id}`)
       .then(response => response.json())
       .then(data => SetProfile(data))
   }, [userLogged.id]);
-
-  //##################----comprobamos si es user o es recruiter
-  const jobsList = userLogged.rol === 'User' ?
-    <>
-      <button className='edits__buttonActive' onClick={showCandidatures} >Candidaturas Activas</button>
-      <ShowCandidatures contacts={contacts} />
-    </>
-    :
-    <>
-      <button className='edits__buttonActive' onClick={getRecruiterJobs} >Candidaturas Abiertas</button>
-      <GetRecruiterJobs recruiterJobs={recruiterJobs} />
-    </>;
 
   return (
     <section className='detail'>
@@ -170,22 +116,22 @@ const Profile = () => {
 
             {tabs.contacts &&
               <>
-                <button className="edits__button Show" onClick={showContacts} >Mostar Contactos</button>
-                <ShowContact contacts={contacts} />
+                {/* <button className="edits__button Show" onClick={showContacts} >Mostar Contactos</button> */}
+                <ShowContact />
               </>}
 
             {/* //##################### Jobs */}
 
             {tabs.jobsList &&
               <>
-                <GetRecruiterJobs />
+                <GetJobs />
               </>
             }
             {/* //##################### notifications */}
             {tabs.notifications && <NotificationsList userNotifications={userNotifications} />}
 
           </div>
-          {/* <button className='Delete' onClick={(e) => deleteProfile(e, userLogged.id)} >Eliminar Perfil</button> */}
+          <button className='Delete' onClick={(e) => deleteProfile(e, userLogged.id)} >Eliminar Perfil</button>
 
         </div>
       </>}
