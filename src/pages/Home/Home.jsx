@@ -39,8 +39,7 @@ const Home = () => {
           </p>
           </div>
       </section> */}
-      <h1> Final Project </h1>
-      <p>Vamos chavales</p>
+      
     </main>
   );
 };

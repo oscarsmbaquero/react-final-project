@@ -54,7 +54,7 @@ const Register = () => {
                         name="surname"
                         value={registerForm.surname}
                         onChange={handleRegisterForm}
-                        required
+                        // required
                     />
                     <label className="login__label" htmlFor="email">email</label>
                     <input
