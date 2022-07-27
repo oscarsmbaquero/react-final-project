@@ -1,3 +1,4 @@
+
 .footer {
   height: 25vh;
   width: 100%;
@@ -9,6 +10,24 @@
     @media screen and (min-width: 760px) {
       flex-direction: column;
     }
+  }
+  &__social{
+    width: 150px;
+  }
+  &__link{
+    @media screen and (min-width: 760px) {
+        display: flex;
+        align-items: center;
+      }
+  }
+  &__contact{
+    width: 20px;
+    height: 20px;
+    display: none;
+    @media screen and (min-width: 760px) {
+        display: flex;
+        align-items: center;
+      }
   }
   &__ul {
     display: flex;
@@ -40,7 +59,8 @@
   &__li {
     color: var(--extra-grey-light);
     text-align: left;
-    margin: 1em 2em
+    margin: 1em 2em;
+    width: 25px;
   }
   &__a{
     color: var(--extra-grey-light);
