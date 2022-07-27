@@ -4,10 +4,13 @@ import { useNavigate } from "react-router-dom";
 import './EditProfile.scss';
 import { BASE_URL } from '../../../../assets/ApiRoutes';
 
+
+
 const EditProfile = ({ editProfile, userLogged }) => {
        let navigate = useNavigate();
+     
 
-       //console.log(editProfile);
+       console.log(userLogged.rol,13);
        // const [userModify, setUserModify] =useState({});
 
        const editUser = (e, id) => {
@@ -48,18 +51,34 @@ const EditProfile = ({ editProfile, userLogged }) => {
                             <form onSubmit={e => editUser(e, editProfile._id)} className="edit__form" >
                                    <label className="edit__label" htmlFor="name">Name</label>
                                    <input type="text" name="name" className='edit__input' defaultValue={editProfile.name} />
+                                   {userLogged.rol ==='User'?
+                                   <>
                                    <label className="edit__label" htmlFor="surname">Surname</label>
                                    <input type="text" name="surname" className='edit__input' defaultValue={editProfile.surname} />
+                                   </>
+                                   :''}
                                    <label className="edit__label" htmlFor="email">Email</label>
                                    <input type="text" name="email" className='edit__input' defaultValue={editProfile.email} />
-                                   <label className="edit__label" htmlFor="studies">Studies</label>
+                                   {userLogged.rol ==='User'?
+                                   <>
+                                   <label className="edit__label" htmlFor="studies">Studies</label>                                   
                                    <input type="text" name="studies" className='edit__input' defaultValue={editProfile.studies} />
+                                   </>
+                                   :''}
+                                   {userLogged.rol ==='User'?
+                                   <>
                                    <label className="edit__label" htmlFor="age">Age</label>
                                    <input type="text" name="age" className='edit__input' defaultValue={editProfile.age} />
+                                   </>
+                                   :''}
                                    <label className="edit__label" htmlFor="description">Descriptión</label>
                                    <input type="text" name="description" className='edit__input' defaultValue={editProfile.description} />
+                                   {userLogged.rol ==='User'?
+                                   <>
                                    <label className="edit__label" htmlFor="habilities">Habilities</label>
                                    <input type="text" name="habilities" className='edit__input' defaultValue={editProfile.habilities} />
+                                   </>
+                                   :''}
                                    <label className="edit__label" htmlFor="image">Image</label>
                                    <input type="file" alt="" name="image" className='edit__input' />
                                    <button className='edit__button' >Actualizar</button>

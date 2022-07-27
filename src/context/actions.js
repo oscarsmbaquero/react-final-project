@@ -14,8 +14,8 @@ const fetchUserToDatabase = async (urlPetition, reqData) => {
         const data = await res.json();
         return data;
     } catch (error) {
-
-        console.error(error)
+        
+        
     }
 };
 
@@ -33,7 +33,7 @@ export const loginUser = async (dispatch, loginData) => {
         }
     } catch (error) {
         dispatch({ type: 'LOGIN_FAIL', error: error });
-
+        alert('Error'); 
     }
 
 };

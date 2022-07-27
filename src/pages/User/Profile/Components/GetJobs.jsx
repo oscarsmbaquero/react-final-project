@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-import DataTable from 'react-data-table-component';
+
 import { BASE_URL } from '../../../../assets/ApiRoutes';
 import { useGetAuth } from '../../../../context';
+import './GetJobs.scss';
 
-const GetRecruiterJobs = () => {
+const GetJobs = () => {
     const [jobs, setJobs] = useState([]);
 
     const userLogged = useGetAuth()
@@ -35,14 +36,27 @@ const GetRecruiterJobs = () => {
         getJobs()
     }, []);
 
-    console.log(jobs);
+    
 
     return (
         <>
-            <p>Jobs</p>
+            <h2>Applied Jobs</h2>
+            {jobs.map(job =>(
+                <>
+                    <div className="job__div">
+                        <div className='job__div1'>
+                            <h1 className='job__h1'>{job.name}</h1>
+                            <h2>{job.description}</h2>
+                            <p>{job.requirements}</p>
+                            <h4>{job.salary}&nbsp;€</h4>
+                        </div>
+                    </div>
+                </>
+            ))}
+            <p> {jobs.name}</p>
         </>
 
     )
 }
 
-export default GetRecruiterJobs
+export default GetJobs
