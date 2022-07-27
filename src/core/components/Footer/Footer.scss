@@ -11,9 +11,7 @@
       flex-direction: column;
     }
   }
-  &__social{
-    width: 150px;
-  }
+
   &__link{
     @media screen and (min-width: 760px) {
         display: flex;
@@ -61,6 +59,7 @@
     text-align: left;
     margin: 1em 2em;
     width: 25px;
+
   }
   &__a{
     color: var(--extra-grey-light);
@@ -73,3 +72,10 @@
   }
 
 }
+.inst, .face, .linke, .gith{
+    transition: transform 0.5s ease-in-out;
+}
+.inst:hover, .face:hover, .linke:hover, .gith:hover{
+    transform:scale(2,2);
+}
+

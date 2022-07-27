@@ -13,15 +13,16 @@ const Footer = () => {
       <nav className="footer__nav">
         <ul className="footer__ul">
           <a className="footer__li" href="https://www.instagram.com/" target="_blank" rel="noreferrer">
-          <img className="footer__social" src={instagram} alt="github"></img>
+            <img className="footer__social inst" src={instagram} alt="github"></img>
+
             </a>
-            <a className="footer__li" href="https://www.facebook.com/" target="_blank" rel="noreferrer">
+            <a className="footer__li face" href="https://www.facebook.com/" target="_blank" rel="noreferrer">
             <img className="footer__social" src={facebook} alt="github"></img>
             </a>
-            <a className="footer__li" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
+            <a className="footer__li linke" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
             <img className="footer__social" src={linkedin} alt="github"></img>
             </a>
-            <a className="footer__li" href="https://github.com/" target="_blank" rel="noreferrer">
+            <a className="footer__li gith" href="https://github.com/" target="_blank" rel="noreferrer">
             <img className="footer__social" src={github} alt="github"></img>
             </a>
         </ul>
