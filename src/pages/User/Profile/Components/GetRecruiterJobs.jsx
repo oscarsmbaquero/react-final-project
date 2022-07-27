@@ -1,43 +1,47 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import DataTable from 'react-data-table-component';
+import { BASE_URL } from '../../../../assets/ApiRoutes';
+import { useGetAuth } from '../../../../context';
 
-const GetRecruiterJobs = ({ recruiterJobs }) => {
-    console.log(recruiterJobs, 78);
-    const columns = [
+const GetRecruiterJobs = () => {
+    const [jobs, setJobs] = useState([]);
 
-        {
-            name: 'Name',
-            selector: row => row.name,
-        },
+    const userLogged = useGetAuth()
 
-    ];
-    const customStyles = {
-        rows: {
-            style: {
-                minHeight: '60px', // override the row height
-            },
-        },
-        headCells: {
-            style: {
-                paddingLeft: '300px', // override the cell padding for head cells
-                paddingRight: '8px',
-            },
-        },
-        cells: {
-            style: {
-                paddingLeft: '300px', // override the cell padding for data cells
-                paddingRight: '8px',
-            },
-        },
-    };
+    useEffect(() => {
+        let petition;
+        console.log(userLogged.rol);
+        if (userLogged.rol === "User") {
+            petition = "users/userJobs"
+        } else {
+            petition = "jobs/jobsByRecruiter"
+        }
+        const getJobs = async () => {
+            try {
+                const data = await fetch(`${BASE_URL}/${petition}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${userLogged.token}`,
+                    }
+                });
+                const jsonData = await data.json();
+                setJobs(jsonData);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        getJobs()
+    }, []);
+
+    console.log(jobs);
+
     return (
-        <DataTable
-            columns={columns}
-            data={recruiterJobs}
-            pagination
-            customStyles={customStyles}
-        />
+        <>
+            <p>Jobs</p>
+        </>
+
     )
 }
 

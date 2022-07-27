@@ -176,7 +176,11 @@ const Profile = () => {
 
             {/* //##################### Jobs */}
 
-            {tabs.jobsList && jobsList}
+            {tabs.jobsList &&
+              <>
+                <GetRecruiterJobs />
+              </>
+            }
             {/* //##################### notifications */}
             {tabs.notifications && <NotificationsList userNotifications={userNotifications} />}
 
