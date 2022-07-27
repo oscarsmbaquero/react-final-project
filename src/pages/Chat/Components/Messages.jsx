@@ -62,9 +62,6 @@ const Messages = ({ socket }) => {
         });
     }
 
-
-    console.log(selectedChat);
-
     useEffect(() => {
         arrivalMsg && setMessages((prevMessage) => [...prevMessage, arrivalMsg])
     }, [arrivalMsg])

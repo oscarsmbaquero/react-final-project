@@ -27,9 +27,7 @@ const Login = () => {
       loginUser(dispatch, loginForm);
       setLoginForm(loginInitialState);
       navigate("/Jobs");
-    } catch (error) {
-      
-     }
+    } catch (error) { }
   };
 
   return (

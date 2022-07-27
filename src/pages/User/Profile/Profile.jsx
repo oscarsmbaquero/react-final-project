@@ -15,14 +15,13 @@ import { defaultProfileImage } from '../../../assets/images/imagesLink';
 
 const Profile = () => {
 
-  const loggedUser = useGetAuth()
-  const [userNotifications, setUserNotifications] = useState([]);
-  const [user,SetUser]= useState();
+  const loggedUser = useGetAuth();
 
-  console.log(userNotifications)
+  const [userNotifications, setUserNotifications] = useState([]);
+  const [user, SetUser] = useState();
 
   const pendingNotifications = userNotifications.filter(notification =>
-    notification.view_status === "not seen" || notification.type === "accepted")
+    notification.view_status === "not seen" || notification.type === "accepted");
 
   useEffect(() => {
     fetch(`${BASE_URL}/notifications/getNotifications`, {
@@ -38,7 +37,6 @@ const Profile = () => {
       })
   }, [loggedUser.token]);
 
-  console.log(user);
   const [tabs, dispatch] = useReducer(tabsReducer, tabsInitState);
 
   const infoTab = () => dispatch({ type: "INFORMATION", payload: tabsInitState });
@@ -51,10 +49,8 @@ const Profile = () => {
   const [profile, SetProfile] = useState();
   const [edit, setEdit] = useState();
   const userLogged = useGetAuth();
-  
 
   const deleteProfile = (e) => {
-
     const thisClicked = e.currentTarget;
     thisClicked.innerText = "Borrando";
 
@@ -68,11 +64,10 @@ const Profile = () => {
           .then(response => response.json())
           .then(data => SetUser(data))
         navigate("/");
-
       }
     })
   };
- 
+
   useEffect(() => {
     fetch(`${BASE_URL}/users/${userLogged.id}`)
       .then(response => response.json())
@@ -95,12 +90,12 @@ const Profile = () => {
         <div className="edits">
           <div className='edits__imptBtn'>
             <ul className='edits__navBar'>
-               <button className='edits__li' onClick={infoTab}>Information</button>
-              <button className='edits__li' onClick={contactsTab}>Contacts</button>
-              <button className='edits__li opcionBis' onClick={jobsTab}>Applied Jobs</button>
+              <button className={`edits__li ${tabs.infomation ? "edits__li--selected" : ""}`} onClick={infoTab}>Information</button>
+              <button className={`edits__li ${tabs.contacts ? "edits__li--selected" : ""}`}  onClick={contactsTab}>Contacts</button>
+              <button className={`edits__li ${tabs.jobsList ? "edits__li--selected" : ""}`}  onClick={jobsTab}>{loggedUser.rol === "User" ? "Applied Jobs" : "Created Jobs" }</button>
               <div>
-              <p className='edits__text'>{pendingNotifications.length}</p>
-                <li className='edits__li opcionBis noti' onClick={notificationsTab}>Notifications</li>
+                {pendingNotifications.length !== 0 && <p className='edits__text'>{pendingNotifications.length}</p>}
+                <li className={`edits__li opcionBis noti ${tabs.notifications ? "edits__li--selected" : ""}`} onClick={notificationsTab}>Notifications</li>
               </div>
             </ul>
 

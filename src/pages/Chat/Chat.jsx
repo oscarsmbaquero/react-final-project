@@ -24,7 +24,7 @@ const Chat = () => {
 
     useEffect(() => {
         socket.current = io(BASE_URL);
-        console.log(socket.id);
+        // console.log(socket.id);
         socket.current.emit("add-user", loggedUser.id)
     })
 
@@ -46,7 +46,7 @@ const Chat = () => {
             } catch (error) {
                 // logout(dispatch)
                 // navigate('/users/login')
-                return console.log(error, 'vaya, ha habido un error')
+                // return console.log(error, 'vaya, ha habido un error')
             }
         }
 
@@ -60,14 +60,13 @@ const Chat = () => {
                     <div className='chat__list'>
                         <div>
                             {contacts && contacts.map(contact =>
-                                <>
-                                    <Contacts
-                                        key={contact.id}
-                                        contact={contact}
-                                        setSelectedChat={setSelectedChat}
-                                    />
-                                    <div className='chat__line'></div>
-                                </>
+                                    <div key={contact.id}>
+                                        <Contacts
+                                            contact={contact}
+                                            setSelectedChat={setSelectedChat}
+                                        />
+                                        <div className='chat__line'></div>
+                                    </div>
                             )}
                         </div>
                         <CurrentUser />

@@ -8,8 +8,6 @@ const Contacts = ({ contact, setSelectedChat }) => {
 
   const selectedChat = React.useContext(SelectedChatContext);
 
-  console.log(contact);
-
   const handleSelected = () => {
     setSelectedChat(contact)
   }
@@ -25,7 +23,7 @@ const Contacts = ({ contact, setSelectedChat }) => {
       <div className='contact__item'>
         <p className='contact__text'>{contact.name}</p>
       </div>
- 
+
     </div>
   )
 }

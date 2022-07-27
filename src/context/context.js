@@ -9,13 +9,13 @@ export const useGetAuth = () => {
     const context = React.useContext(AuthState);
 
     return context
-}
+};
 
 export const useDispatchAuth = () => {
     const context = React.useContext(AuthDispatch);
 
     return context;
-}
+};
 
 export const AuthProvider = ({ children }) => {
 
