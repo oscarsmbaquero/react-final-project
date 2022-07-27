@@ -1,7 +1,81 @@
-.footer{
-    left:0px;
-    bottom:0px;
-    height:50px;
-    width:100%;
-    background:#999;
+
+.footer {
+  height: 25vh;
+  width: 100%;
+  background: var(--secondary-color);
+  &__nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    @media screen and (min-width: 760px) {
+      flex-direction: column;
+    }
+  }
+
+  &__link{
+    @media screen and (min-width: 760px) {
+        display: flex;
+        align-items: center;
+      }
+  }
+  &__contact{
+    width: 20px;
+    height: 20px;
+    display: none;
+    @media screen and (min-width: 760px) {
+        display: flex;
+        align-items: center;
+      }
+  }
+  &__ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    @media screen and (min-width: 760px) {
+      flex-direction: row;
+    }
+  }
+  &__brand{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media screen and (min-width: 760px) {
+        flex-direction: row;
+      }
+  }
+  h2{
+    margin: 1em auto;
+    @media screen and (min-width: 760px) {
+        margin: auto 1em;
+      }
+  }
+  &__logo {
+    width: 60px;
+    align-items: center;
+  }
+  &__li {
+    color: var(--extra-grey-light);
+    text-align: left;
+    margin: 1em 2em;
+    width: 25px;
+
+  }
+  &__a{
+    color: var(--extra-grey-light);
+    text-align: left;
+    margin: 1em 2em;
+    text-decoration: none;
+    &:hover{
+        color: var(--extra-grey-light);
+    }
+  }
+
 }
+.inst, .face, .linke, .gith{
+    transition: transform 0.5s ease-in-out;
+}
+.inst:hover, .face:hover, .linke:hover, .gith:hover{
+    transform:scale(2,2);
+}
+

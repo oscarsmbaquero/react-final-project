@@ -6,6 +6,7 @@
     "@emailjs/browser": "^3.6.2",
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "bootstrap": "^5.1.3",
+    "boxicons": "^2.1.2",
     "cra-template": "1.2.0",
     "emailjs": "^4.0.0",
     "node-sass": "^7.0.1",

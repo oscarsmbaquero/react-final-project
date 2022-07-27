@@ -69,10 +69,9 @@ const User = ({ user, contactsList }) => {
             <div className='userList__info'>
             <Link className='userList__link' to={`/users/${user._id}`}>
                 <img className="userList__photo" src={user.image || defaultProfileImage} alt="img" />
-                <div className='userList__div1' >
+                <div className='userList__text' >
                     <h1 className='userList__h1' >{user.name} {user.surname}</h1>
-                        <h3 className='userList__h3' >{user.email}</h3>
-                        {/* Colocar puesto mejor que correo */}
+                    <h3 className='userList__h3' >{user.email}</h3>
                 </div>
                 </Link>
                 </div>

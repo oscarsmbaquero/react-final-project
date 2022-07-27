@@ -3,12 +3,11 @@
     grid-template-columns: auto;
     width: 100%;
     margin: 0 auto;
-    @media screen and(min-width:1000px) {
+    @media screen and(min-width:900px) {
         width: 70%;
     }
 
     &__link{
-        display: flex;
         text-decoration: none;
         color: black;
     }
@@ -16,44 +15,43 @@
     &__div {
        display: grid;
        grid-template-rows: 70% 30%;
-        margin: 1em;
+        margin: 1em auto;
         padding: 1em;
+        width: 70%;
         background-color: var(--extra-grey-light);
         border-radius: 12px;
         border-bottom: 1px solid rgba(0, 0, 0, 0.39);
         transition: 0.2s ease-in-out;
         text-align: start;
-        @media screen and(min-width:1000px){
+        @media screen and(min-width:900px){
             grid-template-columns:60% 40%;
             grid-template-rows: 100%;
             align-items: center;
+            width: 100%;
                 }
-        // @media screen and(max-width:690px) {
-        //     display: flex;
-        //     flex-direction: column;
-        //     text-align: justify;
-        //     font-size: 12px;
-        // }
     }
-
+&__text{
+    text-align: center;
+}
     &__p2 {
         text-transform: lowercase;
     }
     &__h1, &__h3 {
-        font-size: 20px;
-        text-overflow:clip;
-        width: 100%;
-        @media screen and(min-width:901px) and (max-width: 1150px){
+        @media screen and(min-width:901px){
             font-size: 20px;
+            text-align: left;
 }
-        @media screen and(min-width: 550px) and (max-width: 900px){
-            font-size: 25px;
+        @media screen and(min-width: 470px) and (max-width: 900px){
+            font-size: 20px;
         }
-        @media screen and(min-width:350px) and (max-width: 550px){
-                    font-size: 15px;
+        @media screen and (max-width: 469px){
+                    font-size: 10px;
+                    width: 100%;
+                    text-align: center;
+                    margin: 1em auto;
         }
     }
-
+    
     &__photo {
         width: 70px;
         height: 100px;
