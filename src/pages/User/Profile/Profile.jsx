@@ -94,14 +94,13 @@ const Profile = () => {
 
         <div className="edits">
           <div className='edits__imptBtn'>
-
             <ul className='edits__navBar'>
-              <li className='edits__li' onClick={infoTab}>Information</li>
-              <li className='edits__li' onClick={contactsTab}>Contacts</li>
-              <li className='edits__li' onClick={jobsTab}>Applied Jobs</li>
-              <div className='edits__li'>
-                <li onClick={notificationsTab}>Notifications</li>
-                <p className='edits__text'>{pendingNotifications.length}</p>
+               <button className='edits__li' onClick={infoTab}>Information</button>
+              <button className='edits__li' onClick={contactsTab}>Contacts</button>
+              <button className='edits__li opcionBis' onClick={jobsTab}>Applied Jobs</button>
+              <div>
+              <p className='edits__text'>{pendingNotifications.length}</p>
+                <li className='edits__li opcionBis noti' onClick={notificationsTab}>Notifications</li>
               </div>
             </ul>
 
@@ -131,9 +130,10 @@ const Profile = () => {
             {tabs.notifications && <NotificationsList userNotifications={userNotifications} />}
 
           </div>
-          <button className='Delete' onClick={(e) => deleteProfile(e, userLogged.id)} >Eliminar Perfil</button>
 
         </div>
+        <button className='Delete' onClick={(e) => deleteProfile(e, userLogged.id)} >Eliminar Perfil</button>
+
       </>}
 
     </section>
