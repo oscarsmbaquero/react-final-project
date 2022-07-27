@@ -10,6 +10,7 @@ const ShowContact = () => {
 
     const userLogged = useGetAuth()
 
+    console.log(contacts);
 
     useEffect(() => {
         const getContacts = async (e) => {
@@ -35,14 +36,12 @@ const ShowContact = () => {
     
     <>  
      {contacts.map(contact =>(
-        <>
-         <div className="contact__div">
+         <div key={contact.id} className="contact__div">
             <div className='contact__div1'>
                 <h1  className='contact__h1'>{contact.name}</h1>
                 <h2>{contact.surname}</h2>
             </div>
          </div>
-        </>
      ))}
      </>
   

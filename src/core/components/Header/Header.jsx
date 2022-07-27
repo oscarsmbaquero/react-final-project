@@ -10,13 +10,13 @@ import logo4 from "../../../assets/images/4magni.png"
 const Header = () => {
 
   const userLogged = useGetAuth();
-  const dispatch = useDispatchAuth()
-  const navigate = useNavigate()
+  const dispatch = useDispatchAuth();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     logout(dispatch)
     navigate('/users/login')
-  }
+  };
 
   return (
     <>
@@ -30,7 +30,6 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <ul className="header__ul">
-
               <div className="header__menu">
                 {userLogged.id && <Link className="header__a" to="/chat">
                   <span className="span1">Chat</span>

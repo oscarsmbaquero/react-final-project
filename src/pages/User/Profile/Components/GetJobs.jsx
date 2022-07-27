@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 import { BASE_URL } from '../../../../assets/ApiRoutes';
@@ -8,11 +9,12 @@ import './GetJobs.scss';
 const GetJobs = () => {
     const [jobs, setJobs] = useState([]);
 
-    const userLogged = useGetAuth()
+    const userLogged = useGetAuth();
+
+    console.log()
 
     useEffect(() => {
         let petition;
-        console.log(userLogged.rol);
         if (userLogged.rol === "User") {
             petition = "users/userJobs"
         } else {
@@ -36,13 +38,10 @@ const GetJobs = () => {
         getJobs()
     }, []);
 
-    
-
     return (
         <>
-            <h2>Applied Jobs</h2>
-            {jobs.map(job =>(
-                <>
+            {jobs.length !== 0 ? <div>
+                {jobs.map(job => (
                     <div className="job__div">
                         <div className='job__div1'>
                             <h1 className='job__h1'>{job.name}</h1>
@@ -51,9 +50,9 @@ const GetJobs = () => {
                             <h4>{job.salary}&nbsp;€</h4>
                         </div>
                     </div>
-                </>
-            ))}
-            <p> {jobs.name}</p>
+                ))}
+                <p> {jobs.name}</p>
+            </div> : <p>You have not created any job position yet. Click <Link to={'/formCompanies'}>HERE</Link> to create one</p>}
         </>
 
     )

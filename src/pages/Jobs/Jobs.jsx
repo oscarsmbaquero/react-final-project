@@ -8,12 +8,12 @@ import JobDetail from './components/JobDetail/JobDetail';
 import JobsList from './components/JobsList/JobsList';
 // import { useWindowSize } from '../../utils/windowSize';
 import SelectCompanies from '../../core/SelectCompanies/SelectCompanies';
+import { useGetAuth } from '../../context';
 
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);
   const [keyword, setKeyword] = useState('');
-  const [selectedJob, setSelectedJob] = useState('')
-  // const [height, width] = useWindowSize();
+  const [selectedJob, setSelectedJob] = useState('');
 
   const getJobs = () => {
     fetch(`${BASE_URL}/jobs`)
@@ -21,15 +21,12 @@ const Jobs = () => {
       .then(data => setJobs(data))
   };
 
-  console.log(jobs);
-
   useEffect(() => {
     fetch(`${BASE_URL}/jobs`)
       .then(response => response.json())
       .then(data => setJobs(data))
   }, []);
 
-console.log(jobs);
   //Capturamos eel valor del input del buscador  y lo seteamos a keyword pasandolo a minusculas
   const onInputChange = (e) => {
     setKeyword(e.target.value.toLowerCase());
