@@ -39,7 +39,6 @@ const Home = () => {
           </p>
           </div>
       </section> */}
-      
     </main>
   );
 };

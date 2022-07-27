@@ -71,20 +71,21 @@ const JobDetail = ({ selectedJob, getJobs }) => {
   };
 
   const applicationBtn = applyBtn ?
-    <button onClick={handledeleteUser} className='login__button' >Retirar Solicitud</button>
+    <button onClick={handledeleteUser} className='jobList__button' >Retirar Solicitud</button>
     :
-    <button onClick={handleAddUser} className='login__button' >Solicitar</button>
+    <button onClick={handleAddUser} className='jobList__button' >Solicitar</button>
 
   return (
     <div>
       {selectedJob ? <div className="details">
         <div className="details__text">
-          <h1 className='details__text--h1'> <strong></strong>{selectedJob.name}</h1>
-          <h2 className='details__text--h1'> <strong>Description: </strong>{selectedJob.description}</h2>
-          <h3 className='details__text--h1'> <strong>Salary: </strong>{selectedJob.salary}</h3>
-          <p>  <strong>Requirements: </strong> {selectedJob.requiremets}</p>
+          <h1 className='details__text--h1 '> <strong></strong>{selectedJob.name}</h1>
+          <h2 className='details__text--h2 '> <strong>Description: </strong>{selectedJob.description}</h2>
+          <h3 className='details__text--h2 '> <strong>Salary: </strong>{selectedJob.salary}</h3>
+          <p className='details__text--h2 '>  <strong>Requirements: </strong> {selectedJob.requiremets}</p>
           {userLogged.rol === "User" ? applicationBtn : ""}
         </div>
+
       </div> : <p>ningún trabajo selecionado</p>}
     </div>
   )
