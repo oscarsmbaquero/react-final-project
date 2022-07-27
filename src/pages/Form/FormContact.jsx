@@ -19,7 +19,7 @@ const FormContact = () => {
         title: 'Success!',
         text: 'Enviado Formulario Correctamente',
         icon: 'success',
-        confirmButtonText: 'ouuhhh yeaaaa'
+        confirmButtonText: 'Ok'
       })
       navigate("/");
       
