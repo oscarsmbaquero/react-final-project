@@ -1,13 +1,16 @@
+//pendiente de controlar responsive del container con diferentes media queries
 .jobsListContainer {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows:  40% 60%;
     height: 80vh;
-    @media screen and(min-width:810px) {
-        grid-template-columns: 40% 60%;
+    overflow: auto;
+    @media screen and(min-width:870px) {
+        grid-template-columns: 60% 40%;
         grid-template-rows: 100%;
-        text-align: justify;
+        
     }
+
 }
 
 .jobList {
@@ -16,6 +19,7 @@
     width: 100%;
     overflow: auto;
     margin: 0 auto;
+    border-bottom: 2px solid #C0C0C0;
     @media screen and(min-width:810px) {
         grid-template-columns: 100%;
         grid-template-rows: auto;
@@ -27,8 +31,8 @@
         margin: 1em;
         padding: 1em;
         background-color: var(--extra-grey-light);
-        border-radius: 4px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.39);
+        border-radius: 15px;
+        border: 2px solid rgba(0, 0, 0, 0.459);
         transition: 0.2s ease-in-out;
         text-align: start;
         display: flex;
@@ -40,20 +44,28 @@
         }
     }
 
-    &__btn {
-        align-items: flex-end;
+    &__button {
         background-color: var(--boton-color);
-        padding: 2em;
+        padding: 1.3em 0;
         border-radius: 12px;
-        border: 1px solid rgba(63, 62, 62, 0.562);
         cursor: pointer;
-
-        @media screen and(max-width:690px) {
-            max-width: 100%;
-            height: 40px;
+        margin: 1em auto;
+        width: 40%;
+        height: 20px;
+        font-size: 8px;
+        bottom: 0;
+        align-items: center;
+        text-align: center;
+        line-height: 1em;
+        border: 2px solid rgba(0, 0, 0, 0.459);
+        @media screen and(min-width:690px) {
+            width: 40%;
+            height: 20px;
             font-size: 12px;
-            padding: 1em;
-            margin-top: 1em;
+            bottom: 0;
+            align-items: center;
+            text-align: center;
+            line-height: 1em;
         }
     }
 
@@ -61,9 +73,6 @@
         box-shadow: rgba(0, 0, 0, 0.316) 0px 5px 15px;
     }
 
-    // .jobList__btn:hover {
-    //     transform: scale(.8);
-    // }
 }
 
 .searchContainer {
@@ -75,38 +84,70 @@
     align-items: center;
     height: 15vh;
     background-color: var(--extra-blue-light);
-    @media screen and(min-width:810px) {
+    @media screen and(min-width:870px) {
         display:flex;
         flex-direction: row;
+
             }
 }
 
 .details{
     margin: 3em auto;
     padding: 2em;
-    border: 2px solid black;
+    border: 2px solid rgba(0, 0, 0, 0.459);
     border-radius: 8px;
-    width: 80%;
+    width: 90%;
     height: 40vh;
     text-transform: uppercase;
     background-color: var(--extra-grey-light);
-
-    @media screen and(min-width:810px) {
+    font-size: 8px;
+    @media screen and(min-width:870px) {
     height: 50vh;
     text-align:center;
+    margin: 3em auto;
+
     }
     @media screen and(max-width:809px) and (min-width:350px) {
         height: 40vh;
             }
 }
 .details__text{
-&--h1{
+    margin: 6em auto;
+    &--h1{
+        text-align:center;
+        @media screen and(min-width:810px) {
+            font-size:18px;
+                }
+        @media screen and(max-width:809px){
+            font-size: 15px;
+                }
+            @media screen and(max-width:350px) {
+                    font-size: 11px;
+                        }
+    }
+&--h2{
+    text-align:left ;
     @media screen and(min-width:810px) {
-        font-size: 25px;
+        font-size:15px;
             }
-    @media screen and(max-width:809px) and (min-width:350px) {
-        font-size: 15px;
+    @media screen and(max-width:809px){
+        font-size: 12px;
             }
+        @media screen and(max-width:350px) {
+                font-size: 8px;
+                    }
 }
 
 }
+// .rowRight {
+//     animation: 0.6s ease-in-out slideInRight;
+// }
+// @keyframes slideInRight {
+//     0% {
+//         transform: translateX(+100%);
+//     }
+
+//     100% {
+//         transform: translateX(0);
+//     }
+// }
