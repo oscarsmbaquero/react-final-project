@@ -60,13 +60,13 @@ const Chat = () => {
                     <div className='chat__list'>
                         <div>
                             {contacts && contacts.map(contact =>
-                                    <div key={contact.id}>
-                                        <Contacts
-                                            contact={contact}
-                                            setSelectedChat={setSelectedChat}
-                                        />
-                                        <div className='chat__line'></div>
-                                    </div>
+                                <div key={contact.id}>
+                                    <Contacts
+                                        contact={contact}
+                                        setSelectedChat={setSelectedChat}
+                                    />
+                                    <div className='chat__line'></div>
+                                </div>
                             )}
                         </div>
                         <CurrentUser />
