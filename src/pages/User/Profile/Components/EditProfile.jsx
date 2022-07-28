@@ -9,24 +9,29 @@ import { BASE_URL } from '../../../../assets/ApiRoutes';
 const EditProfile = ({ editProfile, userLogged }) => {
        let navigate = useNavigate();
      
-
-       console.log(userLogged.rol,13);
        // const [userModify, setUserModify] =useState({});
 
        const editUser = (e, id) => {
               e.preventDefault();
 
               let target = e.target;
-
               const data = new FormData();
-              data.append('image', target.image.files[0])
-              data.append('name', target.name.value);
-              data.append('email', target.email.value);
-              data.append('studies', target.studies.value);
-              data.append('age', target.age.value);
-              data.append('description', target.description.value);
-              data.append('habilities', target.habilities.value);
 
+              if(userLogged.rol === 'User'){
+                     data.append('image', target.image.files[0])
+                     data.append('name', target.name.value);
+                     data.append('email', target.email.value);
+                     data.append('studies', target.studies.value);
+                     data.append('age', target.age.value);
+                     data.append('description', target.description.value);
+                     data.append('habilities', target.habilities.value);
+              } else{                     
+                     data.append('image', target.image.files[0])
+                     data.append('name', target.name.value);
+                     data.append('email', target.email.value);                     
+                     data.append('description', target.description.value);
+              }
+             
               fetch(`${BASE_URL}/users/edit/`, {
                      method: 'PUT',
                      headers: {
@@ -34,7 +39,6 @@ const EditProfile = ({ editProfile, userLogged }) => {
                             Authorization: `Bearer ${userLogged.token}`
                      },
                      body: data
-
 
               }).then(res => {
                      if (res.status === 200) {
