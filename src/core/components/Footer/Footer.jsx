@@ -32,10 +32,10 @@ const Footer = () => {
           <h2>amazing</h2>
         </div>
         <div className="footer__link">
-        <img className="footer__contact" src={mensaje} alt="github"></img>
-        <Link className="footer__a" to="/formContact">Contáctanos
-          </Link>
-          <img className="footer__contact" src={mensaje} alt="github"></img>
+        {/* <img className="footer__contact" src={mensaje} alt="github"></img> */}
+        {/* <Link className="footer__a" to="/formContact">Contáctanos
+          </Link> */}
+          {/* <img className="footer__contact" src={mensaje} alt="github"></img> */}
           </div>
       </nav>
     </footer>

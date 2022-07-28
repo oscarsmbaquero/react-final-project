@@ -67,12 +67,16 @@ const Profile = () => {
       }
     })
   };
-
-  useEffect(() => {
+  
+  const getProfile =()=>{
     fetch(`${BASE_URL}/users/${userLogged.id}`)
       .then(response => response.json())
       .then(data => SetProfile(data))
-  }, [userLogged.id]);
+  }
+  useEffect(() => {
+    
+    getProfile();
+  }, []);
 
   return (
     <section className='detail'>
@@ -103,7 +107,7 @@ const Profile = () => {
             {tabs.infomation &&
               <>
                 <button className="edits__button Info" onClick={() => setEdit(userLogged.id)} >Edit Info</button>
-                {edit === userLogged.id && <EditProfile editProfile={profile} userLogged={userLogged} />}
+                {edit === userLogged.id && <EditProfile editProfile={profile} userLogged={userLogged} getProfile={getProfile}/>}
               </>}
 
             {/* //##################### Show contacts */}
@@ -127,7 +131,7 @@ const Profile = () => {
           </div>
 
         </div>
-        <button className='Delete' onClick={(e) => deleteProfile(e, userLogged.id)} >Eliminar Perfil</button>
+        {/* <button className='Delete' onClick={(e) => deleteProfile(e, userLogged.id)} >Eliminar Perfil</button> */}
 
       </>}
 

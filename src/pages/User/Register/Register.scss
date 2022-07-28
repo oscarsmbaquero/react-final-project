@@ -1,0 +1,69 @@
+//Falta separar el margen inferior entre le "form" y el "register"
+
+.sectionRegister{
+    @media screen and(min-width:810px) {
+        background-color: var(--extra-blue-light);
+        padding: 1em;
+        color: var(--extra-grey-light);;
+    }
+}
+.register{
+    margin: 1em auto;
+    max-width: 70%;
+    background-color: white;
+    color:var(--primary-color);
+    @media screen and(min-width:810px) {
+        width: 500px;
+        border-radius: 10px;
+        color:black;
+        padding: 1em;
+    }
+    &__form{
+        display: flex;
+        flex-direction: column;
+        margin: 1em auto;
+        @media screen and(min-width:810px) {
+            width: 90%;
+            margin-bottom: 2em;
+        }
+    }
+    &__label{
+        text-align:left;
+        @media screen and(min-width:810px) {
+            text-align:center;
+        }
+    }
+    &__input{
+        margin:1em auto;
+        width: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.616);
+        border-radius: 4px;
+        @media screen and(min-width:810px) {
+            margin: 0.5em auto;
+            width: 80%;
+            padding:0.5em;
+        }
+    }
+
+    &__button{
+        background-color: #ff6700;
+        box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+          rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+          rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+          rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+          rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+          rgba(0, 0, 0, 0.09) 0px 32px 16px;
+        color: white;
+        cursor: pointer;
+        font-weight: 700;
+        border-radius: 20px;
+        padding: 1em;
+        @media screen and(min-width:810px) {
+            width: 50%;
+            margin: 1em auto;
+        }
+    }
+    .register__input:focus{
+        border: 2px solid orange;
+        }
+}

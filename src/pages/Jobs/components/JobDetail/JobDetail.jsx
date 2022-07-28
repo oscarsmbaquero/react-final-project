@@ -36,7 +36,7 @@ const JobDetail = ({ selectedJob, getJobs }) => {
     }).then(res => {
       if (res.status === 200) {
         getJobs()
-        Swal.fire("te has Inscrito correctamente", res.message, "success");
+        Swal.fire("Te has inscrito correctamente", res.message, "success");
         setApplyBtn(true);
       } else {
         navigate('/users/login')

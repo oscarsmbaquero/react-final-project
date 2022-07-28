@@ -11,7 +11,7 @@ const GetJobs = () => {
 
     const userLogged = useGetAuth();
 
-    console.log()
+    console.log(jobs)
 
     useEffect(() => {
         let petition;
@@ -42,7 +42,7 @@ const GetJobs = () => {
         <>
             {jobs.length !== 0 ? <div>
                 {jobs.map(job => (
-                    <div className="job__div">
+                    <div className="job__div" key={job._id}>
                         <div className='job__div1'>
                             <h1 className='job__h1'>{job.name}</h1>
                             <h2>{job.description}</h2>

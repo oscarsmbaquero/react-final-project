@@ -41,8 +41,7 @@ const Jobs = () => {
   return (
     <>
       <section className='searchContainer'>
-        <SearchInput placeholder="Filter by Companies of Jobs" onChange={onInputChange} />
-        <SelectCompanies />
+        <SearchInput placeholder="Filtrar por trabajo o empresa" onChange={onInputChange} />
       </section>
 
       <section className='jobsListContainer'>

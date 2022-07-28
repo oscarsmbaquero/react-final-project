@@ -81,15 +81,6 @@ const FormCompanies = () => {
                 {...register("requiremets")}
               />
             </label>
-            <label className="companyForm__label"> Localización
-              <input
-                className="companyForm__input"
-                type="text"
-                name="requiremets"
-                // placeholder="Requisitos"
-                {...register("location")}
-              />
-            </label>
           </fieldset>
           <button  className="companyForm__button" disabled={!isValid}>
               Send

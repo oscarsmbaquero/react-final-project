@@ -1,6 +1,7 @@
 import React from 'react'
 
 const JobsList = ({ job, setSelectedJob }) => {
+    
 
     const handleSelectedJob = () => {
         setSelectedJob(job)

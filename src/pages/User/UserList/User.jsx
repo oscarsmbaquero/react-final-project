@@ -37,7 +37,7 @@ const User = ({ user, contactsList }) => {
         })
             .then(res => {
                 if (res.status === 200) {
-                    Swal.fire("te has Inscrito correctamente", res.message, "success");
+                    Swal.fire("Contacto agregado correctamente", res.message, "success");
                     setButtonState(true);
                 }
             }).catch((error) => console.error(error))
@@ -57,7 +57,7 @@ const User = ({ user, contactsList }) => {
         })
             .then(res => {
                 if (res.status === 200) {
-                    Swal.fire("contacto eliminado", res.message, "success");
+                    Swal.fire("Contacto eliminado correctamente", res.message, "success");
                     setButtonState(false);
                 }
             })
