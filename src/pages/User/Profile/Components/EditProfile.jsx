@@ -6,7 +6,7 @@ import { BASE_URL } from '../../../../assets/ApiRoutes';
 
 
 
-const EditProfile = ({ editProfile, userLogged }) => {
+const EditProfile = ({ editProfile, userLogged, getProfile }) => {
        let navigate = useNavigate();
      
        // const [userModify, setUserModify] =useState({});
@@ -43,14 +43,13 @@ const EditProfile = ({ editProfile, userLogged }) => {
               }).then(res => {
                      if (res.status === 200) {
                             Swal.fire("Modificado correctamente", res.message, "success");
-                            navigate("/users");
+                            getProfile();
                      }
               }).catch()
        }
 
        return (
               <section className="sectionEdit">
-                     <h4 className="title">Usuario : {editProfile.name}</h4>
                      <div className="edit">
                             <form onSubmit={e => editUser(e, editProfile._id)} className="edit__form" >
                                    <label className="edit__label" htmlFor="name">Name</label>

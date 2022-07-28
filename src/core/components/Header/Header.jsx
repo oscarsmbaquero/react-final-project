@@ -37,14 +37,12 @@ const Header = () => {
                     <BsFillChatDotsFill />
                   </span>
                 </Link>}
-                {userLogged.id ?
                   <Link className="header__a" to="/jobs">
                     <span className="span1">Jobs</span>
                     <span className="span2">
                       <FaUserTie />
                     </span>
                   </Link>
-                  : ''}
                 {userLogged.id ?
                   <Link className="header__a" to="/users">
                     <span className="span1">Users</span>

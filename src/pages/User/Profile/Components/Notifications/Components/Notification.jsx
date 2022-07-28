@@ -37,7 +37,7 @@ const Notification = ({ notification }) => {
   }
 
   const handleButton = (event) => {
-    
+    console.log('entro');
     fetch(`${BASE_URL}/notifications/updateNotifications`, {
       method: 'PUT',
       headers: {
@@ -84,12 +84,13 @@ const Notification = ({ notification }) => {
 
       {notification.view_status === "not seen" && btnState === "not seen" ?
         <>
-          <button className='notificationsList__btn' onClick={handleButton}>Reject</button>
-          <button className='notificationsList__btn' onClick={handleButton}>Accept</button>
+          
           {/* <button className='notificationsList__btn' onClick={() => sendMail(notification.from.email)}>Accept</button> */}
               <form onSubmit={sendMail}>
                     <input className="sectionForm__input" id="email" name="email"  type="hidden" value={notification.from.email}/>
-                    <input type="submit" value="Send" />
+                    {/* <input type="submit" value="Send" /> */}
+                    <button className='notificationsList__btn' onClick={handleButton}>Reject</button>
+                    <button className='notificationsList__btn' onClick={handleButton}>Accept</button>
               </form> 
         </>
         : notificationStatus()
