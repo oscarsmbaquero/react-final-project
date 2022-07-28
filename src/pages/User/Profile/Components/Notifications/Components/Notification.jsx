@@ -10,6 +10,7 @@ const Notification = ({ notification }) => {
 
   const [btnState, setBtnState] = useState("not seen");
 
+  console.log(notification,13);
   const loggedUser = useGetAuth();
 
   const handleButton = (event) => {
