@@ -39,20 +39,19 @@ const ChatInput = ({ handleSendMessage }) => {
   } */
 
   return (
-    <div className='inputContainer'>
       <form
         onSubmit={handleSendInput}
-        className="inputContainer__form"
+        className="inputContainer"
       >
         <input
-          type="text"
+        type="text"
+        className='inputContainer__input'
           placeholder="type your message here"
           onChange={(e) => setMsg(e.target.value)}
           value={msg}
         />
-        <button type="submit" onClick={handleSendInput}><MdSend /></button>
+        <button className='inputContainer__button' type="submit" onClick={handleSendInput}><MdSend /></button>
       </form>
-    </div>
   )
 }
 
