@@ -4,7 +4,6 @@ import Messages from './Components/Messages'
 import Contacts from './Components/Contacts'
 import { useGetAuth } from '../../context/context';
 import { BASE_URL } from '../../assets/ApiRoutes';
-// import { useNavigate } from 'react-router-dom';
 import { io } from "socket.io-client"
 import CurrentUser from './Components/CurrentUser';
 import { useParams } from 'react-router-dom';
@@ -12,15 +11,20 @@ import { useParams } from 'react-router-dom';
 export const SelectedChatContext = React.createContext();
 
 const Chat = () => {
-    const { id } = useParams();
-    console.log(id,'id');
-    const socket = useRef();
-
-    // const navigate = useNavigate();
-    // const dispatch = useDispatchAuth();
-
     const [contacts, setContacts] = useState(undefined);
     const [selectedChat, setSelectedChat] = useState(undefined);
+
+    const { id: id_params } = useParams();
+    const socket = useRef();
+
+    useEffect(() => {
+        if (id_params && contacts) {
+            const contactsParams = contacts.find((contact) => {
+                return id_params === contact.id
+            })
+            setSelectedChat(contactsParams)
+        };
+    }, [contacts])
 
     const loggedUser = useGetAuth();
 
