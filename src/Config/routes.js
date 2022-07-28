@@ -20,6 +20,10 @@ const routes = [
     path: "/chat",
     element: <Chat />,
   },
+  {////en fase de pruebas, revisando 
+    path: "/chat/:id",
+    element: <Chat />,
+  },
   {
     path: "/jobs",
     element: <JobsList />,
