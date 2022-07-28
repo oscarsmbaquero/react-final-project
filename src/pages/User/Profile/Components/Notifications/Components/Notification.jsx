@@ -12,28 +12,29 @@ const Notification = ({ notification }) => {
   const [btnState, setBtnState] = useState("not seen");
   const loggedUser = useGetAuth();
 
-  // const sendMail =(e) =>{    
-  //   console.log(notification.from.email);
-  //   try {
-  //     //e.preventDefault();
-  //     console.log(e.target.name);
+//  const sendMail =(e) =>{    
+//     e.preventDefault();
+    
+    
+//     try {
+//       console.log(e.target.email,'email');
      
-  //     emailjs.sendForm('service_esqoixc','template_lvs0put',e.target.name,'dso8n6rVU1ADlfbV4')
-  //     .then(response =>console.log(response))
-  //     Swal.fire({
-  //       title: 'Success!',
-  //       text: 'Enviado Formulario Correctamente',
-  //       icon: 'success',
-  //       confirmButtonText: 'Ok'
-  //     })
-  //     // navigate("/");
+//       emailjs.sendForm('service_esqoixc','template_3jjni99',e.target,'dso8n6rVU1ADlfbV4')
+//       .then(response =>console.log(response))
+//       Swal.fire({
+//         title: 'Success!',
+//         text: 'Enviado Formulario Correctamente',
+//         icon: 'success',
+//         confirmButtonText: 'Ok'
+//       })
+//       // navigate("/");
       
-  //   } catch (error) {
-  //     //navigate("/FormContact");
-  //   }
+//     } catch (error) {
+//       //navigate("/FormContact");
+//     }
    
    
-  // }
+//   }
 
   const handleButton = (event) => {
     
@@ -85,6 +86,10 @@ const Notification = ({ notification }) => {
           <button className='notificationsList__btn' onClick={handleButton}>Reject</button>
           <button className='notificationsList__btn' onClick={handleButton}>Accept</button>
           {/* <button className='notificationsList__btn' onClick={() => sendMail(notification.from.email)}>Accept</button> */}
+          {/* <form onSubmit={sendMail}>
+                    <input className="sectionForm__input" id="email" name="email"  type="hidden" values={notification.from.email}/>
+                    <input type="submit" value="Send" />
+              </form> */}
         </>
         : notificationStatus()
       }
