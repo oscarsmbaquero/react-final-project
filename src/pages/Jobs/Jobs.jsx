@@ -34,8 +34,8 @@ const Jobs = () => {
   /*Con el valor introducido en el inpute del buscador filtramos los trabajos almacenaos en jobs,
   Filtramos por empresa o por puestos ofertados, previo paso a minusculas*/
   const filteredJobs = jobs.filter((jobs) =>
-    jobs.name.toLowerCase().includes(keyword) ||
-    jobs.description.toLowerCase().includes(keyword)
+    jobs.name.toLowerCase().includes(keyword)||
+    jobs.recruiter_id.name.toLowerCase().includes(keyword)
   );
 
   return (
