@@ -5,16 +5,38 @@ import Swal from 'sweetalert2';
 import { BASE_URL } from '../../../../../../assets/ApiRoutes';
 import { defaultProfileImage } from '../../../../../../assets/images/imagesLink';
 import { useGetAuth } from '../../../../../../context';
+import emailjs from '@emailjs/browser';
 
 const Notification = ({ notification }) => {
-
+  console.log(notification.from.email,10);
   const [btnState, setBtnState] = useState("not seen");
-
-  console.log(notification,13);
   const loggedUser = useGetAuth();
 
+  // const sendMail =(e) =>{    
+  //   console.log(notification.from.email);
+  //   try {
+  //     //e.preventDefault();
+  //     console.log(e.target.name);
+     
+  //     emailjs.sendForm('service_esqoixc','template_lvs0put',e.target.name,'dso8n6rVU1ADlfbV4')
+  //     .then(response =>console.log(response))
+  //     Swal.fire({
+  //       title: 'Success!',
+  //       text: 'Enviado Formulario Correctamente',
+  //       icon: 'success',
+  //       confirmButtonText: 'Ok'
+  //     })
+  //     // navigate("/");
+      
+  //   } catch (error) {
+  //     //navigate("/FormContact");
+  //   }
+   
+   
+  // }
+
   const handleButton = (event) => {
-    console.log(event.target.innerText);
+    
     fetch(`${BASE_URL}/notifications/updateNotifications`, {
       method: 'PUT',
       headers: {
@@ -40,6 +62,8 @@ const Notification = ({ notification }) => {
     })
   };
 
+ 
+
   const notificationStatus = () => notification.view_status === "Accept" || btnState === "Accept"
     ? <p className='notificationsList__text'>Accepted</p>
     : <p className='notificationsList__text'>Rejected</p>;
@@ -60,12 +84,15 @@ const Notification = ({ notification }) => {
         <>
           <button className='notificationsList__btn' onClick={handleButton}>Reject</button>
           <button className='notificationsList__btn' onClick={handleButton}>Accept</button>
+          {/* <button className='notificationsList__btn' onClick={() => sendMail(notification.from.email)}>Accept</button> */}
         </>
         : notificationStatus()
       }
       {notification.view_status === "Accept" || btnState === "Accept" ?
         <div>
+        <Link to={`/chat/${notification.from._id}`}>
           <button className='notificationsList__btn'>Go to chat</button>
+        </Link>  
         </div> : ""}
     </div>
   )

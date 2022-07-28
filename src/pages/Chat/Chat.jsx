@@ -7,11 +7,13 @@ import { BASE_URL } from '../../assets/ApiRoutes';
 // import { useNavigate } from 'react-router-dom';
 import { io } from "socket.io-client"
 import CurrentUser from './Components/CurrentUser';
+import { useParams } from 'react-router-dom';
 
 export const SelectedChatContext = React.createContext();
 
 const Chat = () => {
-
+    const { id } = useParams();
+    console.log(id,'id');
     const socket = useRef();
 
     // const navigate = useNavigate();
