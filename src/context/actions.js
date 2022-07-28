@@ -42,13 +42,16 @@ export const registerUser = async (dispatch, registerData) => {
     localStorage.removeItem('currentUser');
 
     try {
-        dispatch({ type: "REQ_REGISTER" })
-        const data = await fetchUserToDatabase("users", registerData);
+        dispatch({ type: "REQ_REGISTER" });
+
+        const res = await fetch(`${BASE_URL}/users`, requestOptions(registerData));
+        const data = await res.json();
 
         if (data.status === 201) {
-            const dataLogin = await fetchUserToDatabase("users/login", registerData)
-            dispatch({ type: "LOGIN_OK", payload: dataLogin.data })
-            localStorage.setItem('currentUser', JSON.stringify(dataLogin.data));
+            loginUser(dispatch, registerData)
+            /*             const dataLogin = await fetchUserToDatabase("users/login", registerData)
+                        dispatch({ type: "LOGIN_OK", payload: dataLogin.data })
+                        localStorage.setItem('currentUser', JSON.stringify(dataLogin.data)); */
         }
     } catch (error) {
         dispatch({ type: 'LOGIN_FAIL', error: error });

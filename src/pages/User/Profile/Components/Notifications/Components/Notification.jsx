@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Swal from 'sweetalert2';
 import { BASE_URL } from '../../../../../../assets/ApiRoutes';
@@ -8,19 +8,21 @@ import { useGetAuth } from '../../../../../../context';
 import emailjs from '@emailjs/browser';
 
 const Notification = ({ notification }) => {
-  console.log(notification.from.email,10);
+
+  const navitage = useNavigate()
+
   const [btnState, setBtnState] = useState("not seen");
   const loggedUser = useGetAuth();
 
- const sendMail =(e) =>{    
+  const sendMail = (e) => {
     e.preventDefault();
-    
-    
+
+
     try {
-      console.log(e.target.email,'email');
-     
-      emailjs.sendForm('service_esqoixc','template_3jjni99',e.target,'dso8n6rVU1ADlfbV4')
-      .then(response =>console.log(response))
+      console.log(e.target.email, 'email');
+
+      emailjs.sendForm('service_esqoixc', 'template_3jjni99', e.target, 'dso8n6rVU1ADlfbV4')
+        .then(response => console.log(response))
       Swal.fire({
         title: 'Success!',
         text: 'Enviado Formulario Correctamente',
@@ -28,11 +30,11 @@ const Notification = ({ notification }) => {
         confirmButtonText: 'Ok'
       })
       // navigate("/");
-      
+
     } catch (error) {
       //navigate("/FormContact");
     }
-   
+
   }
 
   const handleButton = (event) => {
@@ -53,7 +55,7 @@ const Notification = ({ notification }) => {
       if (res.status === 200) {
         Swal.fire("Se ha actualizado correctamente");
         setBtnState(event.target.innerText);
-        
+
       } else {
         console.log("ha habido un error");
       }
@@ -63,7 +65,28 @@ const Notification = ({ notification }) => {
     })
   };
 
- 
+  const handleGoToChat = () => {
+
+    console.log(notification.from._id);
+    navitage(`/chat/${notification.from._id}`)
+
+/*     fetch(`${BASE_URL}/users/addContact`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${loggedUser.token}`
+      },
+      body: JSON.stringify({
+
+        contactId: notification.from._id
+      })
+    })
+      .then(res => {
+        if (res.status === 200) {
+          Swal.fire("Contacto agregado correctamente", "success");
+        }
+      }).catch((error) => console.error(error)) */
+  }
 
   const notificationStatus = () => notification.view_status === "Accept" || btnState === "Accept"
     ? <p className='notificationsList__text'>Accepted</p>
@@ -83,22 +106,22 @@ const Notification = ({ notification }) => {
 
       {notification.view_status === "not seen" && btnState === "not seen" ?
         <>
-          
+
           {/* <button className='notificationsList__btn' onClick={() => sendMail(notification.from.email)}>Accept</button> */}
-              <form onSubmit={sendMail}>
-                    <input className="sectionForm__input" id="email" name="email"  type="hidden" value={notification.from.email}/>
-                    {/* <input type="submit" value="Send" /> */}
-                    <button className='notificationsList__btn' onClick={handleButton}>Reject</button>
-                    <button className='notificationsList__btn' onClick={handleButton}>Accept</button>
-              </form> 
+          <form onSubmit={sendMail}>
+            <input className="sectionForm__input" id="email" name="email" type="hidden" value={notification.from.email} />
+            {/* <input type="submit" value="Send" /> */}
+            <button className='notificationsList__btn' onClick={handleButton}>Reject</button>
+            <button className='notificationsList__btn' onClick={handleButton}>Accept</button>
+          </form>
         </>
         : notificationStatus()
       }
       {notification.view_status === "Accept" || btnState === "Accept" ?
         <div>
-        <Link to={`/chat/${notification.from._id}`}>
-          <button className='notificationsList__btn'>Go to chat</button>
-        </Link>  
+          {/* <Link to={`/chat/${notification.from._id}`}> */}
+          <button onClick={handleGoToChat} className='notificationsList__btn'>Go to chat</button>
+          {/* </Link>   */}
         </div> : ""}
     </div>
   )
