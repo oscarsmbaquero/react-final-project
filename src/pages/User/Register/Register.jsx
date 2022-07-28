@@ -39,25 +39,7 @@ const Register = () => {
                   <h1>conecta y descubre nuestra comunidad</h1>
             <div className="login">
                 <form className="login__form" onSubmit={handleRegister}>
-                    <label className="login__label" htmlFor="name">name</label>
-                    <input
-                        className="login__input"
-                        type="text"
-                        name="name"
-                        value={registerForm.name}
-                        onChange={handleRegisterForm}
-                        required
-                    />
-                    <label className="login__label" htmlFor="surname">surname</label>
-                    <input
-                        className="login__input"
-                        type="text"
-                        name="surname"
-                        value={registerForm.surname}
-                        onChange={handleRegisterForm}
-                        // required
-                    />
-                    <label className="login__label" htmlFor="email">email</label>
+                <label className="login__label" htmlFor="email">email</label>
                     <input
                         className="login__input"
                         type="text"
@@ -72,7 +54,28 @@ const Register = () => {
                         <option >User</option>
                         <option >Recruiter</option>
                     </select>
-
+                    <label className="login__label" htmlFor="name">name</label>
+                    <input
+                        className="login__input"
+                        type="text"
+                        name="name"
+                        value={registerForm.name}
+                        onChange={handleRegisterForm}
+                        required
+                    />
+                    {registerForm.account_type ==='User'&&
+                    <>
+                    <label className="login__label" htmlFor="surname">surname</label>
+                    <input
+                        className="login__input"
+                        type="text"
+                        name="surname"
+                        value={registerForm.surname}
+                        onChange={handleRegisterForm}
+                        // required
+                    />
+                    </>
+                    }
                     <label className="login__label" htmlFor="password">password</label>
                     <input
                         className="login__input"

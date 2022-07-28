@@ -1,7 +1,5 @@
 //Falta separar el margen inferior entre le "form" y el "login"
-*{
-    text-transform: uppercase;
-}
+
 .sectionLogin{
     @media screen and(min-width:810px) {
         background-color: var(--extra-blue-light);
