@@ -32,7 +32,7 @@ const Login = () => {
 
   return (
     <section className="sectionLogin">
-      <h1>Inscribite en mas de 1000 ofertas</h1>
+      <h1>tu perfil te espera</h1>
       <div className="login">
         <form className="login__form" onSubmit={handleLogin}>
           <label className="login__label" htmlFor="email">Email</label>

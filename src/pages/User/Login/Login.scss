@@ -1,9 +1,12 @@
 //Falta separar el margen inferior entre le "form" y el "login"
-
+*{
+    text-transform: uppercase;
+}
 .sectionLogin{
     @media screen and(min-width:810px) {
-        background-color: rgba(233, 147, 90, 0.233);
+        background-color: var(--extra-blue-light);
         padding: 1em;
+        color: var(--extra-grey-light);;
     }
 }
 .login{

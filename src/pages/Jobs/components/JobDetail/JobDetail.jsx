@@ -83,6 +83,8 @@ const JobDetail = ({ selectedJob, getJobs }) => {
           <h2 className='details__text--h2 '> <strong>Description: </strong>{selectedJob.description}</h2>
           <h3 className='details__text--h2 '> <strong>Salary: </strong>{selectedJob.salary}</h3>
           <p className='details__text--h2 '>  <strong>Requirements: </strong> {selectedJob.requiremets}</p>
+          {/* <p className='details__text--h2 '>  <strong>Location: </strong> {selectedJob.location}</p> */}
+
           {userLogged.rol === "User" ? applicationBtn : ""}
         </div>
 

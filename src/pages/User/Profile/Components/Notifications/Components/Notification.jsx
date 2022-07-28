@@ -78,7 +78,7 @@ const Notification = ({ notification }) => {
       <Link to={`/users/${notification.from._id}`} className='notificationsList__item'>
         <p className="notificationsList__text">{notification.from.name}</p>
       </Link>
-      <div className='notificationsList__item'>
+      <div >
         <p className="notificationsList__text">has applied to {notification.jobId.name} job</p>
       </div>
 
