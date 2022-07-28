@@ -28,7 +28,7 @@ const Messages = ({ socket }) => {
                 .then(res => res.json())
                 .then(data => setMessages(data))
         }
-    }, [selectedChat]);
+    }, [selectedChat, loggedUser.id, loggedUser.token]);
 
     const handleSendMessage = (msg) => {
         fetch(`${BASE_URL}/messages/sendMessage`, {
@@ -43,22 +43,24 @@ const Messages = ({ socket }) => {
                 message: msg
             })
         })
-            .then((res) => res.json())
-            .then(data => console.log(data));
-
+        /*        .then((res) => res.json())
+               .then(data => console.log(data));
+    */
+        //emit msg to the server
         socket.current.emit('send-msg', {
             from: loggedUser.id,
             to: selectedChat.id,
             message: msg
-        })
+        }, loggedUser.id);
         const msgs = [...messages];
         msgs.push({ fromSelf: true, messageText: msg })
         setMessages(msgs)
     };
 
     if (socket.current) {
-        socket.current.on("msg-recieve", (msg) => {
-            setArrivalMsg({ fromSelf: false, messageText: msg });
+        socket.current.on("msg-recieve", (msg, from) => {
+            // console.log(from, selectedChat.id, msg);
+            if (from === selectedChat.id) { setArrivalMsg({ fromSelf: false, messageText: msg }); }
         });
     }
 
