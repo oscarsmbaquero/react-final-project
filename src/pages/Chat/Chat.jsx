@@ -74,6 +74,7 @@ const Chat = () => {
                     <Messages socket={socket} />
                 </div>
             </SelectedChatContext.Provider>
+            <button className='chat__button'>Chatea</button>
         </section>
     )
 }

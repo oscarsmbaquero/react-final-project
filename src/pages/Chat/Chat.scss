@@ -24,7 +24,6 @@ background-color: var(  --extra-blue-light);
             grid-template-rows: 100%;
             width: var(--container-width-lg);
             height: 100%;
-
         }
 
         &__list {
@@ -37,6 +36,16 @@ background-color: var(  --extra-blue-light);
             height: 1px;
             width: 100%;
             background-color: rgb(182, 182, 182);
+        }
+        &__button{
+            margin: 0 auto;
+            background-color: orange;
+            width: 50%;
+            height: 25px;
+            border-radius: 4px;
+            @media all and(min-width:810px) {
+                display: none;
+            }
         }
     }
 
