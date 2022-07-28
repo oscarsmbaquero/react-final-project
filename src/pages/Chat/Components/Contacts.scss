@@ -1,5 +1,5 @@
 .contact {
-    display: flex;
+    display: flex !important;
     align-items: center;
     cursor: pointer;
     background-color: azure;
@@ -14,11 +14,12 @@
         display: flex;
         align-items: center;
         height: 4rem;
-        
+
         img {
             margin: .4rem;
             border-radius: 5rem;
             height: 100%;
+            width: 3.5rem;
         }
     }
 

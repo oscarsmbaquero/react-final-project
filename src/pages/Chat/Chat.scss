@@ -4,20 +4,23 @@
     grid-template-columns: 100%;
     grid-template-rows: 80% 50%;
     margin: 0 auto;
-transition: 0.2s ease-in-out;
-background-color: var(  --extra-blue-light);
-@media all and(min-width:810px) {
-    height: 82vh;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 100%;
-    margin: 1em auto;
-    background-color: var(  --extra-blue-light);
-}
+    transition: 0.2s ease-in-out;
+    background-color: var(--extra-blue-light);
+
+    @media all and(min-width:810px) {
+        height: 82vh;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 100%;
+        margin: 1em auto;
+        background-color: var(--extra-blue-light);
+    }
+
     .chat {
         display: grid;
         grid-template-columns: 100%;
         grid-template-rows: 50% 50%;
+
         @media all and(min-width:810px) {
             display: grid;
             grid-template-columns: 80% 50%;
@@ -37,12 +40,14 @@ background-color: var(  --extra-blue-light);
             width: 100%;
             background-color: rgb(182, 182, 182);
         }
-        &__button{
+
+        &__button {
             margin: 0 auto;
             background-color: orange;
             width: 50%;
             height: 25px;
             border-radius: 4px;
+
             @media all and(min-width:810px) {
                 display: none;
             }
