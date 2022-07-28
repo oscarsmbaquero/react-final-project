@@ -2,6 +2,7 @@ import React from "react";
 import "./Home.scss";
 import firstImg from "../../assets/images/firstImg.png";
 import secondImg from "../../assets/images/comunityImg.png";
+import { Link } from "react-router-dom";
 const Home = () => {
 
   return (
@@ -16,7 +17,9 @@ const Home = () => {
         </div>
       </section>
       <section className="home__section sect-1">
-        <button className="home__buttonRegister"> <img className="home__img" src={firstImg} alt="..."></img> </button>
+        <Link to="/users/register">
+          <button className="home__buttonRegister"> <img className="home__img" src={firstImg} alt="..."></img> </button>
+        </Link>
         <div className="home__secondText">
         <p className="home__secondTextPar">
           CREA tu perfil en menos de un minuto, y DESCUBRE que no solo puedes conocer nuevas empresas, sino que también conoceras gente como tú.

@@ -13,7 +13,7 @@ const FormContact = () => {
     try {
       e.preventDefault();
       console.log(e.target.name);
-      emailjs.sendForm('service_esqoixc','template_lvs0put',e.target,'dso8n6rVU1ADlfbV4')
+      emailjs.sendForm('service_e9hfsaz','template_lvs0put',e.target,'dso8n6rVU1ADlfbV4')
       .then(response =>console.log(response))
       Swal.fire({
         title: 'Success!',
