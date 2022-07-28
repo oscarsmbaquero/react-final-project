@@ -57,11 +57,10 @@ const User = ({ user, contactsList }) => {
         })
             .then(res => {
                 if (res.status === 200) {
-                    Swal.fire("Contacto eliminado correctamente", res.message, "success");
+                    Swal.fire({text: 'Has dejado de seguir a este usuario', icon: 'error', confirmButtonText: 'OK' })
                     setButtonState(false);
                 }
             })
-            .then(() => Swal.fire("Eliminado corectamente", "success"))
     }
 
     return (

@@ -1,5 +1,8 @@
 import { BASE_URL } from "../assets/ApiRoutes";
 
+
+
+
 const requestOptions = (sendData) => {
     return {
         method: 'POST',
@@ -9,33 +12,43 @@ const requestOptions = (sendData) => {
 };
 
 const fetchUserToDatabase = async (urlPetition, reqData) => {
-    try {
-        const res = await fetch(`${BASE_URL}/${urlPetition}`, requestOptions(reqData));
-        const data = await res.json();
-        return data;
-    } catch (error) {
-
-        console.error(error)
-    }
+    
 };
 
 export const loginUser = async (dispatch, loginData) => {
     localStorage.removeItem('currentUser');
 
+
+    let data;
+
     try {
+        
         dispatch({ type: "REQ_LOGIN" });
 
-        const data = await fetchUserToDatabase("users/login", loginData)
-
+        // const data = await fetchUserToDatabase("users/login", loginData)
+        
+        // debugger;
+        try {
+            const res = await fetch(`${BASE_URL}/users/login`, requestOptions(loginData));
+             data = await res.json();
+            
+        } catch (error) {
+          
+            console.error(error)
+        }
+        
         if (data.data) {
+            
             dispatch({ type: "LOGIN_OK", payload: data.data });
             localStorage.setItem('currentUser', JSON.stringify(data.data));
         }
+        
     } catch (error) {
         dispatch({ type: 'LOGIN_FAIL', error: error });
+        
 
     }
-
+    return data;
 };
 
 export const registerUser = async (dispatch, registerData) => {

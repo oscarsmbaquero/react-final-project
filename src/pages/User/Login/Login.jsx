@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { loginUser, useDispatchAuth } from "../../../context";
 import "./Login.scss";
 const loginInitialState = {
@@ -8,7 +9,7 @@ const loginInitialState = {
 };
 
 const Login = () => {
-  const navigate = useNavigate();
+const navigate = useNavigate();
 
   const [loginForm, setLoginForm] = useState(loginInitialState);
 
@@ -24,10 +25,21 @@ const Login = () => {
     event.preventDefault();
 
     try {
-      loginUser(dispatch, loginForm);
+      loginUser(dispatch, loginForm)
+      .then(res=>{
+        if(res==="The email & password combination is incorrect!"){
+          Swal.fire({ title: 'Error!', text: 'El email o el password no es correcto', icon: 'error', confirmButtonText: 'Cool' })
+          console.log(res)}
+    else{
+        navigate("/profile")
+
+    }
+      })
+        
       setLoginForm(loginInitialState);
-      navigate("/Jobs");
-    } catch (error) { }
+      
+    } catch (error) {} 
+      
   };
 
   return (
