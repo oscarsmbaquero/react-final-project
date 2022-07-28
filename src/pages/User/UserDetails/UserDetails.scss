@@ -1,0 +1,50 @@
+.userdetails{
+    display: grid;
+    margin: 1em auto;
+    border: 2px solid rgba(0, 0, 0, 0.459);
+    border-radius: 8px;
+    width:80%;
+    text-transform: uppercase;
+    background-color: var(--extra-grey-light);
+
+    @media screen and(min-width:840px) {
+        grid-template-columns: auto;
+        grid-template-rows: 20% 80%;
+        width:70%;
+    }
+    &__info{
+    display: grid;
+    grid-template-columns: auto;
+    width:100%;
+    margin: 1em auto;
+
+    @media screen and(min-width:840px) {
+        grid-template-columns: 30% 70%;
+        padding: 5em;
+}
+}
+&__infoPersonal{
+    margin:auto 1em;
+    text-align:center;
+    @media screen and(min-width:840px) {
+        grid-template-columns: 30% 70%;
+        grid-template-rows: 100%;
+
+}
+}
+&__photo{
+    width: 30%;
+    margin: 1em auto;
+    @media screen and(min-width:840px) {
+width: 60%;
+    }
+}
+&__text{
+    font-weight: 700;
+    margin: 1em auto;
+    font-size: 15px;
+    @media screen and(min-width:840px) {
+        font-size: 20px;
+            }
+}
+}
