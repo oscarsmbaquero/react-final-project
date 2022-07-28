@@ -36,6 +36,7 @@ const Register = () => {
 
     return (
         <section className="sectionLogin">
+                  <h1>conecta y descubre nuestra comunidad</h1>
             <div className="login">
                 <form className="login__form" onSubmit={handleRegister}>
                     <label className="login__label" htmlFor="name">name</label>

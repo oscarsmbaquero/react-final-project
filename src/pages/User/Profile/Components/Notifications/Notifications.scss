@@ -8,7 +8,8 @@
 
         justify-content: center;
         align-items: center;
-        background-color: antiquewhite;
+        background-color: var(--extra-blue-light);
+        color: var(--extra-grey-light)
     }
 
     &__item {
@@ -16,6 +17,13 @@
         align-items: center;
         padding: .8rem;
         height: 4rem;
+        text-decoration: none;
+        color: var(--extra-grey-light);
+        &:hover{
+            text-decoration: underline;
+            color: var(--extra-grey-light);
+        }
+
     }
 
     &__img {
@@ -25,6 +33,7 @@
 
     &__text {
         margin-bottom: 0;
+        text-decoration: none;
     }
 
     &__btn {

@@ -4,12 +4,13 @@
   background-color: white;
 
   @media screen and (min-width: 1000px) {
+    color: var(--extra-grey-light);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    background-color: #3a6ea57e;
+    background-color:var(--extra-blue-light);
   }
   &__form {
     display: flex;
