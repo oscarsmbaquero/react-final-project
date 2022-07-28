@@ -19,6 +19,10 @@
           margin:0 0 1em 1em;
           }
       }
+      &__logo:hover{
+        transform: rotate(360deg);
+        transition-duration: 2s;
+      }
     &__ul{
       display: flex;
       flex-direction: column;
