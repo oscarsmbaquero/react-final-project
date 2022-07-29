@@ -81,8 +81,9 @@ const Notification = ({ notification, contacts }) => {
   };
 
   const notificationStatus = () => notification.view_status === "Accept" || btnState === "Accept"
-    ? <p className='notificationsList__text'>Accepted</p>
-    : <p className='notificationsList__text'>Rejected</p>;
+    ? <p className='notificationsList__text  text1{
+      '>Aceptado</p>
+    : <p className='notificationsList__text'>Rechazado</p>;
 
   return (
     <div className='notificationsList__card'>
@@ -93,7 +94,7 @@ const Notification = ({ notification, contacts }) => {
         <p className="notificationsList__text">{notification.from.name}</p>
       </Link>
       <div >
-        <p className="notificationsList__text">has applied to {notification.jobId.name} job</p>
+        <p className="notificationsList__textApplied">Inscrito en {notification.jobId.name} job</p>
       </div>
 
       {notification.view_status === "not seen" && btnState === "not seen" ?
@@ -103,16 +104,16 @@ const Notification = ({ notification, contacts }) => {
           <form onSubmit={sendMail}>
             <input className="sectionForm__input" id="email" name="email" type="hidden" value={notification.from.email} />
             {/* <input type="submit" value="Send" /> */}
-            <button className='notificationsList__btn' onClick={handleButton}>Reject</button>
-            <button className='notificationsList__btn' onClick={handleButton}>Accept</button>
+            <button className='notificationsList__btn' onClick={handleButton}>Rechazar</button>
+            <button className='notificationsList__btn' onClick={handleButton}>Aceptar</button>
           </form>
         </>
         : notificationStatus()
       }
       {notification.view_status === "Accept" || btnState === "Accept" ?
-        <div>
+        <div className='notificationsList__botones'>
           {/* <Link to={`/chat/${notification.from._id}`}> */}
-          <button onClick={handleGoToChat} className='notificationsList__btn'>Go to chat</button>
+          <button onClick={handleGoToChat} className='notificationsList__btn'>Chat</button>
           {/* </Link>   */}
         </div> : ""}
     </div>

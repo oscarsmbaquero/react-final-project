@@ -32,10 +32,7 @@ overflow: auto;
         height: 140px;
         border-radius: 4px;
     }
-
-
 }
-
 .edits {
     display: flex;
     flex-direction: column;
@@ -55,7 +52,7 @@ overflow: auto;
         grid-template-columns: auto auto;
         grid-template-rows: auto auto;
         border-bottom: 1px solid rgba(0, 0, 0, 0.507);
-overflow: auto;
+        overflow: auto;
         @media screen and(min-width:810px) {
             display: grid;
             grid-template-columns: auto auto auto auto;
