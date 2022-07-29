@@ -42,6 +42,8 @@
         }
 
         &__button {
+            position: absolute;
+            left: 25%;
             margin: 0 auto;
             background-color: orange;
             width: 50%;
