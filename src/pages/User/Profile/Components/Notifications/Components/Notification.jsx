@@ -108,7 +108,7 @@ const Notification = ({ notification, contacts }) => {
           
               <form onSubmit={sendMail}>
                     <input className="sectionForm__input" id="email" name="email"  type="hidden" value={notification.from.email}/>
-                    <input className="sectionForm__input" id="email" name="email"  type="hidden" value={notification.jobId.name}/>
+                    <input className="sectionForm__input" id="name" name="name"  type="hidden" value={notification.jobId.name}/>
                     {/* <input type="submit" value="Send" /> */}
                     <button className='notificationsList__btn' onClick={handleButton}>Reject</button>
                     <button className='notificationsList__btn' onClick={handleButton}>Accept</button>
