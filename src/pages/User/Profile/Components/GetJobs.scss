@@ -26,7 +26,6 @@
             justify-content: space-between;
         }
     }
-
     &__btn {
         align-items: flex-end;
         background-color: var(--boton-color);
@@ -43,7 +42,21 @@
             margin-top: 1em;
         }
     }
+&__text{
+    font-size: 15px;
+    text-align: justify;
+    @media screen and(min-width:690px) {
 
+    }
+}
+&__h1{
+    font-size: 20px;
+    text-align: center;
+    @media screen and(min-width:690px) {
+        font-size: 35px;
+        text-align: center;
+    }
+}
     .job__div:hover {
         box-shadow: rgba(0, 0, 0, 0.316) 0px 5px 15px;
     }

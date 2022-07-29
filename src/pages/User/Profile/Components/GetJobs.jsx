@@ -43,9 +43,9 @@ const GetJobs = () => {
                     <div className="job__div" key={job._id}>
                         <div className='job__div1'>
                             <h1 className='job__h1'>{job.name}</h1>
-                            <h2>{job.description}</h2>
-                            <p>{job.requirements}</p>
-                            <h4>{job.salary}&nbsp;€</h4>
+                            <h2 className='job__text'>{job.description}</h2>
+                            <p className='job__text'>{job.requirements}</p>
+                            <h4 className='job__text'>{job.salary}&nbsp;€</h4>
                         </div>
                     </div>
                 ))}
