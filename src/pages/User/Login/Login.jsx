@@ -44,7 +44,7 @@ const navigate = useNavigate();
 
   return (
     <section className="sectionLogin">
-      <h1>tu perfil te espera</h1>
+      <h1>Tu perfil te espera</h1>
       <div className="login">
         <form className="login__form" onSubmit={handleLogin}>
           <label className="login__label" htmlFor="email">Email</label>
