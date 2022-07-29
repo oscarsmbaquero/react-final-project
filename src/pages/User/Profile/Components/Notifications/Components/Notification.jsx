@@ -11,20 +11,20 @@ const Notification = ({ notification }) => {
   console.log(notification.from.email,10);
   const [btnState, setBtnState] = useState("not seen");
   const loggedUser = useGetAuth();
-
+//console.log(notification.jobId.name);
  const sendMail =(e) =>{    
     e.preventDefault();
     
     
     try {
-      console.log(e.target.email,'email');
+      console.log(e.target,'email');
      
       emailjs.sendForm('service_esqoixc','template_3jjni99',e.target,'dso8n6rVU1ADlfbV4')
       .then(response =>console.log(response))
       Swal.fire({
         title: 'Éxito!',
         text: 'Enviado solicitud correctamente',
-        icon: 'éxito',
+        icon: 'success',
         confirmButtonText: 'Ok'
       })
       // navigate("/");
@@ -87,6 +87,7 @@ const Notification = ({ notification }) => {
           {/* <button className='notificationsList__btn' onClick={() => sendMail(notification.from.email)}>Accept</button> */}
               <form onSubmit={sendMail}>
                     <input className="sectionForm__input" id="email" name="email"  type="hidden" value={notification.from.email}/>
+                    <input className="sectionForm__input" id="email" name="email"  type="hidden" value={notification.jobId.name}/>
                     {/* <input type="submit" value="Send" /> */}
                     <button className='notificationsList__btn' onClick={handleButton}>Reject</button>
                     <button className='notificationsList__btn' onClick={handleButton}>Accept</button>
