@@ -22,9 +22,9 @@ const Notification = ({ notification, contacts }) => {
       emailjs.sendForm('service_esqoixc', 'template_3jjni99', e.target, 'dso8n6rVU1ADlfbV4')
       // .then(response => console.log(response))
       Swal.fire({
-        title: 'Success!',
-        text: 'Enviado Formulario Correctamente',
-        icon: 'success',
+        title: 'Éxito!',
+        text: 'Enviado solicitud correctamente',
+        icon: 'éxito',
         confirmButtonText: 'Ok'
       })
       // navigate("/");
