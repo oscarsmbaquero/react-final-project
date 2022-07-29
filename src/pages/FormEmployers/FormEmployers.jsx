@@ -13,7 +13,6 @@ const FormEmployers = () => {
   } = useForm({ mode: "onChange" });
   let navigate = useNavigate();
   const onSubmit = async (formData) => {
-    console.log(formData);
     try {
       const result = await fetch("http://localhost:4000/employers", {
         method: "POST",
@@ -24,7 +23,7 @@ const FormEmployers = () => {
       });
       const resData = await result.json();
       navigate("/Users");
-      console.log(resData);
+      // console.log(resData);
     } catch (error) {
       console.log(error);
     }

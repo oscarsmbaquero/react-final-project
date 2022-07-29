@@ -18,7 +18,6 @@ const Chat = () => {
     const [showChat, setShowChat] = useState("hidden");
 
     useEffect(() => {
-        // console.log("cambia");
         if (width < 810) {
             if (showChat === "hidden") {
                 setShowChat("chat")
@@ -46,7 +45,6 @@ const Chat = () => {
 
     useEffect(() => {
         socket.current = io(BASE_URL);
-        // console.log(socket.id);
         socket.current.emit("add-user", loggedUser.id)
     })
 

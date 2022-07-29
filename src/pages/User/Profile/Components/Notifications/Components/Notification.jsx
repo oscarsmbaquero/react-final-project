@@ -72,7 +72,6 @@ const Notification = ({ notification, contacts }) => {
         console.log("ha habido un error");
       }
     }).catch((error) => {
-      console.log(error);
       console.error(error);
     })
   };
