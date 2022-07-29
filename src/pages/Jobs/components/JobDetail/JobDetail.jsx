@@ -65,7 +65,7 @@ const JobDetail = ({ selectedJob, getJobs }) => {
       }
 
     }).catch((error) => {
-      console.log("entró por el error");
+      // console.log("entró por el error");
       console.error(error);
     })
   };

@@ -4,12 +4,17 @@
 
     &__card {
         display: grid;
-        grid-template-columns: .2fr .4fr 1fr 1fr 1fr;
-
+        grid-template-columns: 20% 20% 20% 20% 20% ;
+margin: 1em auto;
+border-radius: 4px;
+padding-right: .6em;
         justify-content: center;
         align-items: center;
         background-color: var(--extra-blue-light);
-        color: var(--extra-grey-light)
+        color: var(--extra-grey-light);
+        @media screen  and (max-width:500px) {
+            font-size: 10px;
+        }
     }
 
     &__item {
@@ -35,9 +40,26 @@
         margin-bottom: 0;
         text-decoration: none;
     }
+    &__textApplied{
+        display: none;
+        @media screen  and (min-width:786px) {
+            display:block;
+            
+        }
+    }
 
     &__btn {
-        padding: .8rem;
-        margin: .6rem;
+        padding: .4rem;
+        margin-top: .6rem;
+        border-radius: 4px;
+        width: 100%;
+        @media screen  and (min-width:786px) {
+            padding: .8rem;
+            margin-bottom: .1em;
+            width: 70%;
+            
+        }
     }
 }
+
+        

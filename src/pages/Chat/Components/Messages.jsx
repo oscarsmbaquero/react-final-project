@@ -43,9 +43,6 @@ const Messages = ({ socket }) => {
                 message: msg
             })
         })
-        /*        .then((res) => res.json())
-               .then(data => console.log(data));
-    */
         //emit msg to the server
         socket.current.emit('send-msg', {
             from: loggedUser.id,
@@ -59,7 +56,6 @@ const Messages = ({ socket }) => {
 
     if (socket.current) {
         socket.current.on("msg-recieve", (msg, from) => {
-            // console.log(from, selectedChat.id, msg);
             if (from === selectedChat.id) { setArrivalMsg({ fromSelf: false, messageText: msg }); }
         });
     }

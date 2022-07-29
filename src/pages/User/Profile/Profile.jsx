@@ -58,7 +58,7 @@ const Profile = () => {
       method: 'DELETE',
     }).then(res => {
       if (res.status === 200) {
-        console.log('Borrado');
+        // console.log('Borrado');
         Swal.fire("Eliminado", res.message, "success");
         fetch(`${BASE_URL}/users/`)
           .then(response => response.json())

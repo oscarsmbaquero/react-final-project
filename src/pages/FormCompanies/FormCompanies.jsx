@@ -16,7 +16,6 @@ const FormCompanies = () => {
   let navigate = useNavigate();
 
   const onSubmit = async (formData) => {
-    console.log(formData);
     try {
       const result = await fetch(`${BASE_URL}/jobs`, {
         method: "POST",
@@ -28,7 +27,7 @@ const FormCompanies = () => {
       });
       const resData = await result.json();
       navigate("/Jobs");
-      console.log(resData);
+      // console.log(resData);
     } catch (error) {
       console.log(error);
     }
