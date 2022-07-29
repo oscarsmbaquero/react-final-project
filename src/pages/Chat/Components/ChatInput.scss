@@ -1,18 +1,24 @@
-.inputContainer{
+.inputContainer {
     display: flex;
     justify-content: center;
     width: 100%;
     float: right;
     margin: 0 0 1em 0;
     text-transform: uppercase;
-    &__input{
+    
+    &__input {
+        padding: .3rem;
+        border-radius: .3rem;
         width: 80%;
+        justify-content: end;
+        align-self: flex-end;
     }
-    &__button{
+
+    &__button {
         display: flex;
-padding-top: 5px;
-width: 5%;
-justify-content: center;
-align-content: center;
+        padding-top: 5px;
+        width: 5%;
+        justify-content: center;
+        align-content: center;
     }
-    }
+}

@@ -4,12 +4,14 @@ import { SelectedChatContext } from '../Chat'
 
 import './Contacts.scss'
 
-const Contacts = ({ contact, setSelectedChat }) => {
+const Contacts = ({ contact, setSelectedChat, setShowChat, width }) => {
 
   const selectedChat = React.useContext(SelectedChatContext);
 
   const handleSelected = () => {
     setSelectedChat(contact)
+    width < 810 && setShowChat('chat')
+
   }
 
   return (

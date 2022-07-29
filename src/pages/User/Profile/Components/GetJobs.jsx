@@ -11,8 +11,6 @@ const GetJobs = () => {
 
     const userLogged = useGetAuth();
 
-    console.log(jobs)
-
     useEffect(() => {
         let petition;
         if (userLogged.rol === "User") {

@@ -10,8 +10,6 @@ const ShowContact = () => {
 
     const userLogged = useGetAuth()
 
-    console.log(contacts);
-
     useEffect(() => {
         const getContacts = async (e) => {
             try {

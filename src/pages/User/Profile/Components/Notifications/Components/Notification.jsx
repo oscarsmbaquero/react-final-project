@@ -7,22 +7,20 @@ import { defaultProfileImage } from '../../../../../../assets/images/imagesLink'
 import { useGetAuth } from '../../../../../../context';
 import emailjs from '@emailjs/browser';
 
-const Notification = ({ notification }) => {
+const Notification = ({ notification, contacts }) => {
 
-  const navitage = useNavigate()
+  const navitage = useNavigate();
 
   const [btnState, setBtnState] = useState("not seen");
+
   const loggedUser = useGetAuth();
 
   const sendMail = (e) => {
     e.preventDefault();
 
-
     try {
-      console.log(e.target.email, 'email');
-
       emailjs.sendForm('service_esqoixc', 'template_3jjni99', e.target, 'dso8n6rVU1ADlfbV4')
-        .then(response => console.log(response))
+      // .then(response => console.log(response))
       Swal.fire({
         title: 'Éxito!',
         text: 'Enviado solicitud correctamente',
@@ -38,7 +36,21 @@ const Notification = ({ notification }) => {
   }
 
   const handleButton = (event) => {
-    console.log('entro');
+    if (contacts.filter((contact) => contact.id === notification.from._id)
+      .length === 0 && event.target.innerText === "Accept") {
+      fetch(`${BASE_URL}/users/addContact`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${loggedUser.token}`
+        },
+        body: JSON.stringify({
+          contactId: notification.from._id
+        })
+      })
+        .catch((error) => console.error(error))
+    }
+
     fetch(`${BASE_URL}/notifications/updateNotifications`, {
       method: 'PUT',
       headers: {
@@ -53,40 +65,20 @@ const Notification = ({ notification }) => {
       })
     }).then(res => {
       if (res.status === 200) {
-        Swal.fire("Se ha actualizado correctamente");
+        // Swal.fire("Se ha actualizado correctamente");
         setBtnState(event.target.innerText);
 
       } else {
         console.log("ha habido un error");
       }
     }).catch((error) => {
-      console.log(error);
       console.error(error);
     })
   };
 
   const handleGoToChat = () => {
-
-    console.log(notification.from._id);
     navitage(`/chat/${notification.from._id}`)
-
-/*     fetch(`${BASE_URL}/users/addContact`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${loggedUser.token}`
-      },
-      body: JSON.stringify({
-
-        contactId: notification.from._id
-      })
-    })
-      .then(res => {
-        if (res.status === 200) {
-          Swal.fire("Contacto agregado correctamente", "success");
-        }
-      }).catch((error) => console.error(error)) */
-  }
+  };
 
   const notificationStatus = () => notification.view_status === "Accept" || btnState === "Accept"
     ? <p className='notificationsList__text'>Accepted</p>

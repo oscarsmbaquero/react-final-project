@@ -41,6 +41,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        height: 100%;
         width: 100%;
         overflow: auto;
         transition: 0.2s ease-in-out;
@@ -52,7 +53,6 @@
 
         @media all and(min-width:768px) and (max-width:899px) {}
 
-
     }
 
     .messages__text {
@@ -60,10 +60,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 0.2rem;
-        margin: 1em;
+        padding: 0rem .8rem;
+        margin: .25em;
+        border-radius: 1rem;
+        background-color: #f0f8ff;
+        max-width: 50%;
 
         &>p {
+            color: black;
             margin-bottom: 0rem;
         }
 
