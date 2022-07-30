@@ -49,13 +49,13 @@ const Register = () => {
                         onChange={handleRegisterForm}
                         required
                     />
-                    <label className="register__label" htmlFor="account_type">Accout type</label>
+                    <label className="register__label" htmlFor="account_type">Tipo de cuenta</label>
                     <select className="register__input" defaultValue={"DEFAULT"} name="account_type" onChange={handleRegisterForm} required>
-                        <option value="DEFAULT" disabled >Select user type</option>
+                        <option value="DEFAULT" disabled >Selecciona tipo de usuario</option>
                         <option >User</option>
                         <option >Recruiter</option>
                     </select>
-                    <label className="register__label" htmlFor="name">Name</label>
+                    <label className="register__label" htmlFor="name">Nombre</label>
                     <input
                         className="register__input"
                         type="text"
@@ -66,7 +66,7 @@ const Register = () => {
                     />
                     {registerForm.account_type ==='User'&&
                     <>
-                    <label className="register__label" htmlFor="surname">Surname</label>
+                    <label className="register__label" htmlFor="surname">Apellido</label>
                     <input
                         className="register__input"
                         type="text"
@@ -83,12 +83,14 @@ const Register = () => {
                         type="password"
                         name="password"
                         value={registerForm.password}
+                        pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                        title='Un mínimo de 8 carácteres que incluya, una mayúscula, una minúscula y un número'
                         onChange={handleRegisterForm}
                         required
                     />
-                    <button className="register__button">Register</button>
+                    <button className="register__button">Regístrate</button>
                 </form>
-                <p>You already have an account. <Link to={"/users/register"}>Login</Link></p>
+                <p>Si ya tienes una cuenta, ve a  <Link to={"/users/login"}>Login</Link></p>
             </div>
         </section>
     )

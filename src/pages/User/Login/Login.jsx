@@ -65,7 +65,7 @@ const navigate = useNavigate();
           />
           <button className="login__button">Login</button>
         </form>
-        <p>You don't have an account. <Link to={"/users/register"}>Register</Link></p>
+        <p>¿Aún no tienes una cuenta?, ve a  <Link to={"/users/register"}>Register</Link></p>
       </div>
     </section>
   );
